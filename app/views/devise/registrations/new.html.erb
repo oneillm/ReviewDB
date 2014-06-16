@@ -1,0 +1,36 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div><%= f.label :firstname,'First Name' %><br />
+  <%= f.text_field :firstname, autofocus: true %></div>
+  
+  <div><%= f.label :lastname, 'Last Name' %><br />
+  <%= f.text_field :lastname %></div>
+
+  <div><%= f.label :phone, 'Phone Number' %><br />
+  <%= f.email_field :phone %></div>
+
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email, autofocus: true %></div>
+
+  <div><%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "off" %></div>
+
+   <div><%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+ 
+  <div><%= f.label :role, 'Role :' %><br />
+        
+	<%= f.radio_button  :role, 'user', :checked => true %>
+        <%= label :role_user, 'User' %><br />
+       <%= f.radio_button  :role, 'administrator' %>
+       <%= label :role_administrator, 'Administrator' %><br />
+       <%= f.radio_button  :role, 'both' %>
+       <%= label :role_both, 'Both' %></div>
+
+  <div><%= f.submit "Sign up" %></div>
+<% end %>
+
+<%= render "devise/shared/links" %>

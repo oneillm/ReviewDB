@@ -1,0 +1,10 @@
+<% if login_signed_in? %>
+
+	<h3> You have successfully signed in</h3>
+	<%= link_to "Sign Out", destroy_login_session_path, :method => :delete %>
+<% else %>
+	<h1> Welcome to Collection and Integration of Social Media Posting<h1>
+	<%= link_to "Sign In", new_login_session_path, :method => :get %>
+	<%= link_to "Sign Up", new_login_registration_path, :method => :get %>
+<% end %>
+
