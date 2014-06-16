@@ -8,6 +8,9 @@ gem 'pg'
 # devise gem for login authentication
 gem 'devise'
 
+#use passenger to deploy to web server instead of WEB-Brick
+gem 'passenger'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
