@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  mappingid: 
+  ssid: 1
+  ssdcommentorid: MyString
+  ssdcommentorname: MyString
+  ssdcommentortimezone: MyString
+  ssdpostingtimezone: MyString
+  ssdcommentorlanguage: MyString
+  ssdtotalreview: MyString
+  ssdoverallrating: MyString
+  ssdcommentorrating: MyString
+  ssdcomment: MyString
+  ssdpostat: MyString
+  ssdcommentorloc: MyString
+
+two:
+  mappingid: 
+  ssid: 1
+  ssdcommentorid: MyString
+  ssdcommentorname: MyString
+  ssdcommentortimezone: MyString
+  ssdpostingtimezone: MyString
+  ssdcommentorlanguage: MyString
+  ssdtotalreview: MyString
+  ssdoverallrating: MyString
+  ssdcommentorrating: MyString
+  ssdcomment: MyString
+  ssdpostat: MyString
+  ssdcommentorloc: MyString

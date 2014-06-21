@@ -11,3 +11,52 @@
  *= require_self
  *= require_tree .
  */
+body {
+     padding-top: 100px;
+     font-family: Helvetica, Geneva, Arial, ssans-serif;
+     font-size: small;
+     font-color: #000;
+     background-color #fff;
+}
+footer {
+     margin-top: 100px;
+}
+table, td, th {
+     vertical-align: middle;
+     border: none;
+}
+th {
+    border-bottooooooooom: 1px solid #DDD;
+}
+a:link, a:active, a:visited {
+   color #CD0000;
+}
+input {
+  margin-bottom: 5px;
+}
+p { 
+   line-height: 150%;
+}
+div#container {
+   width: 760px;
+   margin: 0 auto;
+}
+div#header {
+   text-align: center;
+   padding-bottom: 15px;
+}
+div#content {
+   float: left;
+   width: 450px;
+   padding: 10px;
+}
+div#content h3 {
+  margin-top: 15px;
+}
+h3 {
+  margin-top: 15px;
+}
+div#sidebar  {
+  width: 200px;
+  margin-left: 480px;
+}

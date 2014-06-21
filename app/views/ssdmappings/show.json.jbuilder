@@ -1,0 +1,1 @@
+json.extract! @ssdmapping, :id, :mappingid, :ssid, :ssdcommentorid, :ssdcommentorname, :ssdcommentortimezone, :ssdpostingtimezone, :ssdcommentorlanguage, :ssdtotalreview, :ssdoverallrating, :ssdcommentorrating, :ssdcomment, :ssdpostat, :ssdcommentorloc, :created_at, :updated_at

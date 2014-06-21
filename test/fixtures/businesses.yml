@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  bid: 
+  bname: MyString
+  btype: MyString
+  blatitude: MyString
+  blongitude: MyString
+  bstreet: MyString
+  bcity: MyString
+  bstate: MyString
+  bzip: MyString
+  bcountry: MyString
+  bstatus: MyString
+  bphone: MyString
+
+two:
+  bid: 
+  bname: MyString
+  btype: MyString
+  blatitude: MyString
+  blongitude: MyString
+  bstreet: MyString
+  bcity: MyString
+  bstate: MyString
+  bzip: MyString
+  bcountry: MyString
+  bstatus: MyString
+  bphone: MyString

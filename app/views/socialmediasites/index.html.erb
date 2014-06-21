@@ -1,0 +1,45 @@
+<h1>Listing socialmediasites</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ssid</th>
+      <th>Ssname</th>
+      <th>Ssurl</th>
+      <th>Ssurlquery</th>
+      <th>Ssaccesstoken</th>
+      <th>Ssaccesstokensecretkey</th>
+      <th>Ssconsumerkey</th>
+      <th>Ssconsumersecret</th>
+      <th>Status</th>
+      <th>Userid</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @socialmediasites.each do |socialmediasite| %>
+      <tr>
+        <td><%= socialmediasite.ssid %></td>
+        <td><%= socialmediasite.ssname %></td>
+        <td><%= socialmediasite.ssurl %></td>
+        <td><%= socialmediasite.ssurlquery %></td>
+        <td><%= socialmediasite.ssaccesstoken %></td>
+        <td><%= socialmediasite.ssaccesstokensecretkey %></td>
+        <td><%= socialmediasite.ssconsumerkey %></td>
+        <td><%= socialmediasite.ssconsumersecret %></td>
+        <td><%= socialmediasite.status %></td>
+        <td><%= socialmediasite.userid %></td>
+        <td><%= link_to 'Show', socialmediasite %></td>
+        <td><%= link_to 'Edit', edit_socialmediasite_path(socialmediasite) %></td>
+        <td><%= link_to 'Destroy', socialmediasite, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Socialmediasite', new_socialmediasite_path %>

@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140616035047) do
+ActiveRecord::Schema.define(version: 20140620045739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "businesses", primary_key: "bid", force: true do |t|
+    t.string   "bname"
+    t.string   "btype"
+    t.string   "blatitude"
+    t.string   "blongitude"
+    t.string   "bstreet"
+    t.string   "bcity"
+    t.string   "bstate"
+    t.string   "bzip"
+    t.string   "bcountry"
+    t.string   "bstatus"
+    t.string   "bphone",     array: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "logins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -39,5 +55,36 @@ ActiveRecord::Schema.define(version: 20140616035047) do
   add_index "logins", ["email"], name: "index_logins_on_email", unique: true, using: :btree
   add_index "logins", ["reset_password_token"], name: "index_logins_on_reset_password_token", unique: true, using: :btree
   add_index "logins", ["username"], name: "index_logins_on_username", unique: true, using: :btree
+
+  create_table "socialmediasites", primary_key: "ssid", force: true do |t|
+    t.string   "ssname"
+    t.string   "ssurl"
+    t.string   "ssurlquery"
+    t.string   "ssaccesstoken"
+    t.string   "ssaccesstokensecretkey"
+    t.string   "ssconsumerkey"
+    t.string   "ssconsumersecret"
+    t.string   "status"
+    t.integer  "userid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ssdmappings", primary_key: "mappingid", force: true do |t|
+    t.integer  "ssid"
+    t.string   "ssdcommentorid"
+    t.string   "ssdcommentorname"
+    t.string   "ssdcommentortimezone"
+    t.string   "ssdpostingtimezone"
+    t.string   "ssdcommentorlanguage"
+    t.string   "ssdtotalreview"
+    t.string   "ssdoverallrating"
+    t.string   "ssdcommentorrating"
+    t.string   "ssdcomment"
+    t.string   "ssdpostat"
+    t.string   "ssdcommentorloc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

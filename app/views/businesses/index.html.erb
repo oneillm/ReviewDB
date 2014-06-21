@@ -1,0 +1,49 @@
+<h1>Listing businesses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bid</th>
+      <th>Bname</th>
+      <th>Btype</th>
+      <th>Blatitude</th>
+      <th>Blongitude</th>
+      <th>Bstreet</th>
+      <th>Bcity</th>
+      <th>Bstate</th>
+      <th>Bzip</th>
+      <th>Bcountry</th>
+      <th>Bstatus</th>
+      <th>Bphone</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @businesses.each do |business| %>
+      <tr>
+        <td><%= business.bid %></td>
+        <td><%= business.bname %></td>
+        <td><%= business.btype %></td>
+        <td><%= business.blatitude %></td>
+        <td><%= business.blongitude %></td>
+        <td><%= business.bstreet %></td>
+        <td><%= business.bcity %></td>
+        <td><%= business.bstate %></td>
+        <td><%= business.bzip %></td>
+        <td><%= business.bcountry %></td>
+        <td><%= business.bstatus %></td>
+        <td><%= business.bphone %></td>
+        <td><%= link_to 'Show', business %></td>
+        <td><%= link_to 'Edit', edit_business_path(business) %></td>
+        <td><%= link_to 'Destroy', business, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Business', new_business_path %>

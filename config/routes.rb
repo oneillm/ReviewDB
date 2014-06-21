@@ -1,4 +1,20 @@
 Collectionandintegration::Application.routes.draw do
+  resources :ssdmappings
+
+  resources :socialmediasites
+
+  resources :businesses
+
+  get "socialmediasite/new"
+  get "socialmediasite/create"
+  get "ssdmapping/new"
+  get "ssdmapping/create"
+  get "ssdmetadata/new"
+  get "ssdmetadata/create"
+  get "business/new"
+  get "business/create"
+  get "business_controller/new"
+  get "business_controller/create"
   devise_for :logins
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

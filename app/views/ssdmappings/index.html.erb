@@ -1,0 +1,51 @@
+<h1>Listing ssdmappings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mappingid</th>
+      <th>Ssid</th>
+      <th>Ssdcommentorid</th>
+      <th>Ssdcommentorname</th>
+      <th>Ssdcommentortimezone</th>
+      <th>Ssdpostingtimezone</th>
+      <th>Ssdcommentorlanguage</th>
+      <th>Ssdtotalreview</th>
+      <th>Ssdoverallrating</th>
+      <th>Ssdcommentorrating</th>
+      <th>Ssdcomment</th>
+      <th>Ssdpostat</th>
+      <th>Ssdcommentorloc</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ssdmappings.each do |ssdmapping| %>
+      <tr>
+        <td><%= ssdmapping.mappingid %></td>
+        <td><%= ssdmapping.ssid %></td>
+        <td><%= ssdmapping.ssdcommentorid %></td>
+        <td><%= ssdmapping.ssdcommentorname %></td>
+        <td><%= ssdmapping.ssdcommentortimezone %></td>
+        <td><%= ssdmapping.ssdpostingtimezone %></td>
+        <td><%= ssdmapping.ssdcommentorlanguage %></td>
+        <td><%= ssdmapping.ssdtotalreview %></td>
+        <td><%= ssdmapping.ssdoverallrating %></td>
+        <td><%= ssdmapping.ssdcommentorrating %></td>
+        <td><%= ssdmapping.ssdcomment %></td>
+        <td><%= ssdmapping.ssdpostat %></td>
+        <td><%= ssdmapping.ssdcommentorloc %></td>
+        <td><%= link_to 'Show', ssdmapping %></td>
+        <td><%= link_to 'Edit', edit_ssdmapping_path(ssdmapping) %></td>
+        <td><%= link_to 'Destroy', ssdmapping, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ssdmapping', new_ssdmapping_path %>

@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ssid: 
+  ssname: MyString
+  ssurl: MyString
+  ssurlquery: MyString
+  ssaccesstoken: MyString
+  ssaccesstokensecretkey: MyString
+  ssconsumerkey: MyString
+  ssconsumersecret: MyString
+  status: MyString
+  userid: 1
+
+two:
+  ssid: 
+  ssname: MyString
+  ssurl: MyString
+  ssurlquery: MyString
+  ssaccesstoken: MyString
+  ssaccesstokensecretkey: MyString
+  ssconsumerkey: MyString
+  ssconsumersecret: MyString
+  status: MyString
+  userid: 1

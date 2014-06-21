@@ -1,0 +1,2 @@
+module SsdmappingHelper
+end

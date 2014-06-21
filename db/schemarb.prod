@@ -1,0 +1,127 @@
+# encoding: UTF-8
+# This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
+#
+# Note that this schema.rb definition is the authoritative source for your
+# database schema. If you need to create the application database on another
+# system, you should be using db:schema:load, not running all the migrations
+# from scratch. The latter is a flawed and unsustainable approach (the more migrations
+# you'll amass, the slower it'll run and the greater likelihood for issues).
+#
+# It's strongly recommended that you check this file into your version control system.
+
+ActiveRecord::Schema.define(version: 20140616035047) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "business", primary_key: "bid", force: true do |t|
+    t.string   "bname",         limit: 100, null: false
+    t.string   "btype",         limit: 100
+    t.string   "blatitude",     limit: 100
+    t.string   "blongitude",    limit: 100
+    t.string   "bstreet",       limit: 200
+    t.string   "bcity",         limit: 100
+    t.string   "bstate",        limit: 5
+    t.string   "bzip",          limit: 20
+    t.string   "bcountry",      limit: 100
+    t.string   "bstatus",       limit: 8
+    t.datetime "datetimestamp"
+    t.string   "bphone",        limit: 20,               array: true
+  end
+
+  create_table "login", primary_key: "userid", force: true do |t|
+    t.string   "username",   limit: 50, null: false
+    t.string   "password",   limit: 50, null: false
+    t.string   "email",                 null: false
+    t.string   "firstname",  limit: 50, null: false
+    t.string   "lastname",   limit: 50, null: false
+    t.string   "phone",      limit: 30
+    t.string   "role",       limit: 20, null: false
+    t.string   "status",     limit: 8
+    t.datetime "createdon",             null: false
+    t.datetime "last_login"
+  end
+
+  add_index "login", ["email"], name: "login_email_key", unique: true, using: :btree
+  add_index "login", ["username"], name: "login_username_key", unique: true, using: :btree
+
+  create_table "logins", primary_key: "userid", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "username",               default: "", null: false
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "role"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "phone"
+  end
+
+  add_index "logins", ["email"], name: "index_logins_on_email", unique: true, using: :btree
+  add_index "logins", ["reset_password_token"], name: "index_logins_on_reset_password_token", unique: true, using: :btree
+  add_index "logins", ["username"], name: "index_logins_on_username", unique: true, using: :btree
+
+  create_table "socialmediasite", primary_key: "ssid", force: true do |t|
+    t.string   "sssearchby",             limit: 200, null: false
+    t.string   "ssname",                 limit: 200
+    t.string   "ssurl",                  limit: 200
+    t.string   "ssurlquery",             limit: 500
+    t.string   "ssaccesstoken",          limit: 200
+    t.string   "ssaccesstokensecretkey", limit: 200
+    t.string   "ssconsumerkey",          limit: 100
+    t.string   "ssconsumersecret",       limit: 100
+    t.string   "status",                 limit: 8
+    t.datetime "datetimestamp"
+    t.integer  "userid"
+  end
+
+  create_table "sscommentordata", primary_key: "ssdid", force: true do |t|
+    t.integer  "ssid"
+    t.integer  "bid"
+    t.string   "ssdcommentorid",           limit: 100
+    t.string   "ssdcommentorname",         limit: 150
+    t.string   "ssdcommentortimezone",     limit: 50
+    t.string   "ssdpostingtimezone",       limit: 50
+    t.string   "ssdcommentorlanguage",     limit: 50
+    t.string   "ssdcommentorrating",       limit: 10
+    t.text     "ssdcomment"
+    t.string   "ssdpostat",                limit: 100
+    t.datetime "ssddownloaddatetimestamp"
+    t.string   "ssdcommentorloc",          limit: 50
+  end
+
+  create_table "ssdmapping", primary_key: "mappingid", force: true do |t|
+    t.integer  "ssid",                             null: false
+    t.string   "ssdcommentorid"
+    t.string   "ssdcommentorname"
+    t.string   "ssdcommentortimezone"
+    t.string   "ssdpostingtimezone"
+    t.string   "ssdcommentorlanguage"
+    t.string   "ssdtotalreview"
+    t.string   "ssdoverallrating"
+    t.string   "ssdcommentorrating"
+    t.string   "ssdcomment"
+    t.string   "ssdpostat"
+    t.datetime "datetimestamp"
+    t.string   "ssdcommentorloc",      limit: 100
+  end
+
+  create_table "ssdmetadata", primary_key: "ssdmetaid", force: true do |t|
+    t.integer  "ssid",                                null: false
+    t.integer  "bid",                                 null: false
+    t.string   "ssdtotalreview",           limit: 10
+    t.string   "ssdoverallrating",         limit: 10
+    t.datetime "ssddownloaddatetimestamp"
+  end
+
+end

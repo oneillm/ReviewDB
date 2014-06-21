@@ -1,0 +1,69 @@
+<%= form_for(@ssdmapping) do |f| %>
+  <% if @ssdmapping.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ssdmapping.errors.count, "error") %> prohibited this ssdmapping from being saved:</h2>
+
+      <ul>
+      <% @ssdmapping.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :mappingid %><br>
+    <%= f.text_field :mappingid %>
+  </div>
+  <div class="field">
+    <%= f.label :ssid %><br>
+    <%= f.number_field :ssid %>
+  </div>
+  <div class="field">
+    <%= f.label :ssdcommentorid %><br>
+    <%= f.text_field :ssdcommentorid %>
+  </div>
+  <div class="field">
+    <%= f.label :ssdcommentorname %><br>
+    <%= f.text_field :ssdcommentorname %>
+  </div>
+  <div class="field">
+    <%= f.label :ssdcommentortimezone %><br>
+    <%= f.text_field :ssdcommentortimezone %>
+  </div>
+  <div class="field">
+    <%= f.label :ssdpostingtimezone %><br>
+    <%= f.text_field :ssdpostingtimezone %>
+  </div>
+  <div class="field">
+    <%= f.label :ssdcommentorlanguage %><br>
+    <%= f.text_field :ssdcommentorlanguage %>
+  </div>
+  <div class="field">
+    <%= f.label :ssdtotalreview %><br>
+    <%= f.text_field :ssdtotalreview %>
+  </div>
+  <div class="field">
+    <%= f.label :ssdoverallrating %><br>
+    <%= f.text_field :ssdoverallrating %>
+  </div>
+  <div class="field">
+    <%= f.label :ssdcommentorrating %><br>
+    <%= f.text_field :ssdcommentorrating %>
+  </div>
+  <div class="field">
+    <%= f.label :ssdcomment %><br>
+    <%= f.text_field :ssdcomment %>
+  </div>
+  <div class="field">
+    <%= f.label :ssdpostat %><br>
+    <%= f.text_field :ssdpostat %>
+  </div>
+  <div class="field">
+    <%= f.label :ssdcommentorloc %><br>
+    <%= f.text_field :ssdcommentorloc %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,65 @@
+<%= form_for(@business) do |f| %>
+  <% if @business.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@business.errors.count, "error") %> prohibited this business from being saved:</h2>
+
+      <ul>
+      <% @business.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :bid %><br>
+    <%= f.text_field :bid %>
+  </div>
+  <div class="field">
+    <%= f.label :bname %><br>
+    <%= f.text_field :bname %>
+  </div>
+  <div class="field">
+    <%= f.label :btype %><br>
+    <%= f.text_field :btype %>
+  </div>
+  <div class="field">
+    <%= f.label :blatitude %><br>
+    <%= f.text_field :blatitude %>
+  </div>
+  <div class="field">
+    <%= f.label :blongitude %><br>
+    <%= f.text_field :blongitude %>
+  </div>
+  <div class="field">
+    <%= f.label :bstreet %><br>
+    <%= f.text_field :bstreet %>
+  </div>
+  <div class="field">
+    <%= f.label :bcity %><br>
+    <%= f.text_field :bcity %>
+  </div>
+  <div class="field">
+    <%= f.label :bstate %><br>
+    <%= f.text_field :bstate %>
+  </div>
+  <div class="field">
+    <%= f.label :bzip %><br>
+    <%= f.text_field :bzip %>
+  </div>
+  <div class="field">
+    <%= f.label :bcountry %><br>
+    <%= f.text_field :bcountry %>
+  </div>
+  <div class="field">
+    <%= f.label :bstatus %><br>
+    <%= f.text_field :bstatus %>
+  </div>
+  <div class="field">
+    <%= f.label :bphone %><br>
+    <%= f.text_field :bphone %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
