@@ -14,6 +14,7 @@
    		Logged in as <strong><%=current_login.username %></strong>. Not you?
   		<%= link_to 'Edit profile', edit_login_registration_path %> <br />
                 <%= link_to 'Find business',  businesses_path %><br /> 
+                <%= link_to 'Find social Media site', socialmediasites_path %><br /> 
   		<%= link_to "Logout", destroy_login_session_path, :method => :delete %>
 	<% else %>
 		<%= link_to "Administrator Sign up", new_login_registration_path %> or <%= link_to "Sign In", new_login_session_path %>

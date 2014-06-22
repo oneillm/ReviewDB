@@ -2,55 +2,34 @@
 <div>
 <%= form_tag businesses_path, :method => 'get' do %>
   <p>
+     Enter Business Name or Phone Number to search:
      <%= text_field_tag :search, params[:search] %>
-     <%= submit_tag "Search By Business Name or Phone Number", :name => nil %>
+     <%= submit_tag "Search", :name => nil %>
   </p>
 <% end %>
 </div>
-<table>
-  <thead>
-    <tr>
-      <th>Bid</th>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th>StreetNo StreetName</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zip</th>
-      <th>Country</th>
-      <th>Phone</th>
-      <th>Status</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <div id="businesses">
+    
     <% @businesses.each do |business| %>
-      <tr>
-        <td><%= business.bid %></td>
-        <td><%= business.bname %></td>
-        <td><%= business.btype %></td>
-        <td><%= business.blatitude %></td>
-        <td><%= business.blongitude %></td>
-        <td><%= business.bstreet %></td>
-        <td><%= business.bcity %></td>
-        <td><%= business.bstate %></td>
-        <td><%= business.bzip %></td>
-        <td><%= business.bcountry %></td>
-        <td><%= business.bphone %></td>
-        <td><%= business.bstatus %></td>
-        <td><%= link_to 'Show', business %></td>
-        <td><%= link_to 'Edit', edit_business_path(business) %></td>
-        <td><%= link_to 'Destroy', business, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+       <div class="business">
+           <div class="side">
+             <div class="number">BusinessID#<%= business.bid %></div>
+             <div class="actions"> 	
+                <%= link_to 'Edit', edit_business_path(business) %>
+                <%= link_to 'Destroy', business, method: :delete, data: { confirm: 'Are you sure?' } %>
+             </div>
+        </div>
+        <div class="main">
+            <h2><%= business.bname %></h2>
+            <div class="body">
+                Business Type: <%= business.btype %><br />
+                Geo Location: Latitude: <%= business.blatitude %>
+                              Longitude: <%= business.blongitude %><br />
+                Address: <%= business.bstreet %> City: <%= business.bcity %> State:<%= business.bstate %> Zip Code: <%= business.bzip %> Country: <%= business.bcountry %><br />
+                Phone:<%= business.bphone %> <br />
+                Status: <%= business.bstatus %><br />
+         </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Business', new_business_path %>
+<div class="actions content">
+	<%= link_to 'New Business', new_business_path %>
+</div>
