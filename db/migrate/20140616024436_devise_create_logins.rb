@@ -1,4 +1,4 @@
 class DeviseCreateLogins < ActiveRecord::Migration
-	set_table_name "logins"
-        set_primary_key :userid
+	self.table_name = "logins"
+        self.primary_key = "userid"
 end

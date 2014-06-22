@@ -1,20 +1,27 @@
-<h1>Listing businesses</h1>
-
+<h2>Listing businesses</h2>
+<div>
+<%= form_tag businesses_path, :method => 'get' do %>
+  <p>
+     <%= text_field_tag :search, params[:search] %>
+     <%= submit_tag "Search By Business Name or Phone Number", :name => nil %>
+  </p>
+<% end %>
+</div>
 <table>
   <thead>
     <tr>
       <th>Bid</th>
-      <th>Bname</th>
-      <th>Btype</th>
-      <th>Blatitude</th>
-      <th>Blongitude</th>
-      <th>Bstreet</th>
-      <th>Bcity</th>
-      <th>Bstate</th>
-      <th>Bzip</th>
-      <th>Bcountry</th>
-      <th>Bstatus</th>
-      <th>Bphone</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>StreetNo StreetName</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th>Country</th>
+      <th>Phone</th>
+      <th>Status</th>
       <th></th>
       <th></th>
       <th></th>
@@ -34,8 +41,8 @@
         <td><%= business.bstate %></td>
         <td><%= business.bzip %></td>
         <td><%= business.bcountry %></td>
-        <td><%= business.bstatus %></td>
         <td><%= business.bphone %></td>
+        <td><%= business.bstatus %></td>
         <td><%= link_to 'Show', business %></td>
         <td><%= link_to 'Edit', edit_business_path(business) %></td>
         <td><%= link_to 'Destroy', business, method: :delete, data: { confirm: 'Are you sure?' } %></td>

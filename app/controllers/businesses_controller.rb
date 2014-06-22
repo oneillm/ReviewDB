@@ -1,10 +1,12 @@
 class BusinessesController < ApplicationController
   before_action :set_business, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authenticate_login!, :exceept => [:show, :index]
   # GET /businesses
   # GET /businesses.json
+  
   def index
-    @businesses = Business.all
+    @businesses = Business.search(params[:search])
+   # Business.search method implement in the model level app/models/business.rb
   end
 
   # GET /businesses/1

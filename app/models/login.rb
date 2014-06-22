@@ -3,4 +3,6 @@ class Login < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  #attri_accessible :username, :email, :password, :password_confirmation
+
 end

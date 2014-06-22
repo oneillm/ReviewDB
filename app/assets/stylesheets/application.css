@@ -11,6 +11,9 @@
  *= require_self
  *= require_tree .
  */
+h1 {
+    padding-top:20px;
+}
 body {
      padding-top: 100px;
      font-family: Helvetica, Geneva, Arial, ssans-serif;
@@ -26,7 +29,7 @@ table, td, th {
      border: none;
 }
 th {
-    border-bottooooooooom: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
 }
 a:link, a:active, a:visited {
    color #CD0000;
@@ -42,7 +45,7 @@ div#container {
    margin: 0 auto;
 }
 div#header {
-   text-align: center;
+   text-align: left;
    padding-bottom: 15px;
 }
 div#content {

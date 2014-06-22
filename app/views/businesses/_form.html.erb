@@ -12,52 +12,51 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :bid %><br>
-    <%= f.text_field :bid %>
+    <%= f.label :bname, 'Business Name:' %>
+    <%= f.text_field :bname %><br />
   </div>
   <div class="field">
-    <%= f.label :bname %><br>
-    <%= f.text_field :bname %>
+    <%= f.label :btype, 'Business Type:' %>
+    <%= f.text_field :btype %><br />
   </div>
   <div class="field">
-    <%= f.label :btype %><br>
-    <%= f.text_field :btype %>
+    <%= f.label :bphone, 'Phone:       ' %>
+    <%= f.text_field :bphone %>(Separate each phone number with comma, if enter multiple numbers)<br />
   </div>
   <div class="field">
-    <%= f.label :blatitude %><br>
-    <%= f.text_field :blatitude %>
+    <%= f.label :blatitude, 'Latitude: ' %>
+    <%= f.text_field :blatitude %><br />
   </div>
   <div class="field">
-    <%= f.label :blongitude %><br>
-    <%= f.text_field :blongitude %>
+    <%= f.label :blongitude, 'Longitude:' %>
+    <%= f.text_field :blongitude %><br />
   </div>
   <div class="field">
-    <%= f.label :bstreet %><br>
-    <%= f.text_field :bstreet %>
+    <%= f.label :bstreet, 'Street Address:' %>
+    <%= f.text_field :bstreet %><br />
   </div>
   <div class="field">
-    <%= f.label :bcity %><br>
+    <%= f.label :bcity, 'City:      ' %>
     <%= f.text_field :bcity %>
   </div>
   <div class="field">
-    <%= f.label :bstate %><br>
-    <%= f.text_field :bstate %>
+    <%= f.label :bstate, 'State:     ' %>
+    <%= f.text_field :bstate %><br />
   </div>
   <div class="field">
-    <%= f.label :bzip %><br>
-    <%= f.text_field :bzip %>
+    <%= f.label :bzip, 'Zip:      ' %>
+    <%= f.text_field :bzip %><br />
   </div>
   <div class="field">
-    <%= f.label :bcountry %><br>
-    <%= f.text_field :bcountry %>
+    <%= f.label :bcountry, 'Country:  ' %>
+    <%= f.text_field :bcountry %><br />
   </div>
   <div class="field">
-    <%= f.label :bstatus %><br>
-    <%= f.text_field :bstatus %>
-  </div>
-  <div class="field">
-    <%= f.label :bphone %><br>
-    <%= f.text_field :bphone %>
+    <%= f.label :bstatus, 'Status :  ' %><br />
+    <%= f.radio_button :bstatus,'active', :checked => true %>
+    <%= f.label :status_active, 'Active      ' %>
+    <%= f.radio_button :bstatus,'inactive' %> 
+    <%= f.label :status_active, 'Inactive' %>
   </div>
   <div class="actions">
     <%= f.submit %>
