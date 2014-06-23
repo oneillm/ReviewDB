@@ -1,12 +1,13 @@
-<h2>Listing businesses</h2>
-<div>
-<%= form_tag businesses_path, :method => 'get' do %>
-  <p>
-     Enter Business Name or Phone Number to search:
-     <%= text_field_tag :search, params[:search] %>
-     <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
+<h2>List of Existing Businesses</h2>
+<div class="container">     
+   
+   <%= form_tag businesses_path, :class => 'navbar-search pull-left', :method => :get do %>
+     <%= text_field_tag :search, params[:search], :size => 50, class: 'search-query', placeholder: "Enter business name or phone number to search" %>
+       <%= submit_tag "Search", :name => nil, :class => 'btn btn-success' %>
+      <%= button_tag(type: "submit", class: "btn btn-default") do %>
+       <i class="glyphicon glyphicon-search"></i>
+      <% end %>
+ <% end %> 
 </div>
   <div id="businesses">
     
@@ -25,7 +26,7 @@
                 Business Type: <%= business.btype %><br />
                 Geo Location: Latitude: <%= business.blatitude %>
                               Longitude: <%= business.blongitude %><br />
-                Address: <%= business.bstreet %> City: <%= business.bcity %> State:<%= business.bstate %> Zip Code: <%= business.bzip %> Country: <%= business.bcountry %><br />
+                Address: <%= business.bstreet %>, <%= business.bcity %>, <%= business.bstate %>  <%= business.bzip %>,  <%= business.bcountry %><br />
                 Phone:<%= business.bphone %> <br />
                 Status: <%= business.bstatus %><br />
          </div>

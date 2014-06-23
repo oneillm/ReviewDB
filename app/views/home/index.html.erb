@@ -1,3 +1,8 @@
 <% title "Welcome to Collection and Integration of Postings on Social Media" %>
-
+ <div class="center hero-unit">
 	<h1> <%= yield(:title) %></h1>
+           <% if login_signed_in? %>
+           <% else %>
+        	<%= link_to "First Time Sign up!", '#', class: "btn btn-large btn-primary" %>
+           <% end %>
+ </div>           

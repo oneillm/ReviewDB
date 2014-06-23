@@ -1,0 +1,23 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+           <div id="logo" %>
+            <% if login_signed_in? %>
+                  Welcome <strong><%=current_login.username %></strong>.
+            <% end %>
+           </div>
+           <nav>
+                <ul class="nav pull-right">
+                   <% if login_signed_in? %>
+                   <li><%= link_to 'Edit profile', edit_login_registration_path %> <li>
+                   <li><%= link_to 'Business',  businesses_path %></li>
+                   <li><%= link_to 'Social Media site', socialmediasites_path %></li>
+                   <li><%= link_to "Logout", destroy_login_session_path, :method => :delete %></li>
+                  <% else %>
+                   <li><%= link_to "Administrator Sign In", new_login_session_path %></li>
+                  <% end %>
+              </ul>
+          </nav>
+      </div>
+    </div>
+  </header>
