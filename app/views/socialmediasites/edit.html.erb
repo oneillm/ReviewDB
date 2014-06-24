@@ -1,6 +1,5 @@
-<h1>Editing socialmediasite</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @socialmediasite %> |
-<%= link_to 'Back', socialmediasites_path %>
+<%- model_class = Socialmediasite -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+</div>
+<%= render :partial => 'form' %>

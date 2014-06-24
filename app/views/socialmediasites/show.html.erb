@@ -1,54 +1,39 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Socialmediasite -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Ssid:</strong>
-  <%= @socialmediasite.ssid %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:ssid) %>:</strong></dt>
+  <dd><%= @socialmediasite.ssid %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ssname) %>:</strong></dt>
+  <dd><%= @socialmediasite.ssname %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ssurl) %>:</strong></dt>
+  <dd><%= @socialmediasite.ssurl %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ssurlquery) %>:</strong></dt>
+  <dd><%= @socialmediasite.ssurlquery %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ssaccesstoken) %>:</strong></dt>
+  <dd><%= @socialmediasite.ssaccesstoken %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ssaccesstokensecretkey) %>:</strong></dt>
+  <dd><%= @socialmediasite.ssaccesstokensecretkey %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ssconsumerkey) %>:</strong></dt>
+  <dd><%= @socialmediasite.ssconsumerkey %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ssconsumersecret) %>:</strong></dt>
+  <dd><%= @socialmediasite.ssconsumersecret %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
+  <dd><%= @socialmediasite.status %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:userid) %>:</strong></dt>
+  <dd><%= @socialmediasite.userid %></dd>
+</dl>
 
-<p>
-  <strong>Ssname:</strong>
-  <%= @socialmediasite.ssname %>
-</p>
-
-<p>
-  <strong>Ssurl:</strong>
-  <%= @socialmediasite.ssurl %>
-</p>
-
-<p>
-  <strong>Ssurlquery:</strong>
-  <%= @socialmediasite.ssurlquery %>
-</p>
-
-<p>
-  <strong>Ssaccesstoken:</strong>
-  <%= @socialmediasite.ssaccesstoken %>
-</p>
-
-<p>
-  <strong>Ssaccesstokensecretkey:</strong>
-  <%= @socialmediasite.ssaccesstokensecretkey %>
-</p>
-
-<p>
-  <strong>Ssconsumerkey:</strong>
-  <%= @socialmediasite.ssconsumerkey %>
-</p>
-
-<p>
-  <strong>Ssconsumersecret:</strong>
-  <%= @socialmediasite.ssconsumersecret %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @socialmediasite.status %>
-</p>
-
-<p>
-  <strong>Userid:</strong>
-  <%= @socialmediasite.userid %>
-</p>
-
-<%= link_to 'Edit', edit_socialmediasite_path(@socialmediasite) %> |
-<%= link_to 'Back', socialmediasites_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              socialmediasites_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_socialmediasite_path(@socialmediasite), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              socialmediasite_path(@socialmediasite),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

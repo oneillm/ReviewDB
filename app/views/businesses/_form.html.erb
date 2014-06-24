@@ -1,64 +1,80 @@
-<%= form_for(@business) do |f| %>
-  <% if @business.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@business.errors.count, "error") %> prohibited this business from being saved:</h2>
-
-      <ul>
-      <% @business.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @business, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :bid, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :bid, :class => 'text_field' %>
     </div>
-  <% end %>
+  </div>
+  <div class="control-group">
+    <%= f.label :bname, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :bname, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :btype, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :btype, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :blatitude, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :blatitude, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :blongitude, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :blongitude, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :bstreet, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :bstreet, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :bcity, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :bcity, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :bstate, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :bstate, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :bzip, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :bzip, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :bcountry, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :bcountry, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :bstatus, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :bstatus, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :bphone, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :bphone, :class => 'text_field' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :bname, 'Business Name:' %>
-    <%= f.text_field :bname %><br />
-  </div>
-  <div class="field">
-    <%= f.label :btype, 'Business Type:' %>
-    <%= f.text_field :btype %><br />
-  </div>
-  <div class="field">
-    <%= f.label :bphone, 'Phone:       ' %>
-    <%= f.text_field :bphone %>(Separate each phone number with comma, if enter multiple numbers)<br />
-  </div>
-  <div class="field">
-    <%= f.label :blatitude, 'Latitude: ' %>
-    <%= f.text_field :blatitude %><br />
-  </div>
-  <div class="field">
-    <%= f.label :blongitude, 'Longitude:' %>
-    <%= f.text_field :blongitude %><br />
-  </div>
-  <div class="field">
-    <%= f.label :bstreet, 'Street Address:' %>
-    <%= f.text_field :bstreet %><br />
-  </div>
-  <div class="field">
-    <%= f.label :bcity, 'City:      ' %>
-    <%= f.text_field :bcity %>
-  </div>
-  <div class="field">
-    <%= f.label :bstate, 'State:     ' %>
-    <%= f.text_field :bstate %><br />
-  </div>
-  <div class="field">
-    <%= f.label :bzip, 'Zip:      ' %>
-    <%= f.text_field :bzip %><br />
-  </div>
-  <div class="field">
-    <%= f.label :bcountry, 'Country:  ' %>
-    <%= f.text_field :bcountry %><br />
-  </div>
-  <div class="field">
-    <%= f.label :bstatus, 'Status :  ' %><br />
-    <%= f.radio_button :bstatus,'active', :checked => true %>
-    <%= f.label :status_active, 'Active      ' %>
-    <%= f.radio_button :bstatus,'inactive' %> 
-    <%= f.label :status_active, 'Inactive' %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                businesses_path, :class => 'btn' %>
   </div>
 <% end %>

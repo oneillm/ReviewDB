@@ -1,57 +1,68 @@
-<%= form_for(@socialmediasite) do |f| %>
-  <% if @socialmediasite.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@socialmediasite.errors.count, "error") %> prohibited this socialmediasite from being saved:</h2>
-
-      <ul>
-      <% @socialmediasite.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @socialmediasite, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :ssid, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ssid, :class => 'text_field' %>
     </div>
-  <% end %>
+  </div>
+  <div class="control-group">
+    <%= f.label :ssname, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ssname, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ssurl, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ssurl, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ssurlquery, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ssurlquery, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ssaccesstoken, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ssaccesstoken, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ssaccesstokensecretkey, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ssaccesstokensecretkey, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ssconsumerkey, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ssconsumerkey, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ssconsumersecret, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ssconsumersecret, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :status, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :status, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :userid, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :userid, :class => 'text_field' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :ssid %><br>
-    <%= f.text_field :ssid %>
-  </div>
-  <div class="field">
-    <%= f.label :ssname %><br>
-    <%= f.text_field :ssname %>
-  </div>
-  <div class="field">
-    <%= f.label :ssurl %><br>
-    <%= f.text_field :ssurl %>
-  </div>
-  <div class="field">
-    <%= f.label :ssurlquery %><br>
-    <%= f.text_field :ssurlquery %>
-  </div>
-  <div class="field">
-    <%= f.label :ssaccesstoken %><br>
-    <%= f.text_field :ssaccesstoken %>
-  </div>
-  <div class="field">
-    <%= f.label :ssaccesstokensecretkey %><br>
-    <%= f.text_field :ssaccesstokensecretkey %>
-  </div>
-  <div class="field">
-    <%= f.label :ssconsumerkey %><br>
-    <%= f.text_field :ssconsumerkey %>
-  </div>
-  <div class="field">
-    <%= f.label :ssconsumersecret %><br>
-    <%= f.text_field :ssconsumersecret %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.text_field :status %>
-  </div>
-  <div class="field">
-    <%= f.label :userid %><br>
-    <%= f.number_field :userid %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                socialmediasites_path, :class => 'btn' %>
   </div>
 <% end %>
