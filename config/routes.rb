@@ -5,6 +5,8 @@ Collectionandintegration::Application.routes.draw do
 
   resources :businesses
 
+  resources :sessions
+
   get "socialmediasite/new"
   get "socialmediasite/create"
   get "ssdmapping/new"
@@ -15,6 +17,8 @@ Collectionandintegration::Application.routes.draw do
   get "business/create"
   get "business_controller/new"
   get "business_controller/create"
+  get "session_controller/create"
+  get "session_controller/destroy"
   devise_for :logins, :path_names => { :sign_up => "register"}
 
   # The priority is based upon order of creation: first created -> highest priority.

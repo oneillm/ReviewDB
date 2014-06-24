@@ -1,6 +1,5 @@
-<h2>List of Existing Businesses</h2>
 <div class="container">     
-   
+ 
    <%= form_tag businesses_path, :class => 'navbar-search pull-left', :method => :get do %>
      <%= text_field_tag :search, params[:search], :size => 50, class: 'search-query', placeholder: "Enter business name or phone number to search" %>
        <%= submit_tag "Search", :name => nil, :class => 'btn btn-success' %>
@@ -9,19 +8,22 @@
       <% end %>
  <% end %> 
 </div>
-  <div id="businesses">
-    
+<div class="container">
+<div class="actions content">
+     <%= link_to 'Add New Business', new_business_path %>
+</div>
+ <h5>List of Existing Businesses</h5>
     <% @businesses.each do |business| %>
-       <div class="business">
-           <div class="side">
-             <div class="number">BusinessID#<%= business.bid %></div>
+      <br />
+       <div class="col-md-2 col-md-offset-1">
+             <h4>BusinessID#<%= business.bid %></h4>
              <div class="actions"> 	
                 <%= link_to 'Edit', edit_business_path(business) %>
                 <%= link_to 'Destroy', business, method: :delete, data: { confirm: 'Are you sure?' } %>
              </div>
         </div>
-        <div class="main">
-            <h2><%= business.bname %></h2>
+        <div class="col-md-9">
+            <h4><%= business.bname %></h4>
             <div class="body">
                 Business Type: <%= business.btype %><br />
                 Geo Location: Latitude: <%= business.blatitude %>
@@ -30,7 +32,7 @@
                 Phone:<%= business.bphone %> <br />
                 Status: <%= business.bstatus %><br />
          </div>
+       </div>
     <% end %>
-<div class="actions content">
-	<%= link_to 'New Business', new_business_path %>
+</div>
 </div>
