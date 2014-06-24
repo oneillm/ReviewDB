@@ -9,4 +9,5 @@ class SessionsController < ApplicationController
       reset_session
       flash[:notice] = 'Successfully signed out'
       redirect_to home_path
-   end 
+   end
+end 

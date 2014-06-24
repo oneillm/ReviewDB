@@ -8,14 +8,14 @@
            </div>
            <nav>
                 <ul class="nav pull-right">
-                   <% if login_signed_in? %>
-                   <li><%= link_to 'Edit profile', edit_login_registration_path %> <li>
-                   <li><%= link_to 'Business',  businesses_path %></li>
-                   <li><%= link_to 'Social Media site', socialmediasites_path %></li>
-                   <li><%= link_to "Logout", destroy_login_session_path, :method => :delete %></li>
+                   <% if login_signed_in? && current_login.username != 'admin' %>
+                   	<li><%= link_to 'Edit profile', edit_login_registration_path %> <li>
+                  	 <li><%= link_to 'Business',  businesses_path %></li>
+                   	<li><%= link_to 'Social Media site', socialmediasites_path %></li>
                   <% else %>
-                   <li><%= link_to "Administrator Sign In", new_login_session_path %></li>
+                  	 <li><%= link_to "Administrator Sign In", new_login_session_path %></li>
                   <% end %>
+                   	<li><%= link_to "Logout", destroy_login_session_path, :method => :delete %></li>
               </ul>
           </nav>
       </div>
