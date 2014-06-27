@@ -1,77 +1,60 @@
-<%= form_for @business, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for @business, :html => { :class => 'form-vertical' } do |f| %>
   <div class="control-group">
-    <%= f.label :bid, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :bid, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :bname, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :bname, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :btype, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :btype, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :blatitude, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :blatitude, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :blongitude, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :blongitude, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :bstreet, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :bstreet, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :bcity, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :bcity, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :bstate, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :bstate, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :bzip, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :bzip, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :bcountry, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :bcountry, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :bstatus, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :bstatus, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :bphone, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :bphone, :class => 'text_field' %>
-    </div>
-  </div>
-
+    <div class="container">
+      <div class="row">
+         <div class="col-sm-2">  
+    	       <%= f.label :bid,'Business ID:', :class => 'control-label' %>
+         </div>
+        	<%= f.text_field :bid, readonly: true, :class => 'input-small' %><br />
+         <div class="col-sm-2">  
+               <%= f.label :bname,'Business Name:', :class => 'control-label' %>
+         </div>
+               <%= f.text_field :bname, :class => 'input-xlarge' %><br />
+         <div class="col-sm-2">  
+               <%= f.label :btype,'Business Type:',  :class => 'control-label' %>
+         </div>
+               <%= f.text_field :btype, :class => 'input-xlarge' %><br />
+         <div class="col-sm-2">  
+               <%= f.label :bphone,'Phone Number{s}:', :class => 'control-label' %>
+         </div>
+               <%= f.text_field :bphone, :class => 'input-xlarge', :placeholder => 'multiple phones separated by comma' %><br />
+         <div class="col-sm-2">  
+               <%= f.label :blatitude,'Latitude:', :class => 'control-label' %>
+         </div>
+               <%= f.text_field :blatitude, :class => 'input-xlarge' %><br />
+         <div class="col-sm-2">  
+               <%= f.label :blongitude,'Longitude:', :class => 'control-label' %>
+         </div>
+               <%= f.text_field :blongitude, :class => 'input-xlarge' %><br />
+         <div class="col-sm-2">  
+               <%= f.label :bstreet,'Address:', :class => 'control-label' %>
+         </div>
+               <%= f.text_field :bstreet, :class => 'input-xlarge' %><br />
+         <div class="col-sm-2">  
+               <%= f.label :bcity, 'City:', :class => 'control-label' %>
+         </div>
+               <%= f.text_field :bcity, :class => 'input-xlarge' %><br />
+         <div class="col-sm-2">  
+               <%= f.label :bstate, 'State:', :class => 'control-label' %>
+         </div>
+               <%= f.text_field :bstate,:class => 'input-xlarge' %><br />
+         <div class="col-sm-2">  
+               <%= f.label :bzip,'Zip Code:', :class => 'control-label' %>
+         </div>
+               <%= f.text_field :bzip, :class => 'input-xlarge' %><br />
+         <div class="col-sm-2">  
+               <%= f.label :bcountry,'Country:', :class => 'control-label' %>
+         </div>
+               <%= f.text_field :bcountry,:class => 'input-xlarge' %><br />
+         <div class="col-sm-2">  
+               <%= f.label :bstatus,'Status:', :class => 'control-label' %>
+         </div>
+               <%= f.text_field :bstatus, :class => 'text_field' %><br />
+  </div><!-- row -->
+</div><!-- container -->
+</div><!-- controls-->
+</div><!-- controlgroups -->
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

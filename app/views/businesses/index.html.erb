@@ -1,16 +1,21 @@
 <div class="container">
-
-   <%= form_tag businesses_path, :class => 'navbar-search pull-left', :method => :get do %>
-     <%= text_field_tag :search, params[:search], :size => 75, class: 'search-query', placeholder: "Enter business name or phone number to search" %>
-      <%= button_tag(type: "submit", class: "btn btn-default") do %>
-       <i class="glyphicon glyphicon-search"></i>
-      <% end %>
-       <%= submit_tag "Search", :name => nil, :class => 'btn btn-mini btn-success' %>
- <% end %>
+<br />
+<div class="row">
+  <div class="col-lg-6">
+        <%= form_tag businesses_path, :class => 'navbar-search', :method => :get do %>
+	<%= text_field_tag :search, params[:search], class: 'search-query', placeholder: "By Business name or phone", :style => "padding-left:21px;height:31px;" %>
+          <div class="icon-search" style="position:absolute;top:10px;left:7px;"></div>
+          <%= button_tag(type: "submit", class: "btn btn-info") do %>
+       		<i class="glyphicon glyphicon-search"></i>
+      	  <% end %>     
+ 	<% end %>
+  </div>
+</div> 
 </div>
+<br />
 <div class="container">
    <div class="actions content">
-      <%= link_to 'Add New Business', new_business_path, class: "btn btn-mini btn-primary" %>
+      <%= link_to 'Add New Business', new_business_path, class: "btn btn-mini btn-info" %>
    </div>
    <h5>List of Existing Businesses</h5>
     <% @businesses.each do |business| %>
@@ -19,7 +24,7 @@
              <h4>BusinessID#<%= business.bid %></h4>
              <div class="actions">
                 <%= link_to 'Edit', edit_business_path(business), class: "btn btn-mini" %>
-                <%= link_to 'Destroy', business, class: "btn btn-mini btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%= link_to 'Delete', business, class: "btn btn-mini btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
              </div>
         </div>
         <div class="col-md-9">
