@@ -6,21 +6,23 @@
 	    <div class="nav pull-right" %>
             <% if login_signed_in? %>
                   <div class="nav pull-right" %>
-                      Signed-In as <strong><%=current_login.username %></strong>.
+                      Signed-In as <%=current_login.username %>
                   </div>
             <% end %>
            </div>
            <nav>
                 <ul class="nav nav-tabs" role="tablist">
-                   <li class="active"><%= link_to 'Home', root_path %><li>
+                   <li class="active"><%= link_to 'Home', root_path %></li>
                    <% if login_signed_in? && current_login.username != 'admin' %>
                    	<li class="dropdown">
                           <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                             Administrative<span class="caret"></span>
+                             Administrative Tasks<span class="caret"></span>
                           </a>
                           <ul class="dropdown-menu" role="menu">
-                             <li><%= link_to 'Edit profile', edit_login_registration_path %><br /> </li>
+                             <li><%= link_to 'Edit my profile', edit_login_registration_path %></li>
                   	     <li class="divider"></li>
+                             <li><%= link_to 'User Maintenance', '#' %></li>
+                             <li class="divider"></li>
 			     <li><%= link_to 'Business',  businesses_path %></li>
                    	     <li class="divider"></li>
                              <li><%= link_to 'Social Media site', socialmediasites_path %></li>
