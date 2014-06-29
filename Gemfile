@@ -11,6 +11,10 @@ gem 'devise'
 #use passenger to deploy to web server instead of WEB-Brick
 gem 'passenger'
 
+#for a list of countries
+gem 'country_select', github: 'stefanpenner/country_select'
+
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 gem 'bootstrap-sass'
