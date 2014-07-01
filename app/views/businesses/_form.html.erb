@@ -39,7 +39,7 @@
           <div class="col-sm-2"> 
                <label for="business_state_id">State or provice:</label> 
          </div>
-               <%= f.text_field :bstate, :class => 'control-label' %>
+               <%=f.select :bstate, options_for_select(us_states,f.object.bstate || "CA"), {class: 'input-xlarge'} %>
          <br />
          <div class="col-sm-2">  
                <%= f.label :bzip,'Zip Code:', :class => 'control-label' %>
@@ -48,7 +48,7 @@
          <div class="col-sm-2">  
                <%= f.label :bcountry,'Country:', :class => 'control-label' %>
          </div>
-               <%= f.country_select :bcountry, :selected  => ["United States"], :priority => ["United States", "United Kingdom"] %><br />
+               <%= country_select("business","bcountry",{priority_countries: ["US", "GB"]}, { selected: "US",class: 'input-xlarge'}) %><br />
          <div class="col-sm-2">  
                <%= f.label :bstatus,'Status:', :class => 'control-label' %>
           </div>

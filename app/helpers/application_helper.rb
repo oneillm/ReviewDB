@@ -14,6 +14,4 @@ module ApplicationHelper
   		content_for(:head) { stylesheet_link_tag(*files) }
 	end
 
-
-
 end
