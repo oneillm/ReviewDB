@@ -3,9 +3,6 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
   <div><%= f.label :firstname,'First Name' %><br />
   <%= f.text_field :firstname, autofocus: true %></div>
 
@@ -30,21 +27,27 @@
 
   <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %></div>
-  <div><%= f.label :role, 'Role :' %><br />
+ <div class="container">
+      <div class="row">
+         <div class="col-sm-4">
+            <%= f.label :status, 'Status : ' %>
+            <%= f.label :status_active, 'Active' %>
+            <%=f.radio_button :status, 'active', :check=> true , :class => 'status-radiobutton' %>
+            <%= f.label :status_inactive, "Inactive" %>
+            <%=f.radio_button :status, "inactive", :class => 'status-radiobutton' %>
+           <br />
+             <%= f.label :role, 'Role :    ' %>
+            <%= label :role_user, 'User' %>
+            <%= f.radio_button  :role, 'user', :checked => true, :class => 'status-radiobutton' %>
+            <%= label :role_administrator, 'Administrator' %>
+            <%= f.radio_button  :role, 'administrator', :class => 'status-radiobutton' %>
+            <%= label :role_both, 'Both' %>
+            <%= f.radio_button  :role, 'both', :class => 'status-radiobutton' %>
+         </div><!-- col-sm-4">  
 
-        <%= f.radio_button  :role, 'user', :checked => true %>
-        <%= label :role_user, 'User' %><br />
-       <%= f.radio_button  :role, 'administrator' %>
-       <%= label :role_administrator, 'Administrator' %><br />
-       <%= f.radio_button  :role, 'both' %>
-       <%= label :role_both, 'Both' %></div>
-
-
-  <div><%= f.submit "Update" %></div>
+     </div><!-- row -->
+ </div><!-- container -->
+ <br />     
+ <div><%= f.submit "Update" %></div>
 <% end %>
-
-<h2>Cancel my account</h2>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
 <%= link_to "Back", :back %>

@@ -3,19 +3,22 @@
 <div class="row">
   <div class="col-lg-6">
         <%= form_tag businesses_path, :class => 'navbar-search', :method => :get do %>
-	<%= text_field_tag :search, params[:search], class: 'search-query', placeholder: "By Business name or phone", :style => "padding-left:21px;height:31px;" %>
-          <div class="icon-search" style="position:absolute;top:10px;left:7px;"></div>
+	<%= text_field_tag :search, params[:search], class: 'search-query', placeholder: "By Business name or phone", :style => "padding-left:21px;height:31px;vertical-align:top" %>
+          <div class="icon-search" style="position:absolute;top:8px;left:7px;"></div>
           <%= button_tag(type: "submit", class: "btn btn-info") do %>
        		<span class="glyphicon glyphicon-search"></i>
       	  <% end %>     
- 	<% end %>
+            <span class="actions content">
+                 <%= link_to raw("<i class=\"icon-plus-sign icon-white\">Add A New Business</i>"), new_business_path, class: "btn btn-mini btn-info" %> 
+ 	    </span>
+        <% end %>
   </div>
 </div> 
 </div>
 <br />
 <div class="container">
    <div class="actions content">
-      <%= link_to 'Add New Business', new_business_path, class: "btn btn-mini btn-info" %>
+      <%= link_to raw("<i class=\"icon-arrow-left icon-black\">Back</i>"),:back, class: "btn btn-mini btn-default" %>
    </div>
    <h5>List of Existing Businesses</h5>
     <% @businesses.each do |business| %>
@@ -23,8 +26,8 @@
        <div class="col-md-2 col-md-offset-1">
              <h4>BusinessID#<%= business.bid %></h4>
              <div class="actions">
-                <%= link_to 'Edit', edit_business_path(business), class: "btn btn-mini" %>
-                <%= link_to 'Delete', business, class: "btn btn-mini btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%= link_to raw("<i class=\"icon-edit icon-black\">Edit</i>"), edit_business_path(business), class: "btn btn-mini" %>
+                <%= link_to raw("<i class=\"icon-trash icon-black\">Delete</i>") , business, class: "btn btn-mini btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
              </div>
         </div>
         <div class="col-md-9">

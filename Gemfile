@@ -12,6 +12,7 @@ gem 'devise'
 gem 'passenger'
 
 #for a list of countries
+gem 'countries'
 gem 'country_select', github: 'stefanpenner/country_select'
 
 

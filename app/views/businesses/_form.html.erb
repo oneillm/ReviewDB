@@ -48,7 +48,7 @@
          <div class="col-sm-2">  
                <%= f.label :bcountry,'Country:', :class => 'control-label' %>
          </div>
-               <%= f.country_select :bcountry, priority: ["United States of America"] %><br />
+               <%= f.country_select :bcountry, :selected  => ["United States"], :priority => ["United States", "United Kingdom"] %><br />
          <div class="col-sm-2">  
                <%= f.label :bstatus,'Status:', :class => 'control-label' %>
           </div>

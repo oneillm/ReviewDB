@@ -17,3 +17,16 @@ h3 {
 h1 {
    text-align: center;
 }
+#postingtabs ul li {
+   float: left;
+   padding: 10px;
+   border: 1px solid #999;
+   list-style: none;
+}
+
+#postingtabs ul ui.selected {
+   background-color: #ccffff;
+}
+.selected {
+   background-color: #ccffff;
+}

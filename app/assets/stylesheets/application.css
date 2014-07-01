@@ -18,3 +18,7 @@ table, td, th {
 th {
     border-bottom: 1px solid #DDD;
 }
+.welcome {
+    font-size: 1em;
+    font-weight: normal;
+}
