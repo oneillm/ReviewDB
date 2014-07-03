@@ -1,11 +1,36 @@
 <%- model_class = Socialmediasite -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <h1><%=t '.title', :default => 'Social Media Site Maintenance' %></h1>
 </div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
+<!-- <table class="table table-striped"> -->
+<div class="container">
+<br />
+<div class="row">
+  <div class="col-lg-6">
+        <%= form_tag socialmediasites_path, :class => 'navbar-search', :method => :get do %>
+        <%= text_field_tag$ :search, params[:search], class: 'search-query', placeholder: "Enter site name to search", :style => "padding-left:21px;height:31px;vertical-align:top" %>
+          <div class="icon-search" style="position:absolute;top:8px;left:7px;"></div>
+          <%= button_tag(type: "submit", class: "btn btn-info") do %>
+                <span class="glyphicon glyphicon-search"></i>
+          <% end %>
+            <span class="actions content">
+                 <%= link_to raw("<i class=\"icon-plus-sign icon-white\">Add A New Social Media Site</i>"), new_socialmediasite_path, class: "btn btn-mini btn-info" %>
+            </span>
+        <% end %>
+  </div>
+</div>
+</div>
+<br />
+<div class="container">
+   <div class="actions content">
+      <%= link_to raw("<i class=\"icon-arrow-left icon-black\">Back</i>"),:back, class: "btn btn-mini btn-default" %>
+   </div>
+   <h5>List of Existing Social Media Sites</h5>
+    <% @socialmediasites.each do |socialmediasite| %>
+
+
+
+   <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:ssid) %></th>
       <th><%= model_class.human_attribute_name(:ssname) %></th>
       <th><%= model_class.human_attribute_name(:ssurl) %></th>

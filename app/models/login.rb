@@ -5,4 +5,6 @@ class Login < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   #attri_accessible :username, :email, :password, :password_confirmation
 
+  has_many :socialmediasites
+
 end

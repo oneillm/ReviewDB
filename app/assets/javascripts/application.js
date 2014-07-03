@@ -15,3 +15,35 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+
+$((function () {
+           $(".tab-content").hide();
+           if(document.location.hash !='') {
+                 showTabByHash();
+           }
+           else {
+                 showFirstTab()
+           }
+
+           $('#tabs ul li a').click(function(ev){
+               ev.preventDefault();
+               showTab($this);
+           });
+         });
+           function showTab(tab) {
+               $('#tabs ul li').removeClass('selected');
+               tab.addClass('selected');
+               $(".tab-content").hide();
+               var activeTab = tab.find("a").attr("href");
+               $(activeTab).fadeIn();
+           }
+           function showTabByHash() {
+               var tabName = window.location.hash;
+               var tabNumber = '1';
+               $(tabName).show();
+               $("#tabs ul li:nth-child(tabNumber)").addClass('selected').show();
+           }
+           function showFirstTab(){
+                  $("#tabs ul li:first").addClass('selected').show();
+                  $(".tab-content:first").show();
+           }

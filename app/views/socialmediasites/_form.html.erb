@@ -1,65 +1,56 @@
-<%= form_for @socialmediasite, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for @socialmediasite, :html => { :class => 'form-vertical' } do |f| %>
   <div class="control-group">
-    <%= f.label :ssid, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :ssid, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :ssname, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :ssname, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :ssurl, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :ssurl, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :ssurlquery, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :ssurlquery, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :ssaccesstoken, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :ssaccesstoken, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :ssaccesstokensecretkey, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :ssaccesstokensecretkey, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :ssconsumerkey, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :ssconsumerkey, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :ssconsumersecret, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :ssconsumersecret, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :status, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :status, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :userid, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :userid, :class => 'text_field' %>
-    </div>
-  </div>
+       <div class="container">
+         <div class="row">
+           <div class="col-sm-2">
+    		<%= f.label :ssid, 'SocialMediaSiteID', :class => 'control-label' %>
+      	   </div>
+                <%= f.text_field :ssid,readonly:true,:class => 'input-xlarge' %>
+           <div class="col-sm-2">
+    		<%= f.label :ssname,'Social Media Site Name:', :class => 'control-label' %>
+           </div>     
+                <%= f.text_field :ssname, :class => 'input-xlarge' %>
+           <div class="col-sm-2">
+                <%= f.label :ssurl,'URL:', :class => 'control-label' %>
+    	   </div>
+      		<%= f.text_field :ssurl, :class => 'input-xlarge' %>
+           <div class="col-sm-2">
+    		<%= f.label :ssurlquery, :class => 'control-label' %>
+           </div>
+           	<%= f.text_field :ssurlquery, :class => 'input-xlarge' %>
+  	   <div class="col-sm-2">
+    		<%= f.label :ssaccesstoken, :class => 'control-label' %>
+   	   </div>
+      		<%= f.text_field :ssaccesstoken, :class => 'input-xlarge' %>
+           <div class="col-sm-2">
+                <%= f.label :ssaccesstokensecretkey, :class => 'control-label' %>
+           </div>    
+  		<%= f.text_field :ssaccesstokensecretkey, :class => 'input-xlarge' %>
+           <div class="col-sm-2">
+            	 <%= f.label :ssconsumerkey, :class => 'control-label' %>
+           </div>
+              	<%= f.text_field :ssconsumerkey, :class => 'input-xlarge' %>
+           <div class="col-sm-2">
+     		<%= f.label :ssconsumersecret, :class => 'control-label' %>
+           </div>
+     		 <%= f.text_field :ssconsumersecret, :class => 'input-xlarge' %>
+  	   <div class="col-sm-2">
+    		<%= f.label :status, :class => 'control-label' %>
+   	   </div">
+                  <%=f.radio_button :status,"active", : check => true , :class => 'status-radiobutton' %>
+                  <%= f.label :status_inactive, "Inactive" %>
+                 <%=f.radio_button :status, "inactive", :class => 'status-radiobutton' %>      		
 
+ 	   <div class="col-sm-2">
+    		<%= f.label :userid, :class => 'control-label' %>
+    	   </div">
+      		<%= f.text_field :userid, :readonly => true, :class => 'input-xlarge' %>
+    	</div><!-- row -->
+     </div><!-- container -->
+  </div><!-- controls-->
+</div><!-- controlgroups -->
+  
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

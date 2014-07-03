@@ -10,6 +10,7 @@ class SocialmediasitesController < ApplicationController
   # GET /socialmediasites/1
   # GET /socialmediasites/1.json
   def show
+     @socialmediasite = current_login.socialmediasites.find(params[:id])
   end
 
   # GET /socialmediasites/new
@@ -19,13 +20,14 @@ class SocialmediasitesController < ApplicationController
 
   # GET /socialmediasites/1/edit
   def edit
+     @socialmediasite = current_login.socialmediasites.find(params[:id])
   end
 
   # POST /socialmediasites
   # POST /socialmediasites.json
   def create
-    @socialmediasite = Socialmediasite.new(socialmediasite_params)
-
+   # @socialmediasite = Socialmediasite.new(socialmediasite_params)
+     @socialmediasite = current_login.socialmediasites.build(params[:socialmediasite])
     respond_to do |format|
       if @socialmediasite.save
         format.html { redirect_to @socialmediasite, notice: 'Socialmediasite was successfully created.' }
@@ -64,8 +66,9 @@ class SocialmediasitesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_socialmediasite
-      @socialmediasite = Socialmediasite.find(params[:id])
-    end
+     # @socialmediasite = Socialmediasite.find(params[:id])
+     @socialmediasite = current_login.socialmediasites.find(params[:id])
+   end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def socialmediasite_params

@@ -1,25 +1,21 @@
-<head>
-      <link rel="stylesheet" href="/usr/local/Library/Contributions/cmd/public/bootstrap.min.css">
-      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
-</head>
 <body>
     <div class="container">
            <div class="tabbable">
-               <div id="postingtabs">
+              <div id="tabs">
                 <ul class="nav nav-tabs">
                    <% if login_signed_in? && current_login.username != 'admin' %>
                         <li class="selected"><a href="#personal" data-toggle="tab">Personal</a></li>
                         <li><a data-toggle="tab" href="#administrativetasks">Administrative Tasks</a></li>
                     <% else %>
-                        <li><a href="#admin" data-toggle="tab">Administrator Sign In</a></li>
+                        <li class="selected"><a href="#admin" data-toggle="tab">Administrator Sign In</a></li>
                     <% end %>
                     <li><a href="#viewdata" data-toggle="tab">View Postings</a></li>
                     <li><a href="#logout" data-toggle="tab">Logout</a></li>
-               </ul>
+               </ul></div>
                <div class="tab-content">        
           	  <div class="tab-pane" id="personal">
                      <h4>Update My information</h4>
-                     <nav class="list">
+		      <nav class="list">
                        <ul>
                            <li><%= link_to 'My profile',edit_login_registration_path  %></li>
                        </ul>
@@ -27,32 +23,28 @@
                   </div>
                   <div class="tab-pane" id="administrativetasks">
                        <h4>User Maintenance</h4>
-                       <nav class="list">
-                           <ul>
-                               <li><%= link_to 'Find User','#' %></li>
-                               <li><%= link_to 'Add User', '#' %></li>
-                           </ul>
-                       </nav>
+                       <nav>
+                         <ul class="list">
+                            <li><%= link_to 'Find user','#' %></li>
+                            <li><%= link_to 'Add user', '#' %></li>
+                       </ul>
+                        </nav>
                        <h4>Business</h4>
-                       <nav class="list">
+                         <nav class="list">
+                            <ul>
+                            <li><%= link_to 'Find Business', businesses_path %></li>
+                            <li><%= link_to 'Add Business', new_business_path %></li>
+                            </ul>
+                        <h4>Social Media Sites</h4>
+                            <ul>
+                               <li><%= link_to 'Social Media Site Data', socialmediasites_path %></li>
+		            </ul>
+                           <h4>Posting data Mapping</h4>
                            <ul>
-                               <li><%= link_to 'Find Business', businesses_path %></li>
-                               <li><%= link_to 'Add Business', new_business_path %></li>
-                           </ul>
-                       </nav>
-                       <h4>Social Media Sites</h4>
-                          <nav class="list">
-                             <ul>
-                                <li><%= link_to 'Social Media Site Data', socialmediasites_path %></li>
+                              <li><%= link_to 'Social Media Mapping', ssdmappings_path %></li>
                              </ul>
-                          </nav>
-			<h4>Posting data Mapping</h4>
-                          <nav class="list">
-                             <ul> 
-                                <li><%= link_to 'Social Media Mapping', ssdmappings_path %></li>
-                             </ul>
-                          </nav>
-                  </div><!-- administrativetasks -->
+                           </nav>
+		  </div><!-- administrativetasks -->
                   <div class="tab-pane" id="viewdata">
                       <h4>Coming Soon ... </h4>
                          <nav class="list">
@@ -78,16 +70,16 @@
                        </nav>
                   </div>
              </div><!-- tab-content -->
-            </div><!-- postingtabs -->
           </div><!-- tabbable -->
 </div><!-- container -->
 </body>
+<!--
    <script type="text/javascript">
         $(document).ready(function () {
-            $('#postingtabs ul li a').click(function(ev){
-               $('#postingtabs ul li').removeClass('selected');
+            $('#tabs ul li a').click(function(ev){
+               $('#tabs ul li').removeClass('selected');
                $(ev.currentTarget).parent('li').addClass('selected');
-        });
+         });
        });
     </script>
-
+-->

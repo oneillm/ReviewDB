@@ -17,16 +17,28 @@ h3 {
 h1 {
    text-align: center;
 }
-#postingtabs ul li {
+#tabs ul li {
    float: left;
    padding: 10px;
-   border: 1px solid #999;
    list-style: none;
 }
 
-#postingtabs ul ui.selected {
+#tabs ul li.selected {
    background-color: #ccffff;
 }
 .selected {
    background-color: #ccffff;
 }
+a {
+  color: #3104B4i;
+  text-decoration: underline;
+  &:visited {
+    color: #3AF7E4;
+  }
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
+
+
