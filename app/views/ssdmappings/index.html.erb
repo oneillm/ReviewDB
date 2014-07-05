@@ -9,7 +9,7 @@
                 <span class="glyphicon glyphicon-search"></i>
           <% end %>
             <span class="actions content">
-                 <%= link_to raw("<i class=\"icon-plus-sign icon-white\">Add A New Social Media Posting Mapping</i>"), new_ssdmapping_path, class: "btn btn-mini btn-inverses" %>
+                 <%= link_to raw("<i class=\"icon-plus-sign icon-white\">Add A New Social Media Posting Mapping</i>"), new_ssdmapping_path, class: "btn btn-mini btn-info" %>
             </span>
         <% end %>
   </div><!-- class=col-lg-12 -->
@@ -26,24 +26,24 @@
        <div class="col-md-2 col-md-offset-1">
              <h4>Posting Mapping ID#<%= ssdmapping.mappingid %></h4>
              <div class="actions">
-                <%= link_to raw("<i class=\"icon-edit icon-black\">Edit</i>"), edit_ssdmaping_path(ssdmapping), class: "btn btn-mini" %>
+                <%= link_to raw("<i class=\"icon-edit icon-black\">Edit</i>"), edit_ssdmapping_path(ssdmapping), class: "btn btn-mini" %>
                 <%= link_to raw("<i class=\"icon-trash icon-black\">Delete</i>") , ssdmapping_path(ssdmapping), class: "btn btn-mini btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
              </div><!-- class=action -->
         </div><!-- class="col-md-2 col-md-offset-1" -->
         <div class="col-md-9">
-            <h4><%= ssdmapping.ssid.ssid if ssdmapping.ssid %></h4>
-             Social Media Site ID:<%= ssdmapping.ssid %><br />
-             Posting Commentor ID:<%= ssdmapping.ssdcommentorid %>
-             Posting Commentor Name:<%= ssdmapping.ssdcommentorname %><br />
-             Posting Commentor Timezone:<%= ssdmapping.ssdcommentortimezone %>
-             Posting Timezone:<%= ssdmapping.ssdpostingtimezone %><br />
-             Commentor language:<%= ssdmapping.ssdcommentorlanguage %>
-             Total Posting with Reviews:<%= ssdmapping.ssdtotalreview %>
-             Overall Rating:<%= ssdmapping.ssdoverallrating %><br />
-             Posting Commentor Rating:<%= ssdmapping.ssdcommentorrating %><br />
-             Review Comment:<%= ssdmapping.ssdcomment %><br />
-             Review Posted At:<%= ssdmapping.ssdpostat %>
-             Posting Commentor Location:<%= ssdmapping.ssdcommentorloc %><br />
+            <h4><%= ssdmapping.ssname.ssname if ssdmapping.ssname %></h4>
+             Social Media Site ID: <%= ssdmapping.ssid %><br />
+             Posting Commentor ID: <tt><%= ssdmapping.ssdcommentorid %></tt><br />
+             Posting Commentor Name: <tt><%= ssdmapping.ssdcommentorname %></tt><br />
+             Posting Commentor Timezone: <tt><%= ssdmapping.ssdcommentortimezone %></tt><br />
+             Posting Timezone: <tt><%= ssdmapping.ssdpostingtimezone %></tt><br />
+             Commentor language: <tt><%= ssdmapping.ssdcommentorlanguage %></tt><br />
+             Total Posting with Reviews: <tt><%= ssdmapping.ssdtotalreview %></tt><br />
+             Overall Rating:<tt><%= ssdmapping.ssdoverallrating %></tt><br />
+             Posting Commentor Rating: <tt><%= ssdmapping.ssdcommentorrating %></tt><br />
+             Review Comment: <tt><%= ssdmapping.ssdcomment %></tt><br />
+             Review Posted At: <tt><%= ssdmapping.ssdpostat %></tt><br />
+             Posting Commentor Location: <tt><%= ssdmapping.ssdcommentorloc %></tt><br />
         </div>
      <% end %>
   </tbody>

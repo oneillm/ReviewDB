@@ -9,7 +9,7 @@
        		<span class="glyphicon glyphicon-search"></i>
       	  <% end %>     
             <span class="actions content">
-                 <%= link_to raw("<i class=\"icon-plus-sign icon-white\">Add A New Business</i>"), new_business_path, class: "btn btn-mini btn-info" %> 
+                 <%= link_to raw("<i class=\"icon-plus-sign\">Add A New Business</i>"), new_business_path, class: "btn btn-mini btn-info" %> 
  	    </span>
         <% end %>
   </div>
@@ -18,7 +18,7 @@
 <br />
 <div class="container">
    <div class="actions content">
-      <%= link_to raw("<i class=\"icon-arrow-left icon-black\">Back</i>"),:back, class: "btn btn-mini btn-default" %>
+      <%= link_to raw("<i class=\"icon-arrow-left\">Back</i>"),session[:home_page], class: "btn btn-mini btn-default" %>
    </div>
    <h5>List of Existing Businesses</h5>
     <% @businesses.each do |business| %>
@@ -26,19 +26,19 @@
        <div class="col-md-2 col-md-offset-1">
              <h4>BusinessID#<%= business.bid %></h4>
              <div class="actions">
-                <%= link_to raw("<i class=\"icon-edit icon-black\">Edit</i>"), edit_business_path(business), class: "btn btn-mini" %>
-                <%= link_to raw("<i class=\"icon-trash icon-black\">Delete</i>") , business, class: "btn btn-mini btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%= link_to raw("<i class=\"icon-edit\">Edit</i>"), edit_business_path(business), class: "btn btn-mini" %>
+               <tt><%= link_to raw("<i class=\"icon-trash\">Delete</i>") , business, class: "btn btn-mini btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %></tt>
              </div>
         </div>
         <div class="col-md-9">
             <h4><%= business.bname %></h4>
             <div class="body">
-                Business Type: <%= business.btype %><br />
-                Geo Location: Latitude: <%= business.blatitude %>
-                              Longitude: <%= business.blongitude %><br />
-                Address: <%= business.bstreet %>, <%= business.bcity %>, <%= business.bstate %>  <%= business.bzip %>,  <%= business.bcountry %><br />
-                Phone:<%= business.bphone %> <br />
-                Status: <%= business.bstatus %><br />
+                Business Type: <tt><%= business.btype %></tt><br />
+                Geo Location: Latitude: <tt><%= business.blatitude %></tt>
+                              Longitude: <tt><%= business.blongitude %></tt><br />
+                Address: <tt><%= [business.bstreet, business.bcity, business.bstate,business.bzip, business.bcountry].compact.join(',') %></tt><br />
+                Phone: <tt><%= business.bphone %></tt> <br />
+                Status: <tt><%= business.bstatus %></tt><br />
            </div>
        </div>
        <% end %>

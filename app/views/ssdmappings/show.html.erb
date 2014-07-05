@@ -1,69 +1,45 @@
 <p id="notice"><%= notice %></p>
+<%- model_class = Ssdmapping -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Mappingid:</strong>
-  <%= @ssdmapping.mappingid %>
-</p>
-
-<p>
-  <strong>Ssid:</strong>
-  <%= @ssdmapping.ssid %>
-</p>
-
-<p>
-  <strong>Ssdcommentorid:</strong>
-  <%= @ssdmapping.ssdcommentorid %>
-</p>
-
-<p>
-  <strong>Ssdcommentorname:</strong>
-  <%= @ssdmapping.ssdcommentorname %>
-</p>
-
-<p>
-  <strong>Ssdcommentortimezone:</strong>
-  <%= @ssdmapping.ssdcommentortimezone %>
-</p>
-
-<p>
-  <strong>Ssdpostingtimezone:</strong>
-  <%= @ssdmapping.ssdpostingtimezone %>
-</p>
-
-<p>
-  <strong>Ssdcommentorlanguage:</strong>
-  <%= @ssdmapping.ssdcommentorlanguage %>
-</p>
-
-<p>
-  <strong>Ssdtotalreview:</strong>
-  <%= @ssdmapping.ssdtotalreview %>
-</p>
-
-<p>
-  <strong>Ssdoverallrating:</strong>
-  <%= @ssdmapping.ssdoverallrating %>
-</p>
-
-<p>
-  <strong>Ssdcommentorrating:</strong>
-  <%= @ssdmapping.ssdcommentorrating %>
-</p>
-
-<p>
-  <strong>Ssdcomment:</strong>
-  <%= @ssdmapping.ssdcomment %>
-</p>
-
-<p>
-  <strong>Ssdpostat:</strong>
-  <%= @ssdmapping.ssdpostat %>
-</p>
-
-<p>
-  <strong>Ssdcommentorloc:</strong>
-  <%= @ssdmapping.ssdcommentorloc %>
-</p>
-
-<%= link_to 'Edit', edit_ssdmapping_path(@ssdmapping) %> |
-<%= link_to 'Back', ssdmappings_path %>
+<dl class="dl-horizontal">
+  <dt><strong>Posting Mapping ID:</strong></dt>
+  <dd><%= @ssdmapping.mappingid %></dd>
+  <dt><strong>Social Media ID:</strong></dt>
+  <dd><%= @ssdmapping.ssid %></dd>
+  <dt><strong>Posting Commentor ID:</strong></dt>
+  <dd><%= @ssdmapping.ssdcommentorid %></dd>
+  <dt><strong>Posting Commentor Name:</strong></dt>
+  <dd><%= @ssdmapping.ssdcommentorname %></dd>
+  <dt><strong>Posting Commentor Timezone:</strong></dt>
+  <dd><%= @ssdmapping.ssdcommentortimezone %></dd>
+  <dt><strong>Posting Timezone:</strong></dt>
+  <dd><%= @ssdmapping.ssdpostingtimezone %></dd>
+  <dt><strong>Commentor Language:</strong></dt>
+  <dd><%= @ssdmapping.ssdcommentorlanguage %></dd>
+  <dt><strong>Total Reviews:</strong></dt>
+  <dd><%= @ssdmapping.ssdtotalreview %></dd>
+  <dt><strong>Overall Rating:</strong></dt>
+  <dd><%= @ssdmapping.ssdoverallrating %></dd>
+  <dt><strong>Commentor Rating:</strong></dt>
+  <dd><%= @ssdmapping.ssdcommentorrating %></dd>
+  <dt><strong>Comments:</strong></dt>
+  <dd><%= @ssdmapping.ssdcomment %></dd>
+  <dt><strong>Posting posted at:</strong></dt>
+  <dd><%= @ssdmapping.ssdpostat %></dd>
+  <dt><strong>Commentor Location:</strong></dt>
+  <dd><%= @ssdmapping.ssdcommentorloc %></dd>
+</dl>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              session[:mappingindex_page], :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_ssdmapping_path(@ssdmapping), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              ssdmapping_path(@ssdmapping),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
