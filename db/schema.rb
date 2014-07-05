@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140630202549) do
+ActiveRecord::Schema.define(version: 20140704173448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,9 +66,10 @@ ActiveRecord::Schema.define(version: 20140630202549) do
     t.string   "ssconsumerkey"
     t.string   "ssconsumersecret"
     t.string   "status"
-    t.integer  "userid"
+    t.integer  "login_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "sssearchby"
   end
 
   create_table "ssdmappings", primary_key: "mappingid", force: true do |t|

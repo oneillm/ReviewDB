@@ -4,31 +4,31 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:ssid) %>:</strong></dt>
+  <dt><strong>Social Media ID:</strong></dt>
   <dd><%= @socialmediasite.ssid %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:ssname) %>:</strong></dt>
+  <dt><strong>Social Media Name:</strong></dt>
   <dd><%= @socialmediasite.ssname %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:ssurl) %>:</strong></dt>
+  <dt><strong>URI:</strong></dt>
   <dd><%= @socialmediasite.ssurl %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:ssurlquery) %>:</strong></dt>
+  <dt><strong>Request Query:</strong></dt>
   <dd><%= @socialmediasite.ssurlquery %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:ssaccesstoken) %>:</strong></dt>
+  <dt><strong>Access Token:</strong></dt>
   <dd><%= @socialmediasite.ssaccesstoken %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:ssaccesstokensecretkey) %>:</strong></dt>
+  <dt><strong>Access Token Secret:</strong></dt>
   <dd><%= @socialmediasite.ssaccesstokensecretkey %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:ssconsumerkey) %>:</strong></dt>
+  <dt><strong>Consumer key:</strong></dt>
   <dd><%= @socialmediasite.ssconsumerkey %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:ssconsumersecret) %>:</strong></dt>
+  <dt><strong>Consumer Secret %>:</strong></dt>
   <dd><%= @socialmediasite.ssconsumersecret %></dd>
   <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
   <dd><%= @socialmediasite.status %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:userid) %>:</strong></dt>
-  <dd><%= @socialmediasite.userid %></dd>
+  <dt><strong>Search By:</strong></dt>
+  <dd><%= @socialmediasite.sssearchby %></dd>
 </dl>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              socialmediasites_path, :class => 'btn'  %>
+              session[:index_page], :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_socialmediasite_path(@socialmediasite), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

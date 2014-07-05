@@ -8,72 +8,48 @@
 <div class="row">
   <div class="col-lg-6">
         <%= form_tag socialmediasites_path, :class => 'navbar-search', :method => :get do %>
-        <%= text_field_tag$ :search, params[:search], class: 'search-query', placeholder: "Enter site name to search", :style => "padding-left:21px;height:31px;vertical-align:top" %>
+        <%= text_field_tag :search, params[:search], class: 'search-query', placeholder: "Enter site name to search", :style => "padding-left:21px;height:31px;vertical-align:top" %>
           <div class="icon-search" style="position:absolute;top:8px;left:7px;"></div>
           <%= button_tag(type: "submit", class: "btn btn-info") do %>
                 <span class="glyphicon glyphicon-search"></i>
           <% end %>
             <span class="actions content">
-                 <%= link_to raw("<i class=\"icon-plus-sign icon-white\">Add A New Social Media Site</i>"), new_socialmediasite_path, class: "btn btn-mini btn-info" %>
+                 <%= link_to raw("<i class=\"icon-plus-sign icon-white\">Add A New Social Media Site</i>"), new_socialmediasite_path, class: "btn btn-mini btn-success" %>
             </span>
         <% end %>
-  </div>
-</div>
-</div>
+  </div><!-- class=col-lg-6 -->
+</div><!-- class = row -->
+</div><!-- class = container -->
 <br />
 <div class="container">
    <div class="actions content">
-      <%= link_to raw("<i class=\"icon-arrow-left icon-black\">Back</i>"),:back, class: "btn btn-mini btn-default" %>
+      <%= link_to raw("<i class=\"icon-arrow-left icon-black\">Back</i>"),session[:home_page], class: "btn btn-mini btn-default" %>
    </div>
    <h5>List of Existing Social Media Sites</h5>
-    <% @socialmediasites.each do |socialmediasite| %>
-
-
-
-   <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:ssid) %></th>
-      <th><%= model_class.human_attribute_name(:ssname) %></th>
-      <th><%= model_class.human_attribute_name(:ssurl) %></th>
-      <th><%= model_class.human_attribute_name(:ssurlquery) %></th>
-      <th><%= model_class.human_attribute_name(:ssaccesstoken) %></th>
-      <th><%= model_class.human_attribute_name(:ssaccesstokensecretkey) %></th>
-      <th><%= model_class.human_attribute_name(:ssconsumerkey) %></th>
-      <th><%= model_class.human_attribute_name(:ssconsumersecret) %></th>
-      <th><%= model_class.human_attribute_name(:status) %></th>
-      <th><%= model_class.human_attribute_name(:userid) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
   <tbody>
     <% @socialmediasites.each do |socialmediasite| %>
-      <tr>
-        <td><%= link_to socialmediasite.id, socialmediasite_path(socialmediasite) %></td>
-        <td><%= socialmediasite.ssid %></td>
-        <td><%= socialmediasite.ssname %></td>
-        <td><%= socialmediasite.ssurl %></td>
-        <td><%= socialmediasite.ssurlquery %></td>
-        <td><%= socialmediasite.ssaccesstoken %></td>
-        <td><%= socialmediasite.ssaccesstokensecretkey %></td>
-        <td><%= socialmediasite.ssconsumerkey %></td>
-        <td><%= socialmediasite.ssconsumersecret %></td>
-        <td><%= socialmediasite.status %></td>
-        <td><%= socialmediasite.userid %></td>
-        <td><%=l socialmediasite.created_at %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_socialmediasite_path(socialmediasite), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      socialmediasite_path(socialmediasite),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
+  <!--      <%= link_to socialmediasite.ssid, socialmediasite_path(socialmediasite) %>< -->
+  <br />
+       <div class="col-md-2 col-md-offset-1">
+             <h4>Social MediaID#<%= socialmediasite.ssid %></h4>
+             <div class="actions">
+                <%= link_to raw("<i class=\"icon-edit icon-black\">Edit</i>"), edit_socialmediasite_path(socialmediasite), class: "btn btn-mini" %>
+                <%= link_to raw("<i class=\"icon-trash icon-black\">Delete</i>") , socialmediasite_path(socialmediasite), class: "btn btn-mini btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
+             </div><!-- class=action -->
+        </div><!-- class="col-md-2 col-md-offset-1" -->
+        <div class="col-md-9">
+            <h4><%= socialmediasite.ssname %></h4>
+            <div class="body">
+                URI  : <%= socialmediasite.ssurl %><br />
+                Request Query:  <%= socialmediasite.ssurlquery %><br />
+                Access Token: ****************************<br />
+                Token Secret Key: ************************<br />
+                Consumer Key: ****************************<br />
+                Consumer Secret: *************************<br />
+                Status: <%= socialmediasite.status %><br />
+           </div><!-- class="body" -->
+       </div><!-- class=col-md-9 -->
+       <% end %><!-- |socialmediasite| -->
+  
   </tbody>
-</table>
-
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_socialmediasite_path,
-            :class => 'btn btn-primary' %>
+</div><!-- container -->

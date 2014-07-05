@@ -5,6 +5,8 @@ class SsdmappingsController < ApplicationController
   # GET /ssdmappings.json
   def index
     @ssdmappings = Ssdmapping.all
+    @site = current_login.socialmediasites.all
+    session[:mappingindex_page]=request.env['HTTP_REFERER'] || ssdmappings_url
   end
 
   # GET /ssdmappings/1
@@ -14,6 +16,7 @@ class SsdmappingsController < ApplicationController
 
   # GET /ssdmappings/new
   def new
+    @site = current_login.socialmediasites.all
     @ssdmapping = Ssdmapping.new
   end
 

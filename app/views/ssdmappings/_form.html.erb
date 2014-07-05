@@ -11,59 +11,73 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :mappingid %><br>
-    <%= f.text_field :mappingid %>
-  </div>
-  <div class="field">
-    <%= f.label :ssid %><br>
-    <%= f.number_field :ssid %>
-  </div>
-  <div class="field">
-    <%= f.label :ssdcommentorid %><br>
-    <%= f.text_field :ssdcommentorid %>
-  </div>
-  <div class="field">
-    <%= f.label :ssdcommentorname %><br>
-    <%= f.text_field :ssdcommentorname %>
-  </div>
-  <div class="field">
-    <%= f.label :ssdcommentortimezone %><br>
-    <%= f.text_field :ssdcommentortimezone %>
-  </div>
-  <div class="field">
-    <%= f.label :ssdpostingtimezone %><br>
-    <%= f.text_field :ssdpostingtimezone %>
-  </div>
-  <div class="field">
-    <%= f.label :ssdcommentorlanguage %><br>
-    <%= f.text_field :ssdcommentorlanguage %>
-  </div>
-  <div class="field">
-    <%= f.label :ssdtotalreview %><br>
-    <%= f.text_field :ssdtotalreview %>
-  </div>
-  <div class="field">
-    <%= f.label :ssdoverallrating %><br>
-    <%= f.text_field :ssdoverallrating %>
-  </div>
-  <div class="field">
-    <%= f.label :ssdcommentorrating %><br>
-    <%= f.text_field :ssdcommentorrating %>
-  </div>
-  <div class="field">
-    <%= f.label :ssdcomment %><br>
-    <%= f.text_field :ssdcomment %>
-  </div>
-  <div class="field">
-    <%= f.label :ssdpostat %><br>
-    <%= f.text_field :ssdpostat %>
-  </div>
-  <div class="field">
-    <%= f.label :ssdcommentorloc %><br>
-    <%= f.text_field :ssdcommentorloc %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="control-group">
+    <div class="controls">
+    <div class="container">
+      <div class="row">
+         <div class="col-sm-3">
+               <%= f.label :mappingid,'Posting mapping ID:', :class => 'control-label' %>
+         </div>
+                <%= f.text_field :mappingid, readonly: true, :class => 'input-small' %><br />
+         <div class="col-sm-3">
+             <%= f.label :ssid, 'Social Media Site ID:' %>
+         </div>   
+             <%= f.collection_select :ssid, @site, :ssid, :ssname, :prompt => "Select a Social Media Site" %><br />
+         <div class="col-sm-3">
+              <%= f.label :ssdcommentorid, 'Posting Commentor ID:' %>
+         </div>
+              <%= f.text_field :ssdcommentorid %><br />
+         <div class="col-sm-3">
+              <%= f.label :ssdcommentorname, 'Posting Commentor Name:' %>
+         </div>
+              <%= f.text_field :ssdcommentorname %><br />
+         <div class="col-sm-3">
+              <%= f.label :ssdcommentortimezone, 'Commentor TimeZone:' %>
+         </div> 
+              <%= f.text_field :ssdcommentortimezone %><br />
+         <div class="col-sm-3">
+              <%= f.label :ssdpostingtimezone, 'Posting Timezone:' %>
+         </div>
+              <%= f.text_field :ssdpostingtimezone %><br />
+         <div class="col-sm-3">
+              <%= f.label :ssdcommentorlanguage, 'Commentor language:' %>
+         </div>
+              <%= f.text_field :ssdcommentorlanguage %><br />
+         <div class="col-sm-3">
+              <%= f.label :ssdtotalreview, 'Total Posting Reviews:' %>
+         </div>
+              <%= f.text_field :ssdtotalreview %><br />
+         <div class="col-sm-3">
+              <%= f.label :ssdoverallrating, 'Overall Rating:' %>
+         </div>
+              <%= f.text_field :ssdoverallrating %><br />
+         <div class="col-sm-3">
+              <%= f.label :ssdcommentorrating, 'Commentor Rating:' %>
+         </div>
+              <%= f.text_field :ssdcommentorrating %><br />
+         <div class="col-sm-3">
+              <%= f.label :ssdcomment, 'Review Comment:' %>
+         </div>
+              <%= f.text_field :ssdcomment %><br />
+         <div class="col-sm-3">
+              <%= f.label :ssdpostat, 'Review posted at:' %>
+         </div>
+              <%= f.text_field :ssdpostat %><br />
+         <div class="col-sm-3">
+              <%= f.label :ssdcommentorloc, 'Commentor Location:' %>
+         </div>
+              <%= f.text_field :ssdcommentorloc %><br />
+      </div><!-- row -->
+    </div><!-- container -->
+    </div><!-- controls -->
+  </div><!-- control-group -->
+  <div class="form-actions">
+    <% if @ssdmapping.persisted? %>
+        <%= f.submit 'Update',  :class => 'btn btn-primary' %>
+    <% else %>
+        <%= f.submit 'Create new mapping',  :class => 'btn btn-primary' %>
+    <% end %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                session[:mappingindex_page], :class => 'btn' %>
   </div>
 <% end %>

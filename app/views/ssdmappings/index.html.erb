@@ -1,51 +1,52 @@
-<h1>Listing ssdmappings</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Mappingid</th>
-      <th>Ssid</th>
-      <th>Ssdcommentorid</th>
-      <th>Ssdcommentorname</th>
-      <th>Ssdcommentortimezone</th>
-      <th>Ssdpostingtimezone</th>
-      <th>Ssdcommentorlanguage</th>
-      <th>Ssdtotalreview</th>
-      <th>Ssdoverallrating</th>
-      <th>Ssdcommentorrating</th>
-      <th>Ssdcomment</th>
-      <th>Ssdpostat</th>
-      <th>Ssdcommentorloc</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
+<div class="container">
+<br />
+<div class="row">
+  <div class="col-lg-12">
+        <%= form_tag ssdmappings_path, :class => 'navbar-search', :method => :get do %>
+        <%= text_field_tag :search, params[:search], class: 'search-query', placeholder: "Enter site name to search", :style => "padding-left:21px;height:31px;vertical-align:top" %>
+          <div class="icon-search" style="position:absolute;top:8px;left:7px;"></div>
+          <%= button_tag(type: "submit", class: "btn btn-info") do %>
+                <span class="glyphicon glyphicon-search"></i>
+          <% end %>
+            <span class="actions content">
+                 <%= link_to raw("<i class=\"icon-plus-sign icon-white\">Add A New Social Media Posting Mapping</i>"), new_ssdmapping_path, class: "btn btn-mini btn-inverses" %>
+            </span>
+        <% end %>
+  </div><!-- class=col-lg-12 -->
+</div><!-- class = row -->
+</div><!-- class = container -->
+<br />
+<div class="container">
+   <div class="actions content">
+      <%= link_to raw("<i class=\"icon-arrow-left icon-black\">Back</i>"),session[:home_page], class: "btn btn-mini btn-default" %>
+   </div>
+   <h5>List of Existing Social Media Posting Mappings</h5>
   <tbody>
     <% @ssdmappings.each do |ssdmapping| %>
-      <tr>
-        <td><%= ssdmapping.mappingid %></td>
-        <td><%= ssdmapping.ssid %></td>
-        <td><%= ssdmapping.ssdcommentorid %></td>
-        <td><%= ssdmapping.ssdcommentorname %></td>
-        <td><%= ssdmapping.ssdcommentortimezone %></td>
-        <td><%= ssdmapping.ssdpostingtimezone %></td>
-        <td><%= ssdmapping.ssdcommentorlanguage %></td>
-        <td><%= ssdmapping.ssdtotalreview %></td>
-        <td><%= ssdmapping.ssdoverallrating %></td>
-        <td><%= ssdmapping.ssdcommentorrating %></td>
-        <td><%= ssdmapping.ssdcomment %></td>
-        <td><%= ssdmapping.ssdpostat %></td>
-        <td><%= ssdmapping.ssdcommentorloc %></td>
-        <td><%= link_to 'Show', ssdmapping %></td>
-        <td><%= link_to 'Edit', edit_ssdmapping_path(ssdmapping) %></td>
-        <td><%= link_to 'Destroy', ssdmapping, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+       <div class="col-md-2 col-md-offset-1">
+             <h4>Posting Mapping ID#<%= ssdmapping.mappingid %></h4>
+             <div class="actions">
+                <%= link_to raw("<i class=\"icon-edit icon-black\">Edit</i>"), edit_ssdmaping_path(ssdmapping), class: "btn btn-mini" %>
+                <%= link_to raw("<i class=\"icon-trash icon-black\">Delete</i>") , ssdmapping_path(ssdmapping), class: "btn btn-mini btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
+             </div><!-- class=action -->
+        </div><!-- class="col-md-2 col-md-offset-1" -->
+        <div class="col-md-9">
+            <h4><%= ssdmapping.ssid.ssid if ssdmapping.ssid %></h4>
+             Social Media Site ID:<%= ssdmapping.ssid %><br />
+             Posting Commentor ID:<%= ssdmapping.ssdcommentorid %>
+             Posting Commentor Name:<%= ssdmapping.ssdcommentorname %><br />
+             Posting Commentor Timezone:<%= ssdmapping.ssdcommentortimezone %>
+             Posting Timezone:<%= ssdmapping.ssdpostingtimezone %><br />
+             Commentor language:<%= ssdmapping.ssdcommentorlanguage %>
+             Total Posting with Reviews:<%= ssdmapping.ssdtotalreview %>
+             Overall Rating:<%= ssdmapping.ssdoverallrating %><br />
+             Posting Commentor Rating:<%= ssdmapping.ssdcommentorrating %><br />
+             Review Comment:<%= ssdmapping.ssdcomment %><br />
+             Review Posted At:<%= ssdmapping.ssdpostat %>
+             Posting Commentor Location:<%= ssdmapping.ssdcommentorloc %><br />
+        </div>
+     <% end %>
   </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Ssdmapping', new_ssdmapping_path %>
+</div> <!-- container -->
+</div><!-- row -->
+</div><!-- container -->

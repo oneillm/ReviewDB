@@ -4,30 +4,32 @@ class SocialmediasitesController < ApplicationController
   # GET /socialmediasites
   # GET /socialmediasites.json
   def index
-    @socialmediasites = Socialmediasite.all
+      session[:index_page] = request.env['HTTP_REFERER'] || socialmediasites_url
+      @socialmediasites = Socialmediasite.search(params[:search])
   end
 
   # GET /socialmediasites/1
   # GET /socialmediasites/1.json
   def show
-     @socialmediasite = current_login.socialmediasites.find(params[:id])
+     #@socialmediasite = current_login.socialmediasites.find(session[:ssid])
   end
 
   # GET /socialmediasites/new
   def new
-    @socialmediasite = Socialmediasite.new
+    @socialmediasite = current_login.socialmediasites.new
   end
 
   # GET /socialmediasites/1/edit
   def edit
-     @socialmediasite = current_login.socialmediasites.find(params[:id])
+    # @socialmediasite = current_login.socialmediasites.find(session[:ssid])
   end
 
   # POST /socialmediasites
   # POST /socialmediasites.json
   def create
    # @socialmediasite = Socialmediasite.new(socialmediasite_params)
-     @socialmediasite = current_login.socialmediasites.build(params[:socialmediasite])
+   #  @socialmediasite = current_login.socialmediasites.build(params[:socialmediasite])
+     @socialmediasite = current_login.socialmediasites.new(socialmediasite_params)
     respond_to do |format|
       if @socialmediasite.save
         format.html { redirect_to @socialmediasite, notice: 'Socialmediasite was successfully created.' }
@@ -66,12 +68,12 @@ class SocialmediasitesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_socialmediasite
-     # @socialmediasite = Socialmediasite.find(params[:id])
-     @socialmediasite = current_login.socialmediasites.find(params[:id])
+#      @socialmediasite = Socialmediasite.by_login(current_login).find(params[:ssid])
+     @socialmediasite = Socialmediasite.find(params[:id])
    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def socialmediasite_params
-      params.require(:socialmediasite).permit(:ssid, :ssname, :ssurl, :ssurlquery, :ssaccesstoken, :ssaccesstokensecretkey, :ssconsumerkey, :ssconsumersecret, :status, :userid)
+      params.require(:socialmediasite).permit(:ssid, :ssname, :ssurl, :ssurlquery, :ssaccesstoken, :ssaccesstokensecretkey, :ssconsumerkey, :ssconsumersecret, :status, :sssearchby,:login_id)
     end
 end
