@@ -1,11 +1,19 @@
 Collectionandintegration::Application.routes.draw do
+  
+#  resources :logins
   resources :ssdmappings
 
   resources :socialmediasites
 
   resources :businesses
-
+  resources :dashboard, controller: "dashboard"
   #resources :sessions
+ # get "logins/index"
+ # get "logins/new"
+ # get "logins/show"
+ # get "logins/edit"
+ # get "logins/update"
+ # get "logins/destroy"
 
   get "socialmediasite/new"
   get "socialmediasite/create"
@@ -20,7 +28,19 @@ Collectionandintegration::Application.routes.draw do
   get "business_controller/create"
  # get "session_controller/create"
  # get "session_controller/destroy"
-  devise_for :logins, :path_names => { :sign_up => "register"}
+
+#  devise_for :logins, :path_names => { :sign_up => "register"}
+#   devise_for :logins, :controllers => {:registrations => "registrations"}
+  # devise_for :logins
+   devise_for :logins, :skip => [:sessions, :registrations]
+   devise_scope :login do
+     get '/signin' => 'devise/sessions/#new'
+     get '/logout' => 'devise/sessions#destroy'
+     get 'edit-registration' => 'devise/registrations#edit', :as => :edit_login_registration
+     post 'create-registration' => 'devise/registrations#create', :as => :login_registration
+   end
+   resources :logins, :controller => "logins"
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

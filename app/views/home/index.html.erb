@@ -25,23 +25,21 @@
                        <h4>User Maintenance</h4>
                        <nav>
                          <ul class="list">
-                            <li><%= link_to 'Find user','#' %></li>
-                            <li><%= link_to 'Add user', '#' %></li>
+                            <li><%= link_to 'Manage user', logins_path %></li>
                        </ul>
                         </nav>
-                       <h4>Business</h4>
+                       <h4>Business Maintenance</h4>
                          <nav class="list">
                             <ul>
-                            <li><%= link_to 'Find Business', businesses_path %></li>
-                            <li><%= link_to 'Add Business', new_business_path %></li>
+                            <li><%= link_to 'Business Resource', businesses_path %></li>
                             </ul>
-                        <h4>Social Media Sites</h4>
+                        <h4>Social Media Sites Maintenance</h4>
                             <ul>
-                               <li><%= link_to 'Social Media Site Data', socialmediasites_path %></li>
+                               <li><%= link_to 'Social Media Site Management', socialmediasites_path %></li>
 		            </ul>
                            <h4>Posting data Mapping</h4>
                            <ul>
-                              <li><%= link_to 'Social Media Mapping', ssdmappings_path %></li>
+                              <li><%= link_to 'Social Media Posting Mapping', ssdmappings_path %></li>
                              </ul>
                            </nav>
 		  </div><!-- administrativetasks -->
@@ -57,7 +55,7 @@
                       <h4>Please click the link below to sign in</h4>
                         <nav class="list">
                              <ul>
-                                <li><%= link_to "Administrator Sign In", new_login_session_path %></li>
+                                <li><%= link_to "Administrator Sign In", signin_path %></li>
                              </ul>
                         </nav>
                   </div>
@@ -65,7 +63,7 @@
                       <h4>Sure want to sign out? Click the link below</h4>
                        <nav class="list">
                           <ul>
-                      		<li><%= link_to "Logout", destroy_login_session_path, :method => :delete %></li>
+                      		<li><%= link_to "Logout",logout_path %></li>
                           </ul>
                        </nav>
                   </div>

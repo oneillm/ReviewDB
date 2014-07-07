@@ -1,0 +1,52 @@
+<% title "User Maintenance" %>
+<% if can? :manage, @logins %>
+   <%- model_class = Login -%>
+        <h1><%=t '.title', :default => 'User Maintenance', :class => "page-header" %></h1>
+   <div class="container">
+   <div class="row">
+   <div class="col-lg-6">
+        <%= form_tag logins_path, :class => 'navbar-search', :method => :get do %>
+        <%= text_field_tag :search, params[:search], class: 'search-query', placeholder: "Enter first or last or user name to search", :style => "padding-left:21px;height:31px;vertical-align:top" %>
+          <div class="icon-search" style="position:absolute;top:8px;left:7px;"></div>
+          <%= button_tag(type: "submit", class: "btn btn-info") do %>
+                <span class="glyphicon glyphicon-search"></i>
+          <% end %>
+            <span class="actions content">
+                 <%= link_to raw("<i class=\"icon-plus-sign icon-white\">Add A New User</i>"), new_login_path, class: "btn btn-mini btn-success" %>
+            </span>
+        <% end %><!--form_tag -->
+   </div><!-- class=col-lg-6 -->
+  </div><!-- class = row -->
+ </div><!-- class = container -->
+<br />
+<div class="container">
+   <div class="actions content">
+      <%= link_to raw("<i class=\"icon-arrow-left icon-black\">Back</i>"),session[:home_page], class: "btn btn-mini btn-default" %>
+   </div>
+   <h5>List of Existing Users</h5>
+  <tbody>
+    <% @logins.each do |login| %>
+      <div class="container">
+       <div class="col-md-3 col-md-offset-1">
+             <h4>Username:<%= login.username %></h4>
+             <div class="actions">
+                <%= link_to raw("<i class=\"icon-edit\">Edit</i>"), edit_login_path(login), class: "btn btn-mini" %>
+                <%= link_to raw("<i class=\"icon-trash\">Delete</i>") , login_path(login), class: "btn btn-mini btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
+             </div><!-- class=action -->
+        </div><!-- class="col-md-3 col-md-offset-1" -->
+        <div class="col-md-8">
+            <h4><%= [login.firstname, login.lastname].compact.join(' ') %></h4>
+                 <div class="body">
+                     Email  : <tt><%= login.email %></tt><br />
+                     Status: <tt><%= login.status %></tt><br />
+                 </div><!-- class = body -->
+         </div><!-- class=col-md-8 -->
+        </div><!-- container -->
+      <% end %><!-- |login| -->
+    </tbody>
+   </div><!-- container -->
+<% else %><!-- can ? ---- -->
+    <p>Sorry <%= [current_login.firstname, current_login.lastname].compact.join (' ') %>, you are not an Administrator</p>
+
+<% end %><!-- if can  -->
+ 

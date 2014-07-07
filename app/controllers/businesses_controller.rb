@@ -1,6 +1,7 @@
 class BusinessesController < ApplicationController
-  before_action :set_business, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_login!, :exceept => [:show, :index]
+  load_and_authorize_resource 
+ before_action :set_business, only: [:show, :edit, :update, :destroy]
+#  before_filter :authenticate_login!   # , :except => [:show, :index]
   # GET /businesses
   # GET /businesses.json
   

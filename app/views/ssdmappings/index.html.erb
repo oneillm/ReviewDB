@@ -26,7 +26,7 @@
        <div class="col-md-2 col-md-offset-1">
              <h4>Posting Mapping ID#<%= ssdmapping.mappingid %></h4>
              <div class="actions">
-                <%= link_to raw("<i class=\"icon-edit icon-black\">Edit</i>"), edit_ssdmapping_path(ssdmapping), class: "btn btn-mini" %>
+                 <%= link_to raw("<i class=\"icon-edit icon-black\">Edit</i>"), edit_ssdmapping_path(ssdmapping), class: "btn btn-mini" %>
                 <%= link_to raw("<i class=\"icon-trash icon-black\">Delete</i>") , ssdmapping_path(ssdmapping), class: "btn btn-mini btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
              </div><!-- class=action -->
         </div><!-- class="col-md-2 col-md-offset-1" -->

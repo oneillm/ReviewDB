@@ -7,6 +7,7 @@ gem 'rails', '4.0.0'
 gem 'pg'
 # devise gem for login authentication
 gem 'devise'
+gem 'cancancan', '~> 1.8'
 
 #use passenger to deploy to web server instead of WEB-Brick
 gem 'passenger'
