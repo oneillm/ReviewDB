@@ -6,7 +6,7 @@ Collectionandintegration::Application.routes.draw do
   resources :socialmediasites
 
   resources :businesses
-  resources :dashboard, controller: "dashboard"
+  #resources :dashboard, controller: "dashboard"
   #resources :sessions
  # get "logins/index"
  # get "logins/new"
@@ -29,12 +29,12 @@ Collectionandintegration::Application.routes.draw do
  # get "session_controller/create"
  # get "session_controller/destroy"
 
-#  devise_for :logins, :path_names => { :sign_up => "register"}
+#  devise_for :logins,:path => '',  :path_names => { :sign_in => "signin", :sign_out => 'logout'}
 #   devise_for :logins, :controllers => {:registrations => "registrations"}
   # devise_for :logins
-   devise_for :logins, :skip => [:sessions, :registrations]
+   devise_for :logins, :skip => [ :registrations]
    devise_scope :login do
-     get '/signin' => 'devise/sessions/#new'
+     get '/signin' => 'devise/sessions#new'
      get '/logout' => 'devise/sessions#destroy'
      get 'edit-registration' => 'devise/registrations#edit', :as => :edit_login_registration
      post 'create-registration' => 'devise/registrations#create', :as => :login_registration

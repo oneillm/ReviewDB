@@ -1,6 +1,7 @@
 class LoginsController < ApplicationController
   load_and_authorize_resource
   #before_filter :authenticate_login!
+  # before_filter {|controller| controller.instance_variable_set(:@authorized, true) if controller.devise_controller?}
  before_action :set_login, only: [:show, :edit, :update, :destroy]  
   def index
       session[:login_page]=request.env['HTTP_REFERER'] || logins_url

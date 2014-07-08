@@ -1,4 +1,5 @@
 class SsdmappingsController < ApplicationController
+  #before_filter {|controller| controller.instance_variable_set(:@authorized, true) if controller.devise_controller?}
   load_and_authorize_resource 
   before_action :set_ssdmapping, only: [:show, :edit, :update, :destroy]
 

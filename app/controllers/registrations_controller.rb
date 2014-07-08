@@ -1,5 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController 
-##  load_and_authorize_resource
+  load_and_authorize_resource
+
+
   def create
     build_resource
     resource.role = "user"
@@ -24,5 +26,30 @@ class RegistrationsController < Devise::RegistrationsController
     #@user.reset_authentication_token!
     redirect_to edit_login_registration_path(@login)
   end
+
+  def update
+   respond_to do |format|
+      if @login.update(login_params)
+        format.html { redirect_to @login, notice: 'Profile was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html {redirect_to edit_login_registration_path(@login) }
+        format.json { render json: @login.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  end
+  private
+  def set_login
+     @login = current_login
+
+  end
+  def login_params
+      params.require(:login).permit(:id, :firstname,:email, :lastname, :username,:phone,:password,:password_confirmation, :role, :status)
+    end
+end
+
+
 
 end

@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_filter {|controller| controller.instance_variable_set(:@authorized, true) if controller.devise_controller?}
    def create
       session[:password] = params[:password]
       flash[:notice] = 'Successfully signed up'
