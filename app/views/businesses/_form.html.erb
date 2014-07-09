@@ -21,14 +21,6 @@
 	     <%= f.text_field :bphone, :class => 'input-xlarge', :placeholder => 'multiple phones separated by comma' %>
              <br />
          <div class="col-sm-2">  
-               <%= f.label :blatitude,'Latitude:', :class => 'control-label' %>
-         </div>
-               <%= f.text_field :blatitude, :class => 'input-xlarge' %><br />
-         <div class="col-sm-2">  
-               <%= f.label :blongitude,'Longitude:', :class => 'control-label' %>
-         </div>
-               <%= f.text_field :blongitude, :class => 'input-xlarge' %><br />
-         <div class="col-sm-2">  
                <%= f.label :bstreet,'Address:', :class => 'control-label' %>
          </div>
                <%= f.text_field :bstreet, :class => 'input-xlarge' %><br />
@@ -53,7 +45,7 @@
                <%= f.label :bstatus,'Status:', :class => 'control-label' %>
           </div>
                <%= f.label :bstatus_active, "Active" %>
-                  <%=f.radio_button :bstatus,"active", :check=> true , :class => 'status-radiobutton' %>
+                  <%=f.radio_button :bstatus,"active", :check => true , :class => 'status-radiobutton' %>
                   <%= f.label :bstatus_inactive, "Inactive" %>
 		 <%=f.radio_button :bstatus, "inactive", :class => 'status-radiobutton' %>
   </div><!-- row -->

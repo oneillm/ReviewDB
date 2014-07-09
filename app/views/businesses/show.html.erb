@@ -3,7 +3,10 @@
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
 <div class="business-show">
+
 <dl class="dl-horizontal">
+ <div class="container">
+ <div class="col-lg-6">
   <dt><strong> ID:</strong></dt>
   <dd><%= @business.bid %></dd>
   <dt><strong> Name:</strong></dt>
@@ -28,6 +31,11 @@
   <dd><%= @business.bstatus %></dd>
   <dt><strong>Phone(s):</strong></dt>
   <dd><%= @business.bphone %></dd>
+</div>
+<div class="col-lg-6 pull-right">
+    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@business.blatitude}%2C#{@business.blongitude}" %>
+</div><!-- col-lg-6 -->
+</div><!-- container -->
 </dl>
 </div>
 <div class="form-actions">
