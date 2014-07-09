@@ -8,6 +8,7 @@ class SocialmediasitesController < ApplicationController
   def index
       session[:index_page] = request.env['HTTP_REFERER'] || socialmediasites_url
       @socialmediasites = Socialmediasite.search(params[:search])
+      @socialmediasites_array = Kaminari.paginate_array(@socialmediasites).page(params[:page]).per(1)
   end
 
   # GET /socialmediasites/1

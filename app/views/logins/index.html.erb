@@ -24,7 +24,8 @@
       <%= link_to raw("<i class=\"icon-arrow-left icon-black\">Back</i>"),session[:home_page], class: "btn btn-mini btn-default" %>
    </div>
    <h5>List of Existing Users</h5>
-  <tbody>
+    <%= paginate @logins %>
+   <tbody>
     <% @logins.each do |login| %>
       <div class="container">
        <div class="col-md-3 col-md-offset-1">

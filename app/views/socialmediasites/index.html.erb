@@ -26,8 +26,9 @@
       <%= link_to raw("<i class=\"icon-arrow-left icon-black\">Back</i>"),session[:home_page], class: "btn btn-mini btn-default" %>
    </div>
    <h5>List of Existing Social Media Sites</h5>
-  <tbody>
-    <% @socialmediasites.each do |socialmediasite| %>
+        <%= paginate @socialmediasites_array %> 
+ <tbody>
+    <% @socialmediasites_array.each do |socialmediasite| %>
   <br />
        <div class="col-md-2 col-md-offset-1">
              <h4>Social MediaID#<%= socialmediasite.ssid %></h4>
