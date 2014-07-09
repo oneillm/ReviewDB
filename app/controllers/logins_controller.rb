@@ -30,8 +30,13 @@ class LoginsController < ApplicationController
   def update
    respond_to do |format|
       if @login.update(login_params)
-        format.html { redirect_to @login, notice: 'User was successfully updated.' }
-        format.json { head :no_content }
+         if @login == current_login
+            format.html { redirect_to root_url, notice: 'Profile was sucessfully updated.' }
+            
+         else
+            format.html { redirect_to @login, notice: 'User was successfully updated.' }
+         end 
+            format.json { head :no_content }
       else
         format.html { render action: 'edit' }
         format.json { render json: @login.errors, status: :unprocessable_entity }
@@ -43,7 +48,7 @@ class LoginsController < ApplicationController
     @login = Login.find(params[:id])
     if @login.destroy
       flash[:notice] = "Successfully deleted User."
-      redirect_to session[login_page]
+      redirect_to session[:login_page]
     end
   end
   private

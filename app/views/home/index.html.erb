@@ -12,14 +12,16 @@
                         <li class="selected"><a href="#admin" data-toggle="tab">Administrator Sign In</a></li>
                     <% end %>
                     <li><a href="#viewdata" data-toggle="tab">View Postings</a></li>
-                    <li><a href="#logout" data-toggle="tab">Logout</a></li>
-               </ul></div>
+                   <% if login_signed_in? %>
+                        <li><a href="#logout" data-toggle="tab">Logout</a></li>
+                   <% end %>
+                   </ul></div>
                <div class="tab-content">        
           	  <div class="tab-pane" id="personal">
                      <h4>Update My information</h4>
 		      <nav class="list">
                        <ul>
-                           <li><%= link_to 'My profile',edit_login_registration_path  %></li>
+                           <li><%= link_to 'My profile',edit_login_path(current_login)  %></li>
                        </ul>
                       </nav>
                   </div>
