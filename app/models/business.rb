@@ -1,5 +1,6 @@
 class Business < ActiveRecord::Base
    validates_presence_of :bname
+   default_scope ->{ order('bname')}
    def to_param #overriden to_param in system
       "#{id}-#{bname}"            #use name instead of number e.g. 1
    end 

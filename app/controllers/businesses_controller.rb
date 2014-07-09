@@ -8,7 +8,8 @@ class BusinessesController < ApplicationController
   
   def index
     @businesses = Business.search(params[:search])
-   # Business.search method implement in the model level app/models/business.rb
+    @paginatable_array = Kaminari.paginate_array(@businesses).page(params[:page]).per(2)  
+ # Business.search method implement in the model level app/models/business.rb
   end
 
   # GET /businesses/1

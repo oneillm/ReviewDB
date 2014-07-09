@@ -20,8 +20,9 @@
    <div class="actions content">
       <%= link_to raw("<i class=\"icon-arrow-left\">Back</i>"),session[:home_page], class: "btn btn-mini btn-default" %>
    </div>
-   <h5>List of Existing Businesses</h5>
-    <% @businesses.each do |business| %>
+         <h5>List of Existing Businesses</h5>
+            <%= paginate @paginatable_array %>
+    <% @paginatable_array.each do |business| %>
       <br />
        <div class="col-md-2 col-md-offset-1">
              <h4>BusinessID#<%= business.bid %></h4>
