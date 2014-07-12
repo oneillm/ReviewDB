@@ -1,4 +1,5 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header>
+   <div class="navbar navbar-fixed-top navbar-inverse">
       <div class="navbar-inner">
         <div class="container">
             <h3><strong>Social Media Reviews Harvesting</strong</h3>
@@ -6,9 +7,11 @@
                  <div class="nav pull-right" %>
                     <div class="welcome"> 
                         Welcome <%= [current_login.firstname,current_login.lastname].compact.join(' ') %>
-                   </div>
+                    </div>
                 </div>
             <% end %>
         </div>
       </div>
+     <%= tabs %>
+     </div>
   </header>

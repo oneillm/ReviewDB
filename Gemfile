@@ -17,6 +17,7 @@ gem 'countries'
 gem 'country_select', github: 'stefanpenner/country_select'
 
 gem 'geocoder'
+gem 'tabulous'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
