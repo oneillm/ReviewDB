@@ -5,7 +5,7 @@ html {
 	overflow-y: scroll;
 }
 body {
-   padding-top: 30px;
+   padding-top: 60px;
 }
 section{
    overflow: auto;
@@ -14,7 +14,7 @@ textarea {
  /*  resize: vertical;
    height: 100px ;*/
    width: 240px;
-   line-height: 1.5;
+   line-height: 3;
 }
 .center {
   text-align: center;
@@ -50,6 +50,7 @@ h4 {
 h5 {
    font-size: 2em;
    color: #000088;
+   padding-top: 5px;
 }
 p {
    font-size: 1.1em;

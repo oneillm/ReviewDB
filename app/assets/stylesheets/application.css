@@ -25,15 +25,23 @@ th {
 .pagination {
      color:blue;
      font-style: italic;
-     font-weight: bold;
-     font-size: 1.2em;
+     font-weight: normal;
+     font-size: 1em;
+     text-align: left;
+     padding-top: 2px;
+     padding-bottom: 0px;
+     margin-bottom: -4px;
 }
+h5 {
+   padding-top: 5px;
+}
+
 .rememberme {
      vertical-align:top;
 }
 .deviseinput {
     width: 240px;
-    height:50px;
-    line-height: 3;
+    height:150px;
+    line-height: 1;
     font-size: 9px;
 }

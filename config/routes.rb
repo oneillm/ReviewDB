@@ -8,7 +8,7 @@ Collectionandintegration::Application.routes.draw do
   resources :businesses
   #resources :dashboard, controller: "dashboard"
   #resources :sessions
- # get "logins/index"
+  #get "users/index", to: 'logins#index'
  # get "logins/new"
  # get "logins/show"
  # get "logins/edit"
@@ -39,7 +39,7 @@ Collectionandintegration::Application.routes.draw do
      get 'edit-registration' => 'devise/registrations#edit', :as => :edit_login_registration
      post 'create-registration' => 'devise/registrations#create', :as => :login_registration
    end
-   resources :logins, :controller => "logins"
+   resources :logins,  :controller => "logins"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

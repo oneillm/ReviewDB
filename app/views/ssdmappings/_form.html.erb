@@ -1,3 +1,4 @@
+ <% if can? :manage, @logins %>
 <%= form_for(@ssdmapping) do |f| %>
   <% if @ssdmapping.errors.any? %>
     <div id="error_explanation">
@@ -13,7 +14,7 @@
 
   <div class="control-group">
     <div class="controls">
-    <div class="container">
+    <div class="container"><%= link_to 'Mapping Example', '/resource/PostingMappingExample.pdf' -%>
       <div class="row">
          <div class="col-sm-3">
                <%= f.label :mappingid,'Posting mapping ID:', :class => 'control-label' %>
@@ -80,4 +81,5 @@
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 session[:mappingindex_page], :class => 'btn' %>
   </div>
+<% end %>
 <% end %>

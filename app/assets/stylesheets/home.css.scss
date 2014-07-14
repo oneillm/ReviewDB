@@ -8,6 +8,7 @@ body {
    font-size: small;
    font-color: #000;
    background-color: #fff;
+   padding-top: 90px;
 }
 h3 {
    margin-top: 15px;
@@ -30,7 +31,7 @@ h1 {
    background-color: #ccffff;
 }
 a {
-  color: #3104B4i;
+  color: #3104B4;
   text-decoration: underline;
   &:visited {
     color: #3AF7E4;
@@ -39,6 +40,10 @@ a {
     color: #fff;
     background-color: #000;
   }
+}
+textarea {
+    width: 240px;
+    height: 120px;
 }
 
 

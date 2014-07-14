@@ -5,7 +5,7 @@ class LoginsController < ApplicationController
  before_action :set_login, only: [:show, :edit, :update, :destroy]  
   def index
       session[:login_page]=request.env['HTTP_REFERER'] || logins_url
-     @logins = Login.without_login(current_login).order("username").page(params[:page]).per(1)
+     @logins = Login.without_login(current_login).order("username").page(params[:page]).per(4)
   end
   
   def new

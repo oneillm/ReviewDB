@@ -1,8 +1,6 @@
+<% if can? :manage, @logins %>
 <%- model_class = Socialmediasite -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
-</div>
-
+  <h1><%=t '.title', :default => "Social Media Site", :class => "page-header" %></h1>
 <dl class="dl-horizontal">
   <dt><strong>Social Media ID:</strong></dt>
   <dd><%= @socialmediasite.ssid %></dd>
@@ -37,3 +35,4 @@
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
 </div>
+<% end %>

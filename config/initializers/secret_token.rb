@@ -10,3 +10,4 @@
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
 Collectionandintegration::Application.config.secret_key_base = 'c2e225e51a62ff1ee56e71ad987bf0781b136daa7c1713daefd0a589d3c0d123eb7f74159fbef5d4cf2d25db1d5b55acd16df8145439ab59c84c718105969bbb'
+

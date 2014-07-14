@@ -11,8 +11,6 @@ class ApplicationController < ActionController::Base
    end
   alias_method :current_user, :current_login
   add_flash_types :success, :info, :warning, :danger
-#  session :session_key => 'new_maintenance_admin'
-#  helper_method :newadmin?
   protected
 def configure_permitted_parameters
    registration_params =[:password, :password_confirmation,  :username, :email, :firstname, :lastname, :role, :phone,:status]

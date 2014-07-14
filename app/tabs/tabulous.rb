@@ -9,44 +9,52 @@ Tabulous.setup do
       enabled_when  { true }
       active_when   { in_action('any').of_controller('new_login_session') }
     end
-  ssdmappings_tab do
-      text          { 'Integration Mapping' }
-      link_path     { ssdmappings_path }
-      visible_when  { true }
-      enabled_when  { true }
-      active_when   { in_action('any').of_controller('ssdmappings') }
-    end
+#  postingdata_tab do
+ #     text          { 'View Posting Reviews' }
+  #    link_path     { }
+   #   visible_when  { login_signed_in? }
+    #  enabled_when  { true }
+     # active_when   { true }
+    #end
 
-    socialmediasites_tab do
+
+  businesses_tab do
+      text          { 'Business Profile' }
+      link_path     { businesses_path }
+      visible_when  { login_signed_in? }
+      enabled_when  { true }
+      active_when   { in_action('any').of_controller('businesses') }
+    end
+  socialmediasites_tab do
       text          { 'API Management' }
       link_path     { socialmediasites_path }
-      visible_when  { true }
+      visible_when  { login_signed_in? }
       enabled_when  { true }
       active_when   { in_action('any').of_controller('socialmediasites') }
     end
-
-    businesses_tab do
-      text          { 'Business Profile' }
-      link_path     { businesses_path }
-      visible_when  { true }
+  ssdmappings_tab do
+      text          { 'Integration Mapping' }
+      link_path     { ssdmappings_path }
+      visible_when  { login_signed_in? }
       enabled_when  { true }
-      active_when   { in_action('any').of_controller('businesses') }
+      active_when   { in_action('any').of_controller('ssdmappings') }
     end
 
     logins_tab do
       text          { 'User Profile' }
       link_path     { logins_path }
-      visible_when  { true }
+      visible_when  { login_signed_in? }
       enabled_when  { true }
       active_when   { in_action('any').of_controller('logins') }
     end
 
-    home_tab do
+    logout_tab do
       text          { 'Logout' }
-      link_path     { logout_path }
+      link_path     { destroy_login_session_path}
       visible_when  { login_signed_in? }
       enabled_when  { true }
       active_when   { in_action('any').of_controller('home') }
+      http_verb :delete
     end
 
   end
@@ -57,7 +65,9 @@ Tabulous.setup do
     # :default, :html5, :bootstrap, :bootstrap_pill or :bootstrap_navbar
     # :default, :bootstrap_navbar
     # or create your own renderer class and reference it here
-     renderer :bootstrap_navbar
+    #
+      renderer :bootstrap_navbar
+     # renderer :custom_nav
 
     # whether to allow the active tab to be clicked
     # defaults to true
@@ -81,13 +91,13 @@ Tabulous.setup do
   #
   # This scaffolding should be turned off and replaced by your own custom
   # CSS before using tabulous in production.
-  use_css_scaffolding do
-    background_color '#ccc'
-    text_color '073CA5'
-    active_tab_color '#fff'
-    hover_tab_color '#ddd'
-    inactive_tab_color '#aaa'
-    inactive_text_color '#888'
-  end
+  #use_css_scaffolding do
+  #  background_color '#ccc'
+  #  text_color '073CA5'
+  #  active_tab_color '#fff'
+  #  hover_tab_color '#ddd'
+  #  inactive_tab_color '#aaa'
+  #  inactive_text_color '#888'
+  #end
 
 end

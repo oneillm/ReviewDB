@@ -2,16 +2,16 @@
    <div class="navbar navbar-fixed-top navbar-inverse">
       <div class="navbar-inner">
         <div class="container">
-            <h3><strong>Social Media Reviews Harvesting</strong</h3>
+            <h3><strong>Social Media Reviews Harvester - Resources Management</strong</h3>
 	    <% if login_signed_in? %>
                  <div class="nav pull-right" %>
                     <div class="welcome"> 
                         Welcome <%= [current_login.firstname,current_login.lastname].compact.join(' ') %>
-                    </div>
-                </div>
-            <% end %>
-        </div>
-      </div>
+                    </div><!-- welcome -->
+                </div><!-- nav pull-right -->
+            <% end %><!-- if signed in -->
+        </div><!-- container -->
+      </div><!-- navbar-inner -->
      <%= tabs %>
-     </div>
+     </div><!-- navbar-inverse -->
   </header>
