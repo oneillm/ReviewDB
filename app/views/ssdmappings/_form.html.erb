@@ -14,61 +14,84 @@
 
   <div class="control-group">
     <div class="controls">
-    <div class="container"><%= link_to 'Mapping Example', '/resource/PostingMappingExample.pdf' -%>
+    <div class="container">
       <div class="row">
          <div class="col-sm-3">
                <%= f.label :mappingid,'Posting mapping ID:', :class => 'control-label' %>
          </div>
-                <%= f.text_field :mappingid, readonly: true, :class => 'input-small' %><br />
+                <%= f.text_field :mappingid, readonly: true, :class => 'input-small' %>
+  <div class="col-sm-5 pull-right">
+            <%= link_to 'Click Here for Detailed Explanation', '/resource/PostingDataRepresentation.pdf' -%>
+              <br /><%= image_tag "dataRepresentationTable.png"  %>
+         </div>
+<br />
          <div class="col-sm-3">
              <%= f.label :ssid, 'Social Media Site ID:' %>
          </div>   
-             <%= f.collection_select :ssid, @site, :ssid, :ssname, :prompt => "Select a Social Media Site" %><br />
+         <div class="col-sm-4">
+             <%= f.collection_select :ssid, @site, :ssid, :ssname, :prompt => "Select a Social Media Site" %>
+         </div>
+<br />
          <div class="col-sm-3">
               <%= f.label :ssdcommentorid, 'Posting Commentor ID:' %>
          </div>
-              <%= f.text_field :ssdcommentorid %><br />
+         <div class="col-sm-4">
+              <%= f.text_field :ssdcommentorid %>
+         </div><br />
          <div class="col-sm-3">
               <%= f.label :ssdcommentorname, 'Posting Commentor Name:' %>
          </div>
-              <%= f.text_field :ssdcommentorname %><br />
+         <div class="col-sm-4">
+              <%= f.text_field :ssdcommentorname %></div><br />
          <div class="col-sm-3">
               <%= f.label :ssdcommentortimezone, 'Commentor TimeZone:' %>
          </div> 
-              <%= f.text_field :ssdcommentortimezone %><br />
+         <div class="col-sm-4">
+              <%= f.text_field :ssdcommentortimezone %></div><br />
          <div class="col-sm-3">
               <%= f.label :ssdpostingtimezone, 'Posting Timezone:' %>
          </div>
-              <%= f.text_field :ssdpostingtimezone %><br />
+         <div class="col-sm-4">
+              <%= f.text_field :ssdpostingtimezone %></div><br />
          <div class="col-sm-3">
               <%= f.label :ssdcommentorlanguage, 'Commentor language:' %>
          </div>
-              <%= f.text_field :ssdcommentorlanguage %><br />
+         <div class="col-sm-4">
+              <%= f.text_field :ssdcommentorlanguage %></div><br />
          <div class="col-sm-3">
               <%= f.label :ssdtotalreview, 'Total Posting Reviews:' %>
          </div>
-              <%= f.text_field :ssdtotalreview %><br />
+         <div class="col-sm-4">
+              <%= f.text_field :ssdtotalreview %></div><br />
          <div class="col-sm-3">
               <%= f.label :ssdoverallrating, 'Overall Rating:' %>
          </div>
-              <%= f.text_field :ssdoverallrating %><br />
+         <div class="col-sm-4">
+              <%= f.text_field :ssdoverallrating %></div><br />
          <div class="col-sm-3">
-              <%= f.label :ssdcommentorrating, 'Commentor Rating:' %>
+              <%= f.label :ssdcommentorrating, 'Rating By Commentor:' %>
          </div>
-              <%= f.text_field :ssdcommentorrating %><br />
+         <div class="col-sm-4">
+              <%= f.text_field :ssdcommentorrating %></div><br />
          <div class="col-sm-3">
               <%= f.label :ssdcomment, 'Review Comment:' %>
          </div>
-              <%= f.text_field :ssdcomment %><br />
-         <div class="col-sm-3">
+         <div class="col-sm-4">
+              <%= f.text_field :ssdcomment %></div><br />
+          </div><!--  row -->
+          <div class="row"> <div class="col-sm-3">
               <%= f.label :ssdpostat, 'Review posted at:' %>
-         </div>
-              <%= f.text_field :ssdpostat %><br />
-         <div class="col-sm-3">
+           </div>
+             <div class="col-sm-4">
+              <%= f.text_field :ssdpostat %></div><br />
+            </div><!-- row -->
+          <div class="row">
+            <div class="col-sm-3">
               <%= f.label :ssdcommentorloc, 'Commentor Location:' %>
-         </div>
-              <%= f.text_field :ssdcommentorloc %><br />
-      </div><!-- row -->
+             </div>
+             <div class="col-sm-4">
+              <%= f.text_field :ssdcommentorloc %></div><br />
+        </div><!-- row -->
     </div><!-- container -->
     </div><!-- controls -->
   </div><!-- control-group -->

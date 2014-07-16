@@ -33,7 +33,7 @@ Tabulous.setup do
       active_when   { in_action('any').of_controller('socialmediasites') }
     end
   ssdmappings_tab do
-      text          { 'Integration Mapping' }
+      text          { 'Data Integration' }
       link_path     { ssdmappings_path }
       visible_when  { login_signed_in? }
       enabled_when  { true }
