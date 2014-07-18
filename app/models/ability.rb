@@ -7,8 +7,8 @@ class Ability
         can :manage, :all  
     else
        if login.username.downcase == "admin"
-          can :create, Login
-          can :update, Login
+          can :manage, Login
+          #can :update, Login
        else
          # cannot :manage, Login
          # cannot :manage, Business
