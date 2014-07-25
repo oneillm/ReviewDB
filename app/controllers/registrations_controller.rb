@@ -39,7 +39,6 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  end
   private
   def set_login
      @login = current_login
@@ -47,8 +46,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
   def login_params
       params.require(:login).permit(:id, :firstname,:email, :lastname, :username,:phone,:password,:password_confirmation, :role, :status)
-    end
-end
+  end
 
 
 
