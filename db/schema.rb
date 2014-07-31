@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140704173448) do
+ActiveRecord::Schema.define(version: 20140730035001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,11 +51,8 @@ ActiveRecord::Schema.define(version: 20140704173448) do
     t.datetime "updated_at"
     t.string   "phone"
     t.string   "status"
+    t.text     "selectedsites",                                    array: true
   end
-
-  add_index "logins", ["email"], name: "index_logins_on_email", unique: true, using: :btree
-  add_index "logins", ["reset_password_token"], name: "index_logins_on_reset_password_token", unique: true, using: :btree
-  add_index "logins", ["username"], name: "index_logins_on_username", unique: true, using: :btree
 
   create_table "socialmediasites", primary_key: "ssid", force: true do |t|
     t.string   "ssname"
@@ -72,6 +69,22 @@ ActiveRecord::Schema.define(version: 20140704173448) do
     t.string   "sssearchby"
   end
 
+  create_table "sscommentordata", primary_key: "ssdid", force: true do |t|
+    t.integer  "ssid"
+    t.integer  "bid"
+    t.string   "ssdcommentorid"
+    t.string   "ssdcommentorname"
+    t.string   "ssdcommentortimezone"
+    t.string   "ssdpostingtimezone"
+    t.string   "ssdcommentorlanguage"
+    t.string   "ssdcommentorrating"
+    t.text     "ssdcomment"
+    t.string   "ssdpostat"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "ssdcommentorloc"
+  end
+
   create_table "ssdmappings", primary_key: "mappingid", force: true do |t|
     t.integer  "ssid"
     t.string   "ssdcommentorid"
@@ -85,6 +98,16 @@ ActiveRecord::Schema.define(version: 20140704173448) do
     t.string   "ssdcomment"
     t.string   "ssdpostat"
     t.string   "ssdcommentorloc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ssdmetadata", primary_key: "ssdmetaid", force: true do |t|
+    t.integer  "ssid"
+    t.integer  "bid"
+    t.string   "ssdtotalreview"
+    t.string   "ssdoverallrating"
+    t.datetime "ssddownloaddatetimestamp"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

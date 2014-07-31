@@ -1,8 +1,11 @@
 class Business < ActiveRecord::Base
    validates_presence_of :bname
+   validates_presence_of :bphone
    geocoded_by :address, :latitude => :blatitude, :longitude => :blongitude
    after_validation :geocode, :if => :address_changed?
    default_scope ->{ order('bname')}
+   has_many :ssdmetadata
+   has_many :sscommentordata
    def to_param #overriden to_param in system
       "#{id}-#{bname}"            #use name instead of number e.g. 1
    end 

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ssdmetaid: 
+  ssid: 1
+  bid: 1
+  ssdtotalreview: MyString
+  ssdoverallrating: MyString
+  ssddownloaddatetimestamp: 2014-07-28 05:39:31
+
+two:
+  ssdmetaid: 
+  ssid: 1
+  bid: 1
+  ssdtotalreview: MyString
+  ssdoverallrating: MyString
+  ssddownloaddatetimestamp: 2014-07-28 05:39:31

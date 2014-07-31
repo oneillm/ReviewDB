@@ -4,7 +4,9 @@ class Ability
   def initialize(login)
     login ||= Login.new  #incase no sign in or anomynous user
     if login.role == "admin" || login.role == "both" ||login.role == "administrator"
-        can :manage, :all  
+        if login.status == "active"
+		can :manage, :all
+        end  
     else
        if login.username.downcase == "admin"
           can :manage, Login

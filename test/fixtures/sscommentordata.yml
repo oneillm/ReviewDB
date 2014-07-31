@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ssdid: 
+  ssid: 1
+  bid: 1
+  ssdcommentorid: MyString
+
+two:
+  ssdid: 
+  ssid: 1
+  bid: 1
+  ssdcommentorid: MyString
