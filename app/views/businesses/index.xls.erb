@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">BusinessID</Data></Cell>
+        <Cell><Data ss:Type="String">BusinessName</Data></Cell>
+        <Cell><Data ss:Type="String">BusinessType</Data></Cell>
+        <Cell><Data ss:Type="String">Phone</Data></Cell>
+        <Cell><Data ss:Type="String">Address</Data></Cell>
+        <Cell><Data ss:Type="String">City</Data></Cell>
+        <Cell><Data ss:Type="String">State</Data></Cell>
+        <Cell><Data ss:Type="String">ZipCode</Data></Cell>
+        <Cell><Data ss:Type="String">Country</Data></Cell>
+        <Cell><Data ss:Type="String">Latitude</Data></Cell>
+        <Cell><Data ss:Type="String">Longitude</Data></Cell>
+        <Cell><Data ss:Type="String">Status</Data></Cell>
+      </Row>
+    <% @businesses.each do |business| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= business.bid %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= business.bname %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= business.btype %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= business.bphone %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= business.bstreet %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= business.bcity %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= business.bstate %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= business.bzip %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= business.bcountry %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= business.blatitude %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= business.blongitude %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= business.bstatus %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
