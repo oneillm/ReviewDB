@@ -10,6 +10,8 @@
  *
  *= require_self
  *= require_tree .
+ *= require rails_bootstrap_forms
+ *= require bootstrap
  */
 table, td, th {
      vertical-align: middle;
@@ -44,4 +46,14 @@ h5 {
     height:150px;
     line-height: 1;
     font-size: 9px;
+}
+h8 {
+    color:red;
+    font-style: italic;
+    font-weight: normal;
+    text-decoration:unerline
+}
+.stateselect {
+    width:100%;
+    display: table-cell;
 }

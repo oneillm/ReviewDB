@@ -24,4 +24,13 @@ class Business < ActiveRecord::Base
    def address_changed?
       bstreet_changed? || bcity_changed? || bstate_changed? || bzip_changed? || bcountry_changed? 
    end
+
+   def self.to_csv(options = {})
+      CSV.generate(options) do |csv|
+         csv << ["BusinessID", "BusinessName", "BusinessType","Phone", "Address", "City", "State", "ZipCode","Country", "Latitude", "Longitude", "Status"]
+         all.each do |bsn|
+             csv << [bsn.bid, bsn.bname, bsn.btype, bsn.bphone, bsn.bstreet, bsn.bcity, bsn.bstate, bsn.bzip, bsn.bcountry, bsn.blatitude, bsn.blongitude, bsn.bstatus]
+         end
+      end
+   end
 end

@@ -10,6 +10,11 @@ class BusinessesController < ApplicationController
     @businesses = Business.search(params[:search])
     @paginatable_array = Kaminari.paginate_array(@businesses).page(params[:page]).per(2)  
  # Business.search method implement in the model level app/models/business.rb
+    respond_to do |format|
+       format.html
+       format.csv { send_data @businesses.to_csv }
+       format.xls # { send_data @businesses.to_csv(col_sep: "\t") }
+    end
   end
 
   # GET /businesses/1
