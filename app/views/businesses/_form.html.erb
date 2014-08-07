@@ -18,7 +18,9 @@
          <div class="col-sm-2">  
                <%= f.label :bphone,'Phone Number{s}:', :class => 'control-label' %>
          </div>
-	     <%= f.text_field :bphone, :class => 'input-xxlarge', :placeholder => 'separate each phone # by comma, if multiple phones are entered' %><h8>* required,digits only</h8><br />
+            <%= tooltip_for("Multiple phones can be entered, separated by comma(,)") do %>
+	     <%= f.text_field :bphone, :class => 'input-xxlarge', :placeholder => 'separate each phone # by comma, if multiple phones are entered' %>
+   <% end %><h8>* required,digits only</h8><br />
          <div class="col-sm-2">  
                <%= f.label :bstreet,'Address:', :class => 'control-label' %>
          </div>
