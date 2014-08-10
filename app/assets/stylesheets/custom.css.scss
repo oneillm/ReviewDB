@@ -38,19 +38,28 @@ h1 {
 h2 {
    font-size: 1.2em;
    letter-spacing: -1px;
-   margin-bottom: 20px;
+   margin-bottom: 0px;
    text-align: center;
    font-weight: normal;
    color: #999;
 }
+h3 {
+   font-size: 1.0em;
+   letter-spacing:1px;
+   text-align: center;
+   font-weigth: normal;
+}
+   
 h4 {
    font-size: 1.0em;
    color: #0000FF;
+   text-align: left;
 }
 h5 {
    font-size: 2em;
    color: #000088;
    padding-top: 5px;
+   text-align: left;
 }
 p {
    font-size: 1.1em;

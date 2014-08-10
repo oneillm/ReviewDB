@@ -10,7 +10,6 @@
  *
  *= require_self
  *= require_tree .
- *= require rails_bootstrap_forms
  *= require bootstrap
  */
 table, td, th {
@@ -30,14 +29,22 @@ th {
      font-weight: normal;
      font-size: 1em;
      text-align: left;
-     padding-top: 2px;
+     padding-top: 1px;
      padding-bottom: 0px;
-     margin-bottom: -4px;
+     margin-bottom: 0px;
 }
-h5 {
-   padding-top: 5px;
+h4 {
+   horizontal-align: center;
+   text-align: center;
 }
 
+h5 {
+   padding-top: 0px;
+   text-align: left;
+}
+h6 {
+    text-align: left;
+}
 .rememberme {
      vertical-align:top;
 }
@@ -51,9 +58,61 @@ h8 {
     color:red;
     font-style: italic;
     font-weight: normal;
-    text-decoration:unerline
 }
 .stateselect {
     width:100%;
     display: table-cell;
+}
+::-webkit-input-placeholder {
+    font-style: italic;
+    font-size: 75%;
+    font-weight: normal;
+    color: red;
+    text-align: center;
+}
+:-moz-placeholder { /* Firefox 18- */
+    font-size: 75%;
+    color: red;
+    text-align: center;
+}
+::-moz-placeholder { /* Firefox 19+ */
+   color: red;
+   font-size: 75%;
+   text-align: center;
+}
+:-ms-input-placeholder {
+   color: red;
+   font-size: 75%;
+   text-align: center;
+}
+input.search-query {
+    padding-left:30px;
+}
+form.form-search {
+    position: relative;
+}
+form.form-search:before {
+    display: block;
+    width: 30px;
+    height: 14px;
+    content: "\e003";
+    font-family: 'Glyphicons Halflings';
+    background-position: -48px 0;
+    position: absolute;
+    top:8px;
+    left:8px;
+    opacity: .5;
+    z-index: 1000;
+}
+.pull-right {
+    float: right !important;
+}
+.pull-left {
+    float: left !important;
+}
+.yellow, .yellow a {
+    color: #ffff00;
+}
+.white, .white a {
+   color: #fff;
 }

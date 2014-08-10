@@ -1,44 +1,44 @@
 <% if can? :manage, @logins %>
    <%- model_class = Business -%>
-        <h1><%=t '.title', :default => 'Business Profile', :class => "page-header" %></h1>
+        <h2><%=t '.title', :default => 'Business Profile', :class => "page-header" %></h2>
 <div class="container">
-<div class="row">
-  <div class="col-lg-6">
-        <%= form_tag businesses_path, :class => 'navbar-search', :method => :get do %>
-	<%= text_field_tag :search, params[:search], class: 'search-query', placeholder: "By Business name or phone", :style => "padding-left:21px;height:31px;vertical-align:top" %>
-          <div class="icon-search" style="position:absolute;top:8px;left:7px;"></div>
-          <%= button_tag(type: "submit", class: "btn btn-info") do %>
-       		<span class="glyphicon glyphicon-search"></i>
-      	  <% end %>     
-            <span class="actions content">
-                 <%= link_to raw("<i class=\"icon-plus-sign\">Add A New Business</i>"), new_business_path, class: "btn btn-mini btn-info" %> 
- 	    </span>
+	<div class="actions content">
+		<%= link_to raw('<i class="glyphicon glyphicon-plus white"> New Business</i>'), new_business_path, class: "btn btn-small btn-info pull-left" %></div>
+        <%= form_tag businesses_path, :class => 'form-search form-inline pull-right', :method => :get do %>
+      <div class="input-group">
+	<%= text_field_tag :search, params[:search], class: 'form-control search-query pull-right', placeholder: "By Business name or phone" %>
+       	    <span class="input-group-btn">
+                <button type="submit" class="btn btn-primary pull-right">Search</button>
+            </span></div>    	
         <% end %>
-  </div>
-</div> 
 </div>
 <div class="container">
-  <!-- <div class="actions content"> <%= link_to raw("<i class=\"icon-arrow-left\">Back</i>"),session[:home_page], class: "btn btn-mini btn-default" %></div>  -->
-<h5>List of Existing Businesses</h5>
+	<h3>List of Existing Businesses</h3>
        <div class="col-md-12"><%= paginate @paginatable_array %></div>
 <% @paginatable_array.each do |business| %>
        <div class="col-md-2 col-md-offset-1">
              <h4>BusinessID#<%= business.bid %></h4>
              <div class="actions">
-                <%= link_to raw("<i class=\"icon-edit\">Edit</i>"), edit_business_path(business), class: "btn btn-mini" %>
-               <tt><%= link_to raw("<i class=\"icon-trash\">Delete</i>") , business, class: "btn btn-mini btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %></tt>
+                <%= link_to raw('<i class="glyphicon glyphicon-edit">Edit</i>'), edit_business_path(business), class: "btn btn-xs" %>
+               <tt><%= link_to raw('<i class="glyphicon glyphicon-trash">Delete</i>') , business, class: "btn btn-xs btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %></tt>
              </div>
         </div>
         <div class="col-md-9">
-            <h4><%= business.bname %></h4>
+            <h5><%= business.bname %></h5>
             <div class="body">
-                Business Type: <tt><%= business.btype %></tt><br />
-                Geo Location: Latitude: <tt><%= business.blatitude %></tt>
-                              Longitude: <tt><%= business.blongitude %></tt><br />
-                Address: <tt><%= [business.bstreet, business.bcity, business.bstate,business.bzip, business.bcountry].compact.join(',') %></tt><br />
-                Phone: <tt><%= business.bphone %></tt> <br />
-                Status: <tt><%= business.bstatus %></tt><br />
-           </div>
+               		 <div class="col-md-2">
+                		Business Type:</div> 
+                	<div class="col-md-7">
+                                <%= business.btype %></div><br />
+                	<div class="col-md-2">Geo Location:</div>
+                                <div class="col-md-7"><%= business.blatitude %><%= business.blongitude %></div><br />
+                	<div class="col-md-2">Address:</div>
+                                <div class="col-md-7"><%= [business.bstreet, business.bcity, business.bstate].compact.join(', ') %>  <%= [business.bzip, business.bcountry].compact.join(', ') %></div><br />
+                	<div class="col-md-2">Phone: </div>
+                        	<div class="col-md-7"><%= business.bphone %></div> <br />
+                	<div class="col-md-2">Status: </div>
+            			<div class="col-md-7"><%= business.bstatus %></div><br />
+	  </div>
        </div>
        <% end %>
   </div>
