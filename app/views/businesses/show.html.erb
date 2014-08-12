@@ -1,53 +1,53 @@
 <%- model_class = Business -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+  <h2><%=t '.title', :default => model_class.model_name.human.titleize %></h2>
 </div>
 <div class="business-show">
 
 <dl class="dl-horizontal">
  <div class="container">
- <div class="col-lg-6">
-  <dt><strong> ID:</strong></dt>
-  <dd><%= @business.bid %></dd>
-  <dt><strong> Name:</strong></dt>
-  <dd><%= @business.bname %></dd>
-  <dt><strong>Type:</strong></dt>
-  <dd><%= @business.btype %></dd>
-  <dt><strong>Latitude:</strong></dt>
-  <dd><%= @business.blatitude %></dd>
-  <dt><strong>Longitude:</strong></dt>
-  <dd><%= @business.blongitude %></dd>
-  <dt><strong>Address:</strong></dt>
-  <dd><%= @business.bstreet %></dd>
-  <dt><strong>City:</strong></dt>
-  <dd><%= @business.bcity %></dd>
-  <dt><strong>State:</strong></dt>
-  <dd><%= @business.bstate %></dd>
-  <dt><strong>Zip Code:</strong></dt>
-  <dd><%= @business.bzip %></dd>
-  <dt><strong>Country:</strong></dt>
-  <dd><%= @business.bcountry %></dd>
-  <dt><strong>Status:</strong></dt>
-  <dd><%= @business.bstatus %></dd>
-  <dt><strong>Phone(s):</strong></dt>
-  <dd><%= @business.bphone %></dd>
-</div>
-<div class="col-lg-6 pull-right">
+ <div class="col-sm-6">
+     <div class="row">
+ 	 <dt><strong> ID:</strong></dt>
+  	<dd><%= @business.bid %></dd>
+  	<dt><strong> Name:</strong></dt>
+  	<dd><%= @business.bname %></dd>
+  	<dt><strong>Type:</strong></dt>
+  	<dd><%= @business.btype %></dd>
+  	<dt><strong>Latitude:</strong></dt>
+  	<dd><%= @business.blatitude %></dd>
+  	<dt><strong>Longitude:</strong></dt>
+  	<dd><%= @business.blongitude %></dd>
+  	<dt><strong>Address:</strong></dt>
+  	<dd><%= @business.bstreet %></dd>
+  	<dt><strong>City:</strong></dt>
+  	<dd><%= @business.bcity %></dd>
+  	<dt><strong>State:</strong></dt>
+  	<dd><%= @business.bstate %></dd>
+  	<dt><strong>Zip Code:</strong></dt>
+  	<dd><%= @business.bzip %></dd>
+  	<dt><strong>Country:</strong></dt>
+  	<dd><%= @business.bcountry %></dd>
+  	<dt><strong>Status:</strong></dt>
+  	<dd><%= @business.bstatus %></dd>
+  	<dt><strong>Phone(s):</strong></dt>
+  	<dd><%= @business.bphone %></dd>
+     </div><!-- row -->
+    </div><!-- col-sm-6 -->
+  <div class="col-lg-6">
 <!--    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@business.blatitude}%2C#{@business.blongitude}" %>  -->
-   <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=11&markers=#{@business.blatitude}%2C#{@business.blongitude}" %>
-
+   <%= image_tag "http://maps.google.com/maps/api/staticmap?size=475x265&sensor=false&zoom=9&markers=#{@business.blatitude}%2C#{@business.blongitude}" %>
 </div><!-- col-lg-6 -->
 </div><!-- container -->
 </dl>
 </div>
 <div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              businesses_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_business_path(@business), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+  <%= link_to '<i class="glyphicon glyphicon-hand-left"></i>Back'.html_safe,
+              businesses_path, class: "btn btn-sm btn-custom-back"  %>
+  <%= link_to '<i class="glyphicon glyphicon-edit"></i>Edit'.html_safe,
+              edit_business_path(@business), class: "btn btn-sm btn-custom-edit" %>
+  <%= link_to '<i class="glyphicon glyphicon-trash"></i>Delete'.html_safe,
               business_path(@business),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-warning' %>
+	      class: "btn btn-sm btn-custom-delete", method: :delete,
+              data: { confirm: 'Are you sure?' } %>
 </div>
