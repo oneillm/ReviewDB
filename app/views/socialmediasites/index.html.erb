@@ -1,47 +1,60 @@
 <% if can? :manage, @logins %>
 <%- model_class = Socialmediasite -%>
   <h1><%=t '.title', :default => 'API Management', :class => "page-header" %></h1>
-<div class="container"><div class="row">
-  <div class="col-lg-6">
-        <%= form_tag socialmediasites_path, :class => 'navbar-search', :method => :get do %>
-        <%= text_field_tag :search, params[:search], class: 'search-query', placeholder: "Enter site name to search", :style => "padding-left:21px;height:31px;vertical-align:top" %>
-          <div class="icon-search" style="position:absolute;top:8px;left:7px;"></div>
-          <%= button_tag(type: "submit", class: "btn btn-info") do %>
-                <span class="glyphicon glyphicon-search"></i>
-          <% end %>
-            <span class="actions content">
-                 <%= link_to raw("<i class=\"icon-plus-sign icon-white\">Add A New Social Media Site</i>"), new_socialmediasite_path, class: "btn btn-mini btn-info" %>
-            </span>
-        <% end %>
-  </div><!-- class=col-lg-6 -->
-</div><!-- class = row -->
-</div><!-- class = container -->
 <div class="container">
-   <h5>List of Existing Social Media Sites</h5>
-       <div class="col-md-12"><%= paginate @socialmediasites_array %></div> 
- <tbody>
+     <div class="actions content">
+           <%= link_to '<i class="glyphicon glyphicon-plus white"> New API Site Entry</i>'.html_safe, new_socialmediasite_path, class: "btn btn-csm btn-add-new pull-left" %>
+     </div>
+     <%= form_tag socialmediasites_path, :class => 'form-search form-inline pull-right', :method => :get do %>
+      	 <div class="input-group">
+             <%= text_field_tag :search, params[:search], class: 'form-control search-query pull-right', placeholder: "Enter site name to search" %>
+             <span class="input-group-btn">
+                <button type="submit" class="btn btn-primary pull-right"><i class="glyphicon glyphicon-search"></i>  Search</button>
+             </span>
+         </div>
+     <% end %>
+        <h3>List of Existing Social Media Sites</h3>
+    </div><%= paginate @socialmediasites_array %> 
+<div class="container">
     <% @socialmediasites_array.each do |socialmediasite| %>
        <div class="col-md-2 col-md-offset-1">
-             <h4>Social MediaID#<%= socialmediasite.ssid %></h4>
+             <h7>Social MediaID#<%= socialmediasite.ssid %></h7>
              <div class="actions">
-                <%= link_to raw("<i class=\"icon-edit icon-black\">Edit</i>"), edit_socialmediasite_path(socialmediasite), class: "btn btn-mini" %>
-                <%= link_to raw("<i class=\"icon-trash icon-black\">Delete</i>") , socialmediasite_path(socialmediasite), class: "btn btn-mini btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%= link_to '<i class="glyphicon glyphicon-edit"> Edit</i>'.html_save, edit_socialmediasite_path(socialmediasite), class: "btn btn-sm btn-custom-edit" %>
+                <%= link_to '<i class="glyphicon glyphicon-trash"> Delete</i>' , socialmediasite_path(socialmediasite), class: "btn btn-sm btn-custom-delete", method: :delete, data: { confirm: 'Are you sure?' } %>
              </div><!-- class=action -->
         </div><!-- class="col-md-2 col-md-offset-1" -->
         <div class="col-md-9">
-            <h4><%= socialmediasite.ssname %></h4>
-            <div class="body">
-                URI  : <tt><%= socialmediasite.ssurl %></tt><br />
-                Request Query: <tt> <%= socialmediasite.ssurlquery %></tt><br />
-                Access Token:<tt> ****************************</tt><br />
-                Token Secret Key: <tt>************************</tt><br />
-                Consumer Key: <tt>****************************</tt><br />
-                Consumer Secret: <tt>*************************</tt><br />
-                Status: <tt><%= socialmediasite.status %></tt><br />
-           </div><!-- class="body" -->
+            <h7><%= socialmediasite.ssname %></h7>
+            <div class="row">
+               <div class="col-sm-2">URI:</div>
+               <div class="col-sm-7"><%= socialmediasite.ssurl %></div>
+            </div><!-- class="row" -->
+            <div class="row">
+               <div class="col-sm-2">Request Query: </div>
+               <div class="col-sm-7"><%= socialmediasite.ssurlquery %></div>
+            </div><!-- class="row" -->
+            <div class="row">
+               <div class="col-sm-2">Access Token:</div>
+               <div class="col-sm-7">****************************</div>
+            </div><!-- class="row" -->
+            <div class="row">
+               <div class="col-sm-2">Token Secret Key: </div>
+               <div class="col-sm-7">****************************</div>
+            </div><!-- class="row" -->
+            <div class="row">
+               <div class="col-sm-2">Consumer Key: </div>
+               <div class="col-sm-7">****************************</div>
+            </div><!-- class="row" -->
+            <div class="row">
+               <div class="col-sm-2">Consumer Secret: </div>
+               <div class="col-sm-7">****************************</div>
+            </div><!-- class="row" -->
+            <div class="row">
+               <div class="col-sm-2">Status: </div>
+               <div class="col-sm-7"><%= socialmediasite.status %></div>
+            </div><!-- class="row" -->
        </div><!-- class=col-md-9 -->
        <% end %><!-- |socialmediasite| -->
-  
-  </tbody>
 </div><!-- container -->
 <% end %>
