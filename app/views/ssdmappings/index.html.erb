@@ -1,53 +1,82 @@
 <% if can? :manage, @logins %>
    <%- model_class = Ssdmapping -%>
-        <h1><%=t '.title', :default => 'Social Media Data Integration', :class => "page-header" %></h1>
+        <h2><%=t '.title', :default => 'Social Media Data Representation', :class => "page-header" %></h2>
 <div class="container">
-<div class="row">
-  <div class="col-lg-12">
-        <%= form_tag ssdmappings_path, :class => 'navbar-search', :method => :get do %>
-        <%= text_field_tag :search, params[:search], class: 'search-query', placeholder: "Enter site name to search", :style => "padding-left:21px;height:31px;vertical-align:top" %>
-          <div class="icon-search" style="position:absolute;top:8px;left:7px;"></div>
-          <%= button_tag(type: "submit", class: "btn btn-info") do %>
-                <span class="glyphicon glyphicon-search"></i>
-          <% end %>
-            <span class="actions content">
-                 <%= link_to raw("<i class=\"icon-plus-sign icon-white\">Add A New Social Media Posting Mapping</i>"), new_ssdmapping_path, class: "btn btn-mini btn-info" %>
-            </span>
-        <% end %>
-  </div><!-- class=col-lg-12 -->
-</div><!-- class = row -->
+     <div class="actions content">
+           <%= link_to '<i class="glyphicon glyphicon-plus white"> New Data Mapping Rule Entry</i>'.html_safe, new_ssdmapping_path, class: "btn btn-csm btn-add-new pull-left" %>
+     </div>
+     <%= form_tag ssdmappings_path, :class => 'form-search form-inline pull-right', :method => :get do %>
+      	 <div class="input-group">
+             <%= text_field_tag :search, params[:search], class: 'form-control search-query pull-right', placeholder: "Enter site name to search" %>
+             <span class="input-group-btn">
+                <button type="submit" class="btn btn-primary pull-right"><i class="glyphicon glyphicon-search"></i>  Search</button>
+             </span>
+         </div>
+     <% end %>
+        <h3>List of Existing Social Media Mapping Rules</h3>
 </div><!-- class = container -->
-<br />
+   <%= paginate @ssdmappings %>
 <div class="container">
- <h5>List of Existing Social Media Posting Mappings</h5>
-   <div><%= paginate @ssdmappings %></div>
-  <tbody>
     <% @ssdmappings.each do |ssdmapping| %>
        <div class="col-md-2 col-md-offset-1">
-             <h4>Posting Mapping ID#<%= ssdmapping.mappingid %></h4>
+             <h7>Posting Mapping ID#<%= ssdmapping.mappingid %></h7>
              <div class="actions">
-                 <%= link_to raw("<i class=\"icon-edit icon-black\">Edit</i>"), edit_ssdmapping_path(ssdmapping), class: "btn btn-mini" %>
-                <%= link_to raw("<i class=\"icon-trash icon-black\">Delete</i>") , ssdmapping_path(ssdmapping), class: "btn btn-mini btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
+		 <%= link_to '<i class="glyphicon glyphicon-edit">Edit</i>'.html_safe, edit_ssdmapping_path(ssdmapping), class: "btn btn-xs btn-custom-edit" %>
+                <tt><%= link_to '<i class="glyphicon glyphicon-trash">Delete</i>'.html_safe , ssdmapping_path(ssdmapping), class: "btn btn-xs btn-custom-delete", method: :delete, data: { confirm: 'Are you sure?' } %></tt>
              </div><!-- class=action -->
         </div><!-- class="col-md-2 col-md-offset-1" -->
         <div class="col-md-9">
-            <h4><%= ssdmapping.ssname.ssname if ssdmapping.ssname %></h4>
-             Social Media Site ID: <%= ssdmapping.ssid %><br />
-             Posting Commentor ID: <tt><%= ssdmapping.ssdcommentorid %></tt><br />
-             Posting Commentor Name: <tt><%= ssdmapping.ssdcommentorname %></tt><br />
-             Posting Commentor Timezone: <tt><%= ssdmapping.ssdcommentortimezone %></tt><br />
-             Posting Timezone: <tt><%= ssdmapping.ssdpostingtimezone %></tt><br />
-             Commentor language: <tt><%= ssdmapping.ssdcommentorlanguage %></tt><br />
-             Total Posting with Reviews: <tt><%= ssdmapping.ssdtotalreview %></tt><br />
-             Overall Rating:<tt><%= ssdmapping.ssdoverallrating %></tt><br />
-             Posting Commentor Rating: <tt><%= ssdmapping.ssdcommentorrating %></tt><br />
-             Review Comment: <tt><%= ssdmapping.ssdcomment %></tt><br />
-             Review Posted At: <tt><%= ssdmapping.ssdpostat %></tt><br />
-             Posting Commentor Location: <tt><%= ssdmapping.ssdcommentorloc %></tt><br />
-        </div>
+            <h7><%= ssdmapping.ssname.ssname if ssdmapping.ssname %></h7>
+            <div class="row">
+               <div class="col-md-2">Social Media Site ID: </div>
+               <div class="col-md-7"><%= ssdmapping.ssid %></div>
+            </div>
+            <div class="row">
+               <div class="col-md-2">Posting Commentor ID: </div>
+               <div class="col-md-7"><%= ssdmapping.ssdcommentorid %></div>
+            </div>
+	    <div class="row">
+               <div class="col-md-2">Posting Commentor Name: </div>
+               <div class="col-md-7"><%= ssdmapping.ssdcommentorname %></div>
+            </div>
+	    <div class="row">
+               <div class="col-md-2">Posting Commentor Timezone: </div>
+               <div class="col-md-7"><%= ssdmapping.ssdcommentortimezone %></div>
+            </div>
+	    <div class="row">
+               <div class="col-md-2">Posting Timezone: </div>
+               <div class="col-md-7"><%= ssdmapping.ssdpostingtimezone %></div>
+	    </div
+	    <div class="row">
+               <div class="col-md-2">Commentor language: </div>
+               <div class="col-md-7"><%= ssdmapping.ssdcommentorlanguage %></div>
+            </div>
+	    <div class="row">
+               <div class="col-md-2">Total Posting with Reviews: </div>
+               <div class="col-md-7"><%= ssdmapping.ssdtotalreview %></div>
+            </div>
+	    <div class="row">
+               <div class="col-md-2">Overall Rating:</div>
+               <div class="col-md-7"><%= ssdmapping.ssdoverallrating %></div>
+            </div>
+	    <div class="row">
+               <div class="col-md-2">Posting Commentor Rating:</div>
+               <div class="col-md-7"><%= ssdmapping.ssdcommentorrating %></div>
+            </div>
+	    <div class="row">
+               <div class="col-md-2">Review Comment: </div>
+               <div class="col-md-7"><%= ssdmapping.ssdcomment %></div>
+            </div>
+	    <div class="row">
+               <div class="col-md-2">Review Posted At: </div>
+               <div class="col-md-7"><%= ssdmapping.ssdpostat %></div>
+            </div>
+	    <div class="row">
+               <div class="col-md-2">Posting Commentor Location: </div>
+               <div class="col-md-7"><%= ssdmapping.ssdcommentorloc %></div>
+            </div>
+        </div><!-- col-9 -->
      <% end %>
-  </tbody>
 </div> <!-- container -->
-</div><!-- row -->
-</div><!-- container -->
+</div> <!-- container -->
 <% end %>

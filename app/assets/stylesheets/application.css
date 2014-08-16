@@ -163,7 +163,38 @@ form.form-search:before {
     margin-top: 10px;
     margin-bottom: 0px;
 }
-
+.btn-custom-back {
+  background-color: hsl(234, 34%, 73%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#cbcee5", endColorstr="#a2a7d1");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#cbcee5), to(#a2a7d1));
+  background-image: -moz-linear-gradient(top, #cbcee5, #a2a7d1);
+  background-image: -ms-linear-gradient(top, #cbcee5, #a2a7d1);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #cbcee5), color-stop(100%, #a2a7d1));
+  background-image: -webkit-linear-gradient(top, #cbcee5, #a2a7d1);
+  background-image: -o-linear-gradient(top, #cbcee5, #a2a7d1);
+  background-image: linear-gradient(#cbcee5, #a2a7d1);
+  border-color: #a2a7d1 #a2a7d1 hsl(234, 34%, 70%);
+  color: #333 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.19);
+  -webkit-font-smoothing: antialiased;
+}
+.btn-custom-back:hover {
+ background-color: hsl(272, 70%, 80%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ebdcf8", endColorstr="#cea8ef");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#ebdcf8), to(#cea8ef));
+  background-image: -moz-linear-gradient(top, #ebdcf8, #cea8ef);
+  background-image: -ms-linear-gradient(top, #ebdcf8, #cea8ef);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ebdcf8), color-stop(100%, #cea8ef));
+  background-image: -webkit-linear-gradient(top, #ebdcf8, #cea8ef);
+  background-image: -o-linear-gradient(top, #ebdcf8, #cea8ef);
+  background-image: linear-gradient(#ebdcf8, #cea8ef);
+  border-color: #cea8ef #cea8ef hsl(272, 70%, 77%);
+  color: #333 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.19);
+  -webkit-font-smoothing: antialiased;
+}
 .btn-custom-edit {
   background-color: hsl(8, 2%, 14%) !important;
   background-repeat: repeat-x;
@@ -261,4 +292,15 @@ form.form-search:before {
   color: #333 !important;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.52);
   -webkit-font-smoothing: antialiased;
+}
+.nopadding {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+.a {
+   color: blue;
+   text-decoration: underline;
+   text-decoration-color: underline;
 }

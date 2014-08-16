@@ -20,39 +20,39 @@
        <div class="col-md-2 col-md-offset-1">
              <h7>Social MediaID#<%= socialmediasite.ssid %></h7>
              <div class="actions">
-                <%= link_to '<i class="glyphicon glyphicon-edit"> Edit</i>'.html_save, edit_socialmediasite_path(socialmediasite), class: "btn btn-sm btn-custom-edit" %>
-                <%= link_to '<i class="glyphicon glyphicon-trash"> Delete</i>' , socialmediasite_path(socialmediasite), class: "btn btn-sm btn-custom-delete", method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%= link_to '<i class="glyphicon glyphicon-edit">Edit</i>'.html_safe, edit_socialmediasite_path(socialmediasite), class: "btn btn-xs btn-custom-edit" %>
+                <tt><%= link_to '<i class="glyphicon glyphicon-trash">Delete</i>'.html_safe , socialmediasite_path(socialmediasite), class: "btn btn-xs btn-custom-delete", method: :delete, data: { confirm: 'Are you sure?' } %></tt>
              </div><!-- class=action -->
         </div><!-- class="col-md-2 col-md-offset-1" -->
         <div class="col-md-9">
             <h7><%= socialmediasite.ssname %></h7>
             <div class="row">
-               <div class="col-sm-2">URI:</div>
-               <div class="col-sm-7"><%= socialmediasite.ssurl %></div>
+               <div class="col-md-3">URI:</div>
+               <div class="col-md-6"><%= socialmediasite.ssurl %></div>
             </div><!-- class="row" -->
             <div class="row">
-               <div class="col-sm-2">Request Query: </div>
-               <div class="col-sm-7"><%= socialmediasite.ssurlquery %></div>
+               <div class="col-md-3">Request Query: </div>
+               <div class="col-md-6"><%= socialmediasite.ssurlquery %></div>
             </div><!-- class="row" -->
             <div class="row">
-               <div class="col-sm-2">Access Token:</div>
-               <div class="col-sm-7">****************************</div>
+               <div class="col-md-3">Access Token:</div>
+               <div class="col-md-6">****************************</div>
             </div><!-- class="row" -->
             <div class="row">
-               <div class="col-sm-2">Token Secret Key: </div>
-               <div class="col-sm-7">****************************</div>
+               <div class="col-md-3">Token Secret Key: </div>
+               <div class="col-md-6">****************************</div>
             </div><!-- class="row" -->
             <div class="row">
-               <div class="col-sm-2">Consumer Key: </div>
-               <div class="col-sm-7">****************************</div>
+               <div class="col-md-3">Consumer Key: </div>
+               <div class="col-md-6">****************************</div>
             </div><!-- class="row" -->
             <div class="row">
-               <div class="col-sm-2">Consumer Secret: </div>
-               <div class="col-sm-7">****************************</div>
+               <div class="col-md-3">Consumer Secret: </div>
+               <div class="col-md-6">****************************</div>
             </div><!-- class="row" -->
             <div class="row">
-               <div class="col-sm-2">Status: </div>
-               <div class="col-sm-7"><%= socialmediasite.status %></div>
+               <div class="col-md-3">Status: </div>
+               <div class="col-md-6"><%= socialmediasite.status %></div>
             </div><!-- class="row" -->
        </div><!-- class=col-md-9 -->
        <% end %><!-- |socialmediasite| -->

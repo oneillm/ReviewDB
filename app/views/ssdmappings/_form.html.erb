@@ -14,95 +14,142 @@
 
   <div class="control-group">
     <div class="controls">
-    <div class="container">
-      <div class="row">
-         <div class="col-sm-3">
-               <%= f.label :mappingid,'Posting mapping ID:', :class => 'control-label' %>
-         </div>
-                <%= f.text_field :mappingid, readonly: true, :class => 'input-small' %>
-  <div class="col-sm-5 pull-right">
-            <%= link_to 'Click Here for Detailed Explanation', '/resource/PostingDataRepresentation.pdf' -%>
-              <br /><%= image_tag "dataRepresentationTable.png"  %>
-         </div>
-<br />
-         <div class="col-sm-3">
-             <%= f.label :ssid, 'Social Media Site ID:' %>
-         </div>   
-         <div class="col-sm-4">
-             <%= f.collection_select :ssid, @site, :ssid, :ssname, :prompt => "Select a Social Media Site" %>
-         </div>
-<br />
-         <div class="col-sm-3">
-              <%= f.label :ssdcommentorid, 'Posting Commentor ID:' %>
-         </div>
-         <div class="col-sm-4">
-              <%= f.text_field :ssdcommentorid %>
-         </div><br />
-         <div class="col-sm-3">
-              <%= f.label :ssdcommentorname, 'Posting Commentor Name:' %>
-         </div>
-         <div class="col-sm-4">
-              <%= f.text_field :ssdcommentorname %></div><br />
-         <div class="col-sm-3">
-              <%= f.label :ssdcommentortimezone, 'Commentor TimeZone:' %>
-         </div> 
-         <div class="col-sm-4">
-              <%= f.text_field :ssdcommentortimezone %></div><br />
-         <div class="col-sm-3">
-              <%= f.label :ssdpostingtimezone, 'Posting Timezone:' %>
-         </div>
-         <div class="col-sm-4">
-              <%= f.text_field :ssdpostingtimezone %></div><br />
-         <div class="col-sm-3">
-              <%= f.label :ssdcommentorlanguage, 'Commentor language:' %>
-         </div>
-         <div class="col-sm-4">
-              <%= f.text_field :ssdcommentorlanguage %></div><br />
-         <div class="col-sm-3">
-              <%= f.label :ssdtotalreview, 'Total Posting Reviews:' %>
-         </div>
-         <div class="col-sm-4">
-              <%= f.text_field :ssdtotalreview %></div><br />
-         <div class="col-sm-3">
-              <%= f.label :ssdoverallrating, 'Overall Rating:' %>
-         </div>
-         <div class="col-sm-4">
-              <%= f.text_field :ssdoverallrating %></div><br />
-         <div class="col-sm-3">
-              <%= f.label :ssdcommentorrating, 'Rating By Commentor:' %>
-         </div>
-         <div class="col-sm-4">
-              <%= f.text_field :ssdcommentorrating %></div><br />
-         <div class="col-sm-3">
-              <%= f.label :ssdcomment, 'Review Comment:' %>
-         </div>
-         <div class="col-sm-4">
-              <%= f.text_field :ssdcomment %></div><br />
-          </div><!--  row -->
-          <div class="row"> <div class="col-sm-3">
-              <%= f.label :ssdpostat, 'Review posted at:' %>
-           </div>
-             <div class="col-sm-4">
-              <%= f.text_field :ssdpostat %></div><br />
+      <div class="container">
+         <div class="row">
+          <div class="col-md-9">
+            <div class="row">
+              <div class="col-md-3 control-label">
+                 <%= f.label :mappingid,'Posting mapping ID:' %>
+              </div>
+              <div class="col-md-9">
+                 <%= f.text_field :mappingid, readonly: true, :class => 'form-control input-sm', :placeholder => 'System generated id, no input required' %>
+              </div>
             </div><!-- row -->
-          <div class="row">
-            <div class="col-sm-3">
-              <%= f.label :ssdcommentorloc, 'Commentor Location:' %>
+            <div class="row">
+               <div class="col-md-3 control-label">
+                  <%= f.label :ssid, 'Social Media Site ID:' %>
+               </div>   
+               <div class="col-md-9">
+                   <%= f.collection_select :ssid, @site, :ssid, :ssname, :prompt => "Select a Social Media Site", :class => 'form-control input-sm' %>
+               </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 control-label">
+                    <%= f.label :ssdcommentorid, 'Posting Commentor ID:' %>
+                </div>
+                <div class="col-md-9 nopadding">
+                    <%= f.text_field :ssdcommentorid, :class => 'form-control input-sm' %>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 control-label">
+                    <%= f.label :ssdcommentorname, 'Posting Commentor Name:' %>
+                </div>
+                <div class="col-md-9 nopadding">
+                    <%= tooltip_for("e.g. mapping from Google Place Search Result for Posting Commentor Name: result.reviews.author_name") do %>
+                       <%= f.text_field :ssdcommentorname, :class => 'form-control input-sm' %>
+                    <% end %>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 control-label">
+                    <%= f.label :ssdcommentortimezone, 'Commentor TimeZone:' %>
+                </div> 
+                <div class="col-md-9 nopadding">
+                    <%= f.text_field :ssdcommentortimezone, :class => 'form-control input-sm' %>
+                </div>
+            </div>
+            <div class="row"> 
+                <div class="col-md-3 control-label">
+                    <%= f.label :ssdpostingtimezone, 'Posting Timezone:' %>
+                </div>
+                <div class="col-md-9 nopadding">
+                    <%= f.text_field :ssdpostingtimezone, :class => 'form-control input-sm' %>
+                </div>
+            </div> 
+            <div class="row">
+                <div class="col-md-3 control-label">
+                    <%= f.label :ssdcommentorlanguage, 'Commentor language:' %>
+                </div>
+                <div class="col-md-9">
+                    <%= tooltip_for("e.g. mapping from Google Place Search Result for Commentor language: result.reviews.language") do %>
+                    <%= f.text_field :ssdcommentorlanguage, :class => 'form-control input-sm' %>
+                    <% end %>
+                </div>
+            </div>
+         <div class="row">
+            <div class="col-md-3 control-label">
+                <%= f.label :ssdtotalreview, 'Total Posting Reviews:' %>
+            </div>
+            <div class="col-md-9">
+                <%= f.text_field :ssdtotalreview, :class => 'form-control input-sm' %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 control-label">
+                <%= f.label :ssdoverallrating, 'Overall Rating:' %>
+            </div>
+            <div class="col-md-9">
+                    <%= tooltip_for("e.g. mapping from Google Place Search Result for Overall Rating: result.rating") do %>
+                <%= f.text_field :ssdoverallrating, :class => 'form-control input-sm' %>
+                    <% end %>
+            </div>
+        </div>
+        <div class="row">
+             <div class="col-md-3 control-label">
+                <%= f.label :ssdcommentorrating, 'Rating By Commentor:' %>
              </div>
-             <div class="col-sm-4">
-              <%= f.text_field :ssdcommentorloc %></div><br />
+             <div class="col-md-9">
+                    <%= tooltip_for("e.g. mapping from Google Place Search Result for Rating By Commentor: result.reviews.rating") do %>
+                <%= f.text_field :ssdcommentorrating, :class => 'form-control input-sm' %>
+                    <% end %>
+             </div>
+        </div>
+        <div class="row">
+             <div class="col-md-3 control-label">
+                <%= f.label :ssdcomment, 'Review Comment:' %>
+             </div>
+             <div class="col-md-9">
+                    <%= tooltip_for("e.g. mapping from Google Place Search Result Review Comment: result.reviews.text") do %>
+                <%= f.text_field :ssdcomment, :class => 'form-control input-sm' %>
+                    <% end %>
+             </div>
+        </div><!--  row -->
+        <div class="row"> 
+             <div class="col-md-3 control-label">
+                <%= f.label :ssdpostat, 'Review posted at:' %>
+             </div>
+             <div class="col-md-9">
+                    <%= tooltip_for("e.g. mapping from Google Place Search Result: result.reviews.time") do %>
+                <%= f.text_field :ssdpostat, :class => 'form-control input-sm' %>
+                    <% end %>
+             </div>
+        </div><!-- row -->
+        <div class="row">
+             <div class="col-md-3 control-label">
+                <%= f.label :ssdcommentorloc, 'Commentor Location:' %>
+             </div>
+             <div class="col-md-9">
+                   <%= f.text_field :ssdcommentorloc, :class => 'form-control input-sm' %>
+             </div>
+        </div><!-- row -->
+      </div><!-- col-md-9 -->
+     <!-- <div class="clearfix visible-xs"></div>  -->
+        <div class="col-md-3">
+               <p> The data attribute representation rules are required for the interpretation of Social Media data response. The responses are in json format.  The rules are applied to enable the json data from the social media sites to be represented and display to users. Not all the data fields need to have rules and represented. Applied rules to all the appropriate attribute(s) as desired. The mapping rule example provided is a <a href="https://developers.google.com/places/documentation/details#PlaceDetailsResponses">Google Place Search Response Sample</a> from <a href="https://developers.google.com/places/documentation/">Google Developer website.</a></p>
+               <%= link_to 'Click Here for Detailed Explanation', '/resource/PostingDataRepresentation.pdf' -%>
+        </div>
         </div><!-- row -->
     </div><!-- container -->
     </div><!-- controls -->
   </div><!-- control-group -->
+  <br />
   <div class="form-actions">
-    <% if @ssdmapping.persisted? %>
-        <%= f.submit 'Update',  :class => 'btn btn-primary' %>
-    <% else %>
-        <%= f.submit 'Create new mapping',  :class => 'btn btn-primary' %>
-    <% end %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                session[:mappingindex_page], :class => 'btn' %>
+       <div class="col-md-3">
+        <%= f.submit 'Submit', :class => 'btn btn-primary' %>
+        <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                   ssdmappings_path, :class => 'btn' %>
+      </div>  
   </div>
-<% end %>
-<% end %>
+<% end %><!-- form -->
+<% end %><!-- if can -->
