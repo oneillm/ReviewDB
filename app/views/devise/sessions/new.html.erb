@@ -1,21 +1,20 @@
-<body>
 <% title "Administrator Sign In" %>
   <h2><%= yield(:title)%></h2>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
    <div class="container">
       <div class="row">
          <div class="col-md-4"></div>
-      <div class="col-md-4">
+         <div class="col-md-4">
           <%= image_tag "user-enlarge.jpg" %>
           <%= f.text_field :username, :value => nil, :placeholder => "username", :autofocus => true, :class => 'deviseinput' %><br />
           <%= f.password_field :password, :value => nil, :placeholder => "password", :autocomplete => "off", :class => "deviseinput" %>
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me, :class => 'rememberme' %> <%= f.label :remember_me %></div>
-  <% end -%>
-  <div><%= submit_tag "Sign in" %></div>
-  </div><!-- class="col-md-4"  -->
+          <% if devise_mapping.rememberable? -%>
+          <div><%= f.check_box :remember_me, :class => 'rememberme' %> <%= f.label :remember_me %></div>
+          <% end -%>
+            <div><%= submit_tag "Sign in" %></div>
+         </div><!-- class="col-md-4"  -->
+         <div class="col-md-4"></div>
  </div><!-- class="row" -->
  </div><!-- container -->
 <% end %>
-</body>
 <%= render :partial =>  "devise/shared/links" %>
