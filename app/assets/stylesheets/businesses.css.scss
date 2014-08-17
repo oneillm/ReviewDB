@@ -5,14 +5,13 @@
 h22{
    color: #000088;
 }
-.col-sm-2 {
+.col-sm-2, .col-sm-3 {
            height: 20px;
            color: blue;
            text-align: left;
 }
 .row {
       background-color: lightblue;
-      padding-right: 50px;
 }
 .header-color {
       background-color: #FAFAFA;
@@ -24,7 +23,7 @@ h22{
         padding-right: 10px;
 }
 .business-show {
-	background-color: #CCFFCC
+	background-color: #fff
 }
 .pagination {
      color:blue;

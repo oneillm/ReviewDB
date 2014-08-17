@@ -12,7 +12,7 @@ class BusinessesController < ApplicationController
  # Business.search method implement in the model level app/models/business.rb
     respond_to do |format|
        format.html
-       format.csv { send_data @businesses.to_csv }
+       format.csv { send_data Business.to_csv(@businesses) }
        format.xls # { send_data @businesses.to_csv(col_sep: "\t") }
     end
   end

@@ -304,3 +304,7 @@ form.form-search:before {
    text-decoration: underline;
    text-decoration-color: underline;
 }
+.csvlink:hover {
+   content:"export to csv"
+}
+   

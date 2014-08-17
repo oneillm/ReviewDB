@@ -25,6 +25,7 @@ Collectionandintegration::Application.configure do
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
+config.serve_static_assets = false
   config.assets.debug = true
   config.action_mailer.default_url_options = { :host => 'localhost:3000'}
 end
