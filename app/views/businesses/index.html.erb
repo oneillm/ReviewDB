@@ -6,12 +6,34 @@
 		<%= link_to raw('<i class="glyphicon glyphicon-plus white"> New Business</i>'), new_business_path, class: "btn btn-csm btn-add-new pull-left" %></div>
         <%= form_tag businesses_path, :class => 'form-search form-inline pull-right', :method => :get do %>
       <div class="input-group"> 
-	<%= text_field_tag :search, params[:search], class: 'form-control search-query pull-right', placeholder: "Enter name or phone" %>
+	<%= text_field_tag :search, params[:search], class: 'form-control search-query pull-right', placeholder: "Search by name or phone" %>
        	    <span class="input-group-btn">
                 <button type="submit" class="btn btn-primary pull-right"><i class="glyphicon glyphicon-search"></i>  Search</button>
             </span></div>    	
         <% end %>
 	<h3>List of Existing Businesses</h3>
+          <div class="container">
+           <div class="row" style="background-color:#fff;">
+              <div class="col-xs-1" style="padding:0;">
+                  Download:
+              </div>
+              <div class="col-xs-2">
+                 <div class="col-xs-4" style="padding:0;">
+                     <%= tooltip_for("Export Business profiles as CSV") do %> 
+                       <%= link_to image_tag("/images/csv32.png"), businesses_path(format: "csv") %> 
+                     <% end %>
+                </div>
+                 <div class="col-xs-2" style="padding:0;">
+                          |
+                 </div>       
+                 <div class="col-xs-4" style="padding:0;">
+                     <%= tooltip_for("Export Business profiles as Excel") do %> 
+                         <%= link_to image_tag("/images/excel32.png"), businesses_path(format: "xls") %>
+                     <% end %>
+                 </div>
+              </div>
+          <div class="col-xs-11"></div>
+         </div></div>
  </div><%= paginate @paginatable_array %>
 <div class="container">
 	<% @paginatable_array.each do |business| %>
