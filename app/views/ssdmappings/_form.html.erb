@@ -22,7 +22,7 @@
                  <%= f.label :mappingid,'Posting mapping ID:' %>
               </div>
               <div class="col-md-9">
-                 <%= f.text_field :mappingid, readonly: true, :class => 'form-control input-sm', :placeholder => 'System generated id, no input required' %>
+                 <%= f.text_field :mappingid, readonly: true, :class => 'form-control input-md', :placeholder => 'System generated id, no input required' %>
               </div>
             </div><!-- row -->
             <div class="row">
@@ -30,24 +30,24 @@
                   <%= f.label :ssid, 'Social Media Site ID:' %>
                </div>   
                <div class="col-md-9">
-                   <%= f.collection_select :ssid, @site, :ssid, :ssname, :prompt => "Select a Social Media Site", :class => 'form-control input-sm' %>
+                   <%= f.collection_select :ssid, @site, :ssid, :ssname, :prompt => "Select a Social Media Site", :class => 'form-control input-md' %>
                </div>
             </div>
             <div class="row">
                 <div class="col-md-3 control-label">
                     <%= f.label :ssdcommentorid, 'Posting Commentor ID:' %>
                 </div>
-                <div class="col-md-9 nopadding">
-                    <%= f.text_field :ssdcommentorid, :class => 'form-control input-sm' %>
+                <div class="col-md-9">
+                    <%= f.text_field :ssdcommentorid, :class => 'form-control input-md' %>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-3 control-label">
                     <%= f.label :ssdcommentorname, 'Posting Commentor Name:' %>
                 </div>
-                <div class="col-md-9 nopadding">
+                <div class="col-md-9">
                     <%= tooltip_for("e.g. mapping from Google Place Search Result for Posting Commentor Name: result.reviews.author_name") do %>
-                       <%= f.text_field :ssdcommentorname, :class => 'form-control input-sm' %>
+                       <%= f.text_field :ssdcommentorname, :class => 'form-control input-md' %>
                     <% end %>
                 </div>
             </div>
@@ -55,16 +55,16 @@
                 <div class="col-md-3 control-label">
                     <%= f.label :ssdcommentortimezone, 'Commentor TimeZone:' %>
                 </div> 
-                <div class="col-md-9 nopadding">
-                    <%= f.text_field :ssdcommentortimezone, :class => 'form-control input-sm' %>
+                <div class="col-md-9">
+                    <%= f.text_field :ssdcommentortimezone, :class => 'form-control input-md' %>
                 </div>
             </div>
             <div class="row"> 
                 <div class="col-md-3 control-label">
                     <%= f.label :ssdpostingtimezone, 'Posting Timezone:' %>
                 </div>
-                <div class="col-md-9 nopadding">
-                    <%= f.text_field :ssdpostingtimezone, :class => 'form-control input-sm' %>
+                <div class="col-md-9">
+                    <%= f.text_field :ssdpostingtimezone, :class => 'form-control input-md' %>
                 </div>
             </div> 
             <div class="row">
@@ -73,7 +73,7 @@
                 </div>
                 <div class="col-md-9">
                     <%= tooltip_for("e.g. mapping from Google Place Search Result for Commentor language: result.reviews.language") do %>
-                    <%= f.text_field :ssdcommentorlanguage, :class => 'form-control input-sm' %>
+                    <%= f.text_field :ssdcommentorlanguage, :class => 'form-control input-md' %>
                     <% end %>
                 </div>
             </div>
@@ -82,7 +82,7 @@
                 <%= f.label :ssdtotalreview, 'Total Posting Reviews:' %>
             </div>
             <div class="col-md-9">
-                <%= f.text_field :ssdtotalreview, :class => 'form-control input-sm' %>
+                <%= f.text_field :ssdtotalreview, :class => 'form-control input-md' %>
             </div>
         </div>
         <div class="row">
@@ -91,7 +91,7 @@
             </div>
             <div class="col-md-9">
                     <%= tooltip_for("e.g. mapping from Google Place Search Result for Overall Rating: result.rating") do %>
-                <%= f.text_field :ssdoverallrating, :class => 'form-control input-sm' %>
+                <%= f.text_field :ssdoverallrating, :class => 'form-control input-md' %>
                     <% end %>
             </div>
         </div>
@@ -101,7 +101,7 @@
              </div>
              <div class="col-md-9">
                     <%= tooltip_for("e.g. mapping from Google Place Search Result for Rating By Commentor: result.reviews.rating") do %>
-                <%= f.text_field :ssdcommentorrating, :class => 'form-control input-sm' %>
+                <%= f.text_field :ssdcommentorrating, :class => 'form-control input-md' %>
                     <% end %>
              </div>
         </div>
@@ -111,7 +111,7 @@
              </div>
              <div class="col-md-9">
                     <%= tooltip_for("e.g. mapping from Google Place Search Result Review Comment: result.reviews.text") do %>
-                <%= f.text_field :ssdcomment, :class => 'form-control input-sm' %>
+                <%= f.text_field :ssdcomment, :class => 'form-control input-md' %>
                     <% end %>
              </div>
         </div><!--  row -->
@@ -121,7 +121,7 @@
              </div>
              <div class="col-md-9">
                     <%= tooltip_for("e.g. mapping from Google Place Search Result: result.reviews.time") do %>
-                <%= f.text_field :ssdpostat, :class => 'form-control input-sm' %>
+                <%= f.text_field :ssdpostat, :class => 'form-control input-md' %>
                     <% end %>
              </div>
         </div><!-- row -->
@@ -130,22 +130,21 @@
                 <%= f.label :ssdcommentorloc, 'Commentor Location:' %>
              </div>
              <div class="col-md-9">
-                   <%= f.text_field :ssdcommentorloc, :class => 'form-control input-sm' %>
+                   <%= f.text_field :ssdcommentorloc, :class => 'form-control input-md' %>
              </div>
         </div><!-- row -->
       </div><!-- col-md-9 -->
      <!-- <div class="clearfix visible-xs"></div>  -->
         <div class="col-md-3">
-               <p> The data attribute representation rules are required for the interpretation of Social Media data response. The responses are in json format.  The rules are applied to enable the json data from the social media sites to be represented and display to users. Not all the data fields need to have rules and represented. Applied rules to all the appropriate attribute(s) as desired. The mapping rule example provided is a <a href="https://developers.google.com/places/documentation/details#PlaceDetailsResponses">Google Place Search Response Sample</a> from <a href="https://developers.google.com/places/documentation/">Google Developer website.</a></p>
-               <%= link_to 'Click Here for Detailed Explanation', '/resource/PostingDataRepresentation.pdf' -%>
-        </div>
+               <p> The data attribute representation rules are required for the interpretation of Social Media data response. The responses are in json format.  The rules are applied to enable the json data from the social media sites to be represented and display to users. Not all the data fields need to have rules and represented. Applied rules to all the appropriate attribute(s) as desired. The mapping rule example provided is a <a href="https://developers.google.com/places/documentation/details#PlaceDetailsResponses" style='color:blue;text-decoration:underline;'>Google Place Search Response Sample</a> from <a href="https://developers.google.com/places/documentation/" style='color:blue;text-decoration:underline;'>Google Developer website.</a></p>
+               <%= link_to 'Click Here for Detailed Explanation', '/resource/PostingDataRepresentation.pdf', style: 'color:blue;text-decoration:underline;' -%>
+        </div></div>
         </div><!-- row -->
     </div><!-- container -->
     </div><!-- controls -->
   </div><!-- control-group -->
-  <br />
-  <div class="form-actions">
-       <div class="col-md-3">
+  <div class="col-md-3 col-md-offset-1">
+      <div class="form-actions">
         <%= f.submit 'Submit', :class => 'btn btn-primary' %>
         <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                    ssdmappings_path, :class => 'btn' %>

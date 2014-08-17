@@ -22,6 +22,19 @@
   <dd><%= @login.status %></dd>
 </dl>
 <div class="form-actions">
+  <div class="col-sm-4 col-sm-offset-1">
+  <%= link_to '<i class="glyphicon glyphicon-hand-left"></i>Back'.html_safe,
+              logins_path, class: "btn btn-sm btn-custom-back"  %>
+  <%= link_to '<i class="glyphicon glyphicon-edit"></i>Edit'.html_safe,
+              edit_login_path(@login), class: "btn btn-sm btn-custom-edit" %>
+  <%= link_to '<i class="glyphicon glyphicon-trash"></i>Delete'.html_safe,
+              login_path(@login),
+              class: "btn btn-sm btn-custom-delete", method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+</div>
+</div>
+
+<div class="form-actions">
   <div class="row">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               logins_path, :class => 'btn'  %>

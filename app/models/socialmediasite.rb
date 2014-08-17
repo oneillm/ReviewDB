@@ -1,5 +1,6 @@
 class Socialmediasite < ActiveRecord::Base
-
+   validates_presence_of :ssname
+   validates_presence_of :ssurl
 belongs_to :login
 #belongs_to :polymorphic => true
 has_one :ssdmapping 

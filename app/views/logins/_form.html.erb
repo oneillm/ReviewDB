@@ -12,70 +12,115 @@
   <div class="control-group">
     <div class="controls">
     <div class="container">
+    <div class="row">
+     <div class="col-md-12">
       <div class="row">
-         <div class="col-sm-3">
+         <div class="col-md-3 control-label">
                <%= f.label :id,'User ID:', :class => 'control-label' %>
          </div>
-                <%= f.text_field :id, readonly: true, :class => 'input-small' %><br />
-         <div class="col-sm-3">
+         <div class="col-md-6">
+                <%= f.text_field :id, readonly: true,:placeholder => 'System generated ID, no input required' ,:class => 'form-control input-md' %>
+         </div>
+      </div>
+      <div class="row">
+          <div class="col-md-3 control-label">
              <%= f.label :firstname, 'First Name:' %>
          </div>
-             <%= f.text_field :firstname %><br />
-         <div class="col-sm-3">
+         <div class="col-md-6">
+             <%= f.text_field :firstname,:placeholder => 'Firstname', :class => 'form-control input-md' %>
+         </div>
+          <h8>* Required.</h8>
+      </div>
+      <div class="row">
+         <div class="col-md-3 control-label">
               <%= f.label :lastname, 'Last Name:' %>
          </div>
-              <%= f.text_field :lastname %><br />
-         <div class="col-sm-3">
+         <div class="col-md-6">
+              <%= f.text_field :lastname,:placeholder => 'Lastname',:class => 'form-control input-md'  %>
+         </div>
+         <h8>* Required.</h8>
+      </div>
+      <div class="row">
+         <div class="col-md-3 control-label">
               <%= f.label :phone, 'Phone:' %>
          </div>
-              <%= f.text_field :phone %><br />
-         <div class="col-sm-3">
+         <div class="col-md-6">
+              <%= f.text_field :phone, :placeholder => '###-###-####', :class => 'form-control input-md' %>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-3 control-label">
               <%= f.label :email, 'Email:' %>
          </div>
-              <%= f.text_field :email %><br />
-         <div class="col-sm-3">
+         <div class="col-md-6">
+              <%= f.text_field :email,:placeholder => 'exampleemail@example.com', :class => 'form-control input-md' %>
+         </div>
+         <h8>* Required.</h8>
+      </div>
+      <div class="row">
+         <div class="col-md-3 control-label">
               <%= f.label :username, 'Username:' %>
          </div>
-              <%= f.text_field :username %><br />
-         <div class="col-sm-3">
+         <div class="col-md-6">
+              <%= f.text_field :username,:placeholder => 'username', :class => 'form-control input-md' %>
+         </div>
+         <h8>* Required.</h8>
+      </div>
+      <div class="row">
+         <div class="col-md-3 control-label">
               <%= f.label :password, 'Password:' %>
          </div>
-              <%= f.password_field :password, autocomplete: "off" %><br />
-         <div class="col-sm-3">
+         <div class="col-md-6">
+              <%= f.password_field :password, autocomplete: "off",:placeholder => 'password', :class => 'form-control input-md' %>
+         </div>
+         <h8>* Required(min 8 characters long).</h8>
+      </div>
+      <div class="row">
+         <div class="col-md-3 control-label">
               <%= f.label :password_confirmation, 'Confirm Password:' %>
          </div>
-              <%= f.password_field :password_confirmation, autocomplete: "off" %><br />
-         <div class="col-sm-3">
-              <%= f.label :role, 'Role :' %><br />
+         <div class="col-md-6">
+              <%= f.password_field :password_confirmation, autocomplete: "off",:placeholder => 'password confirmation', :class => 'form-control input-md' %>
          </div>
+         <h8>* Required.</h8>
+      </div>
+      <div class="row">
+         <div class="col-md-3 control-label">
+              <%= f.label :role, 'Role :' %>
+         </div>
+         <div class="col-md-6">
               <%= label :role_user, 'User' %>
               <%= f.radio_button  :role, 'user',:class => 'status-radiobutton', :checked => true %>
               <%= label :role_administrator, 'Administrator' %>
               <%= f.radio_button  :role, 'admin',:class => 'status-radiobutton' %>
               <%= label :role_both, 'Both' %>
               <%= f.radio_button  :role, 'both', :class => 'status-radiobutton' %>
-              <%= label :role_both, 'Other' %>
-              <%= f.radio_button  :role, 'other', :class => 'status-radiobutton' %>
-         <br />
-         <div class="col-sm-3">
-               <%= f.label :status,'Status:', :class => 'control-label' %>
+              <% if @login.username == 'admin' %>
+             	 <%= label :role_both, 'Other' %>
+                 <%= f.radio_button  :role, 'other', :class => 'status-radiobutton' %>
+              <% end %>
+         </div>
+       </div>
+       <div class="row">
+         <div class="col-md-3 control-label">
+               <%= f.label :status,'Status:' %>
           </div>
-               <%= f.label :sstatus_active, "Active" %>
-                  <%=f.radio_button :status,"active", :check=> true , :class => 'status-radiobutton' %>
+       <div class="col-md-6">
+               <%= f.label :status_active, "Active" %>
+                  <%=f.radio_button :status,"active", :checked=> true , :class => 'status-radiobutton' %>
                   <%= f.label :status_inactive, "Inactive" %>
-                 <%=f.radio_button :status, "inactive", :class => 'status-radiobutton' %>
-
+                  <%=f.radio_button :status, "inactive", :class => 'status-radiobutton' %>
+       </div><!-- col-md-6-->
       </div><!-- row -->
+     </div><!-- col 12 -->
+     </div><!-- row -->
     </div><!-- container -->
     </div><!-- controls -->
   </div><!-- control-group -->
+<br />  
   <div class="form-actions">
-    <% if @login.persisted? %>
-        <%= f.submit 'Update',  :class => 'btn btn-primary' %>
-    <% else %>
-        <%= f.submit 'Create new user',  :class => 'btn btn-primary' %>
-    <% end %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+        <%= f.submit 'Submit',  :class => 'btn btn-primary' %>
+        <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                  logins_path , :class => 'btn' %>
 
   </div>

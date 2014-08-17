@@ -115,11 +115,7 @@
   <br />
   <div class="form-actions">
     <div class="col-sm-4">
-    <% if @socialmediasite.persisted? %>
-    	<%= f.submit 'Update',  :class => 'btn btn-primary' %>
-    <% else %>
      	<%= f.submit 'Submit',  :class => 'btn btn-primary' %>
-    <% end %>    
 <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 socialmediasites_path, :class => 'btn' %>
     </div>

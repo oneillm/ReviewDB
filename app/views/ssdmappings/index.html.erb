@@ -7,7 +7,7 @@
      </div>
      <%= form_tag ssdmappings_path, :class => 'form-search form-inline pull-right', :method => :get do %>
       	 <div class="input-group">
-             <%= text_field_tag :search, params[:search], class: 'form-control search-query pull-right', placeholder: "Enter site name to search" %>
+             <%= text_field_tag :search, params[:search], class: 'form-control search-query pull-right', placeholder: "Search By Site Name" %>
              <span class="input-group-btn">
                 <button type="submit" class="btn btn-primary pull-right"><i class="glyphicon glyphicon-search"></i>  Search</button>
              </span>
@@ -18,7 +18,7 @@
    <%= paginate @ssdmappings %>
 <div class="container">
     <% @ssdmappings.each do |ssdmapping| %>
-       <div class="col-md-2 col-md-offset-1">
+       <div class="col-md-2 col-md-offset-1" style='padding:0;'>
              <h7>Posting Mapping ID#<%= ssdmapping.mappingid %></h7>
              <div class="actions">
 		 <%= link_to '<i class="glyphicon glyphicon-edit">Edit</i>'.html_safe, edit_ssdmapping_path(ssdmapping), class: "btn btn-xs btn-custom-edit" %>
@@ -26,56 +26,78 @@
              </div><!-- class=action -->
         </div><!-- class="col-md-2 col-md-offset-1" -->
         <div class="col-md-9">
-            <h7><%= ssdmapping.ssname.ssname if ssdmapping.ssname %></h7>
+            <h7>Site Name: <%= ssdmapping.ssname.ssname if ssdmapping.ssname %></h7>
             <div class="row">
-               <div class="col-md-2">Social Media Site ID: </div>
-               <div class="col-md-7"><%= ssdmapping.ssid %></div>
+               <div class="col-md-4">Social Media Site ID: </div>
+               <div class="col-md-8" style='padding:0;'><%= ssdmapping.ssid %></div>
             </div>
+            <% if ssdmapping.ssdcommentorid.presence %>
             <div class="row">
-               <div class="col-md-2">Posting Commentor ID: </div>
-               <div class="col-md-7"><%= ssdmapping.ssdcommentorid %></div>
+               <div class="col-md-4">Posting Commentor ID: </div>
+               <div class="col-md-8" style='padding:0;'><%= ssdmapping.ssdcommentorid %></div>
             </div>
+            <% end %>
+            <% if ssdmapping.ssdcommentorname.presence %>
 	    <div class="row">
-               <div class="col-md-2">Posting Commentor Name: </div>
-               <div class="col-md-7"><%= ssdmapping.ssdcommentorname %></div>
+               <div class="col-md-4">Posting Commentor Name:</div>
+               <div class="col-md-8" style='padding:0;'><%= ssdmapping.ssdcommentorname %></div>
             </div>
+            <% end %>
+            <% if ssdmapping.ssdcommentortimezone.presence %>
 	    <div class="row">
-               <div class="col-md-2">Posting Commentor Timezone: </div>
-               <div class="col-md-7"><%= ssdmapping.ssdcommentortimezone %></div>
+               <div class="col-md-4">Posting Commentor Timezone: </div>
+               <div class="col-md-8" style='padding:0;'><%= ssdmapping.ssdcommentortimezone %></div>
             </div>
+            <% end %>
+            <% if ssdmapping.ssdpostingtimezone.presence %>
 	    <div class="row">
-               <div class="col-md-2">Posting Timezone: </div>
-               <div class="col-md-7"><%= ssdmapping.ssdpostingtimezone %></div>
-	    </div
+               <div class="col-md-4">Posting Timezone: </div>
+               <div class="col-md-8" style='padding:0;'><%= ssdmapping.ssdpostingtimezone %></div>
+	    </div>
+            <% end %>
+            <% if ssdmapping.ssdcommentorlanguage.presence %>
 	    <div class="row">
-               <div class="col-md-2">Commentor language: </div>
-               <div class="col-md-7"><%= ssdmapping.ssdcommentorlanguage %></div>
+               <div class="col-md-4">Commentor language: </div>
+               <div class="col-md-8" style='padding:0;'><%= ssdmapping.ssdcommentorlanguage %></div>
             </div>
+            <% end %>
+            <% if ssdmapping.ssdtotalreview.presence %>
 	    <div class="row">
-               <div class="col-md-2">Total Posting with Reviews: </div>
-               <div class="col-md-7"><%= ssdmapping.ssdtotalreview %></div>
+               <div class="col-md-4">Total Posted Reviews: </div>
+               <div class="col-md-8" style='padding:0;'><%= ssdmapping.ssdtotalreview %></div>
             </div>
+            <% end %>
+            <% if ssdmapping.ssdoverallrating.presence %>
 	    <div class="row">
-               <div class="col-md-2">Overall Rating:</div>
-               <div class="col-md-7"><%= ssdmapping.ssdoverallrating %></div>
+               <div class="col-md-4">Overall Rating:</div>
+               <div class="col-md-8" style='padding:0;'><%= ssdmapping.ssdoverallrating %></div>
             </div>
+            <% end %>
+            <% if ssdmapping.ssdcommentorrating.presence %>
 	    <div class="row">
-               <div class="col-md-2">Posting Commentor Rating:</div>
-               <div class="col-md-7"><%= ssdmapping.ssdcommentorrating %></div>
+               <div class="col-md-4">Posting Commentor Rating:</div>
+               <div class="col-md-8" style='padding:0;'><%= ssdmapping.ssdcommentorrating %></div>
             </div>
+            <% end %>
+            <% if ssdmapping.ssdcomment.presence %>
 	    <div class="row">
-               <div class="col-md-2">Review Comment: </div>
-               <div class="col-md-7"><%= ssdmapping.ssdcomment %></div>
+               <div class="col-md-4">Review Comment: </div>
+               <div class="col-md-8" style='padding:0;'><%= ssdmapping.ssdcomment %></div>
             </div>
+            <% end %>
+            <% if ssdmapping.ssdpostat.presence %>
 	    <div class="row">
-               <div class="col-md-2">Review Posted At: </div>
-               <div class="col-md-7"><%= ssdmapping.ssdpostat %></div>
+               <div class="col-md-4">Review Posted At: </div>
+               <div class="col-md-8" style='padding:0;'><%= ssdmapping.ssdpostat %></div>
             </div>
+            <% end %>
+            <% if ssdmapping.ssdcommentorloc.presence %>
 	    <div class="row">
-               <div class="col-md-2">Posting Commentor Location: </div>
-               <div class="col-md-7"><%= ssdmapping.ssdcommentorloc %></div>
+               <div class="col-md-4">Posting Commentor Location: </div>
+               <div class="col-md-8" style='padding:0;'><%= ssdmapping.ssdcommentorloc %></div>
             </div>
-        </div><!-- col-9 -->
+            <% end %>
+       </div><!-- col = 9 -->
      <% end %>
 </div> <!-- container -->
 </div> <!-- container -->

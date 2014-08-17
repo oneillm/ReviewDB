@@ -1,5 +1,5 @@
 class Ssdmapping < ActiveRecord::Base
-belongs_to :ssname, :class_name => Socialmediasite, :foreign_key => :ssid, :order => :ssname
+belongs_to :ssname, :class_name => Socialmediasite, :foreign_key => :ssid  # , :order => :ssname
 
 def to_param
      "#{mappingid}-#{ssname}"

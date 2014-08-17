@@ -18,7 +18,7 @@
   <dd><%= @socialmediasite.ssaccesstokensecretkey %></dd>
   <dt><strong>Consumer key:</strong></dt>
   <dd><%= @socialmediasite.ssconsumerkey %></dd>
-  <dt><strong>Consumer Secret %>:</strong></dt>
+  <dt><strong>Consumer Secret:</strong></dt>
   <dd><%= @socialmediasite.ssconsumersecret %></dd>
   <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
   <dd><%= @socialmediasite.status %></dd>
@@ -28,6 +28,7 @@
 </div><!-- container -->
 </div><!-- row -->
 <div class="form-actions">
+  <div class="col-sm-4 col-sm-offset-1">
   <%= link_to '<i class="glyphicon glyphicon-hand-left"></i>Back'.html_safe,
               socialmediasites_path, class: "btn btn-sm btn-custom-back"  %>
   <%= link_to '<i class="glyphicon glyphicon-edit"></i>Edit'.html_safe,
@@ -37,5 +38,5 @@
               class: "btn btn-sm btn-custom-delete", method: :delete,
               data: { confirm: 'Are you sure?' } %>
 </div>
-
+</div>
 <% end %>

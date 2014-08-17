@@ -1,49 +1,51 @@
 <% title "User Profile" %>
 <% if can? :manage, Login  %>
    <%- model_class = Login -%>
-        <h1><%=t '.title', :default => 'User Profile', :class => "page-header" %></h1>
+        <h2><%=t '.title', :default => 'User Profile', :class => "page-header" %></h2>
    <div class="container">
-   <div class="row">
-   <div class="col-lg-6">
-        <%= form_tag logins_path, :class => 'navbar-search', :method => :get do %>
-        <%= text_field_tag :search, params[:search], class: 'search-query', placeholder: "Enter first or last or user name to search", :style => "padding-left:21px;height:31px;vertical-align:top" %>
-          <div class="icon-search" style="position:absolute;top:8px;left:7px;"></div>
-          <%= button_tag(type: "submit", class: "btn btn-info") do %>
-                <span class="glyphicon glyphicon-search"></i>
-          <% end %>
-            <span class="actions content">
-                 <%= link_to raw("<i class=\"icon-plus-sign icon-white\">Add A New User</i>"), new_login_path, class: "btn btn-mini btn-info" %>
+        <div class="actions content">
+                <%= link_to raw('<i class="glyphicon glyphicon-plus white"> New User</i>'), new_login_path, class: "btn btn-csm btn-add-new pull-left" %>
+        </div>
+        <%= form_tag logins_path, :class => 'form-search form-inline pull-right', :method => :get do %>
+        <div class="input-group">
+            <%= text_field_tag :search, params[:search], class: 'form-control search-query pull-right', placeholder: "By first,last or username" %>
+            <span class="input-group-btn">
+                <button type="submit" class="btn btn-primary pull-right"><i class="glyphicon glyphicon-search"></i>  Search</button>
             </span>
-        <% end %><!--form_tag -->
-   </div><!-- class=col-lg-6 -->
-  </div><!-- class = row -->
- </div><!-- class = container -->
-<br />
-<div class="container">
-  <!-- <div class="actions content">
-      <%= link_to raw("<i class=\"icon-arrow-left icon-black\">Back</i>"),session[:home_page], class: "btn btn-mini btn-default" %>
-   </div>  -->
- <h5>List of Existing Users</h5>
-   <tbody>
-    <% @logins.each do |login| %>
-      <div class="container">
-       <div class="col-md-3 col-md-offset-1">
-             <h4>Username:<%= login.username %></h4>
+        </div><!-- input-group -->
+        <% end %><!-- form_tag -->
+      <h3>List of Existing Users</h3>
+   </div><!-- container -->
+    <%= paginate @logins %>    
+   <div class="container">
+      <% @logins.each do |login| %>
+       <div class="col-md-3">
+             <h7>Username: <%= login.username %></h7>
              <div class="actions">
-                <%= link_to raw("<i class=\"icon-edit\">Edit</i>"), edit_login_path(login), class: "btn btn-mini" %>
-                <%= link_to raw("<i class=\"icon-trash\">Delete</i>") , login_path(login), class: "btn btn-mini btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%= link_to '<i class="glyphicon glyphicon-edit">Edit</i>'.html_safe, edit_login_path(login), class: "btn btn-xs btn-custom-edit" %>
+                <tt><%= link_to '<i class="glyphicon glyphicon-trash">Delete</i>'.html_safe, login, class: "btn btn-xs btn-custom-delete", method: :delete, data: { confirm: 'Are you sure?' } %></tt>
              </div><!-- class=action -->
         </div><!-- class="col-md-3 col-md-offset-1" -->
-        <div class="col-md-8">
-            <h4><%= [login.firstname, login.lastname].compact.join(' ') %></h4>
-                 <div class="body">
-                     Email  : <tt><%= login.email %></tt><br />
-                     Status: <tt><%= login.status %></tt><br />
-                 </div><!-- class = body -->
-         </div><!-- class=col-md-8 -->
-        </div><!-- container -->
+        <div class="col-md-9">
+            <h7>Firstname Lastname: <%= [login.firstname, login.lastname].compact.join(' ') %></h7>
+                 <div class="row">
+                    <div class="col-md-2">
+                         Email :
+                    </div>
+                    <div class="col-md-10">
+                         <%= login.email %>
+                    </div>
+                 </div>
+                 <div class="row">
+                    <div class="col-md-2">
+                         Status: 
+                    </div>
+                    <div class="col-md-10">
+                         <%= login.status %>
+                    </div> 
+                 </div><!-- class= row -->
+         </div><!-- class=col-md-9 -->
       <% end %><!-- |login| -->
-    </tbody>
    </div><!-- container -->
 <% else %><!-- can ? ---- -->
     <p>Sorry <%= [current_login.firstname, current_login.lastname].compact.join (' ') %>, you are not an Administrator</p>

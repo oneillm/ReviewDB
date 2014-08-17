@@ -19,8 +19,9 @@ class SsdmappingsController < ApplicationController
 
   # GET /ssdmappings/new
   def new
-    @site = current_login.socialmediasites.all
-    @ssdmapping = Ssdmapping.new
+     @site = current_login.socialmediasites
+     #@site = currentusermapping
+     @ssdmapping = Ssdmapping.new
   end
 
   # GET /ssdmappings/1/edit
