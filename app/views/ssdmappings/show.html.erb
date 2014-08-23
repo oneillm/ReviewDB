@@ -5,17 +5,17 @@
 <dl class="dl-horizontal">
  <div class="container">
  <div class="row">
-  <dt><strong>Posting Mapping ID:</strong></dt>
+  <dt><strong>Post.Mapping ID:</strong></dt>
   <dd><%= @ssdmapping.mappingid %></dd>
   <dt><strong>Social Media ID:</strong></dt>
   <dd><%= @ssdmapping.ssid %></dd>
-  <dt><strong>Posting Commentor ID:</strong></dt>
+  <dt><strong>Post. Commentor ID:</strong></dt>
   <dd><%= @ssdmapping.ssdcommentorid %></dd>
-  <dt><strong>Posting Commentor Name:</strong></dt>
+  <dt><strong>Post.CommentorName:</strong></dt>
   <dd><%= @ssdmapping.ssdcommentorname %></dd>
-  <dt><strong>Posting Commentor Timezone:</strong></dt>
+  <dt><strong>Post.CommentorTmz:</strong></dt>
   <dd><%= @ssdmapping.ssdcommentortimezone %></dd>
-  <dt><strong>Posting Timezone:</strong></dt>
+  <dt><strong>Post.Timezone:</strong></dt>
   <dd><%= @ssdmapping.ssdpostingtimezone %></dd>
   <dt><strong>Commentor Language:</strong></dt>
   <dd><%= @ssdmapping.ssdcommentorlanguage %></dd>
@@ -37,7 +37,7 @@
 <div class="form-actions">
 <div class="col-sm-4 col-sm-offset-1">
   <%= link_to '<i class="glyphicon glyphicon-hand-left"></i>Back'.html_safe,
-              ssdmapping_path, class: "btn btn-sm btn-custom-back"  %>
+              ssdmappings_path, class: "btn btn-sm btn-custom-back"  %>
   <%= link_to '<i class="glyphicon glyphicon-edit"></i>Edit'.html_safe,
               edit_ssdmapping_path(@ssdmapping), class: "btn btn-sm btn-custom-edit" %>
   <%= link_to '<i class="glyphicon glyphicon-trash"></i>Delete'.html_safe,
@@ -46,4 +46,5 @@
               data: { confirm: 'Are you sure?' } %>
 </div>
 </div>
+
 <% end %>

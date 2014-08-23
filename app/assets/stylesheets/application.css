@@ -9,8 +9,8 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
  *= require bootstrap
+ *= require_tree .
  */
 table, td, th {
      vertical-align: middle;
@@ -44,7 +44,7 @@ h2 {
    letter-spacing:normal;
    text-align:center;
    font-weight:bold;
-   font-size:2em;
+   font-size:1.5em;
 }
 h3 {
    text-align: center;
@@ -73,6 +73,16 @@ h7, .h7 {
     font-size: 1em;
     font-weight: bold;
 }
+ body,
+    h1,h2,h3,h4,h5,h6,h7,h8,
+    input,
+    button,
+    select,
+    textarea,
+    .navbar-search .search-query {
+      font-family: Georgia, "Times New Roman", Times, serif;
+     
+    }
 
 .rememberme {
      vertical-align:top;
@@ -95,6 +105,8 @@ h7, .h7 {
     text-align:left;
     vertical-align: center;
     padding-left:0px;
+}.col-md-2, .col-md-3 {
+    color: blue;
 }
 .stateselect {
     width:100%;
@@ -299,7 +311,7 @@ form.form-search:before {
     margin-left: 0 !important;
     margin-right: 0 !important;
 }
-.a {
+.a, .linkapi {
    color: blue;
    text-decoration: underline;
    text-decoration-color: underline;

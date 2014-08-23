@@ -1,5 +1,8 @@
 Collectionandintegration::Application.routes.draw do
   
+  get "static_pages/about"
+  get "static_pages/contactus"
+  get "static_pages/api"
 #  resources :logins
   resources :ssdmappings
 

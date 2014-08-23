@@ -31,20 +31,7 @@
               login_path(@login),
               class: "btn btn-sm btn-custom-delete", method: :delete,
               data: { confirm: 'Are you sure?' } %>
-</div>
+   </div>
 </div>
 
-<div class="form-actions">
-  <div class="row">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              logins_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_login_path(@login), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              login_path(@login),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-warning' %>
-</div>
-</div>
 <% end %>

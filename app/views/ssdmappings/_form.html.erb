@@ -1,4 +1,4 @@
- <% if can? :manage, @logins %>
+<% if can? :manage, @logins %>
 <%= form_for(@ssdmapping) do |f| %>
   <% if @ssdmapping.errors.any? %>
     <div id="error_explanation">
@@ -27,7 +27,7 @@
             </div><!-- row -->
             <div class="row">
                <div class="col-md-3 control-label">
-                  <%= f.label :ssid, 'Social Media Site ID:' %>
+                  <%= f.label :ssid, 'Social Media Site:' %>
                </div>   
                <div class="col-md-9">
                    <%= f.collection_select :ssid, @site, :ssid, :ssname, :prompt => "Select a Social Media Site", :class => 'form-control input-md' %>
@@ -138,7 +138,7 @@
         <div class="col-md-3">
                <p> The data attribute representation rules are required for the interpretation of Social Media data response. The responses are in json format.  The rules are applied to enable the json data from the social media sites to be represented and display to users. Not all the data fields need to have rules and represented. Applied rules to all the appropriate attribute(s) as desired. The mapping rule example provided is a <a href="https://developers.google.com/places/documentation/details#PlaceDetailsResponses" style='color:blue;text-decoration:underline;'>Google Place Search Response Sample</a> from <a href="https://developers.google.com/places/documentation/" style='color:blue;text-decoration:underline;'>Google Developer website.</a></p>
                <%= link_to 'Click Here for Detailed Explanation', '/resource/PostingDataRepresentation.pdf', style: 'color:blue;text-decoration:underline;' -%>
-        </div></div>
+        </div>
         </div><!-- row -->
     </div><!-- container -->
     </div><!-- controls -->
@@ -152,3 +152,4 @@
   </div>
 <% end %><!-- form -->
 <% end %><!-- if can -->
+
