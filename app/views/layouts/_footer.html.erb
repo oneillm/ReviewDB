@@ -2,8 +2,23 @@
     <small>SFSU Student Project 2014</small>
     <nav>
        <ul>
-         <li><%= link_to "About", '#' %></li>
-         <li><%= link_to "Contact" , '#' %></li>
+         <li><%= link_to "About", static_pages_about_path, {:remote => true, 'data-toggle' => "modal", 'data-target' => "#basicModal1" , 'data-type' => "html"} %>
+  <div class="modal fade" id="basicModal1">
+      <div class="modal-dialog">
+           <div class="modal-content">
+                <%= render partial: 'static_pages/about' %>
+           </div>
+      </div>
+   </div></li>
+         <li><%= link_to "Contact" , static_pages_contactus_path, {:remote => true, 'data-toggle' => "modal", 'data-target' => "#basicModal2" , 'data-type' => "html"} %>
+  <div class="modal fade" id="basicModal2">
+      <div class="modal-dialog">
+           <div class="modal-content">
+                <%= render partial: 'static_pages/contactus' %>
+           </div>
+      </div>
+   </div></li>
        </ul>
     </nav>
 </footer>
+

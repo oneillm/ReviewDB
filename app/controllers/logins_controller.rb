@@ -5,7 +5,9 @@ class LoginsController < ApplicationController
  before_action :set_login, only: [:show, :edit, :update, :destroy]  
   def index
       session[:login_page]=request.env['HTTP_REFERER'] || logins_url
-     @logins = Login.without_login(current_login).order("username").page(params[:page]).per(4)
+      userlogins = Login.search(params[:search])
+      @logins = Kaminari.paginate_array(userlogins).page(params[:page]).per(4)
+      #@logins = Login.without_login(current_login).order("username").page(params[:page]).per(4)
   end
   
   def new

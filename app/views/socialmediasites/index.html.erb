@@ -1,8 +1,8 @@
 <% if can? :manage, @logins %>
 <%- model_class = Socialmediasite -%>
   <h2><%=t '.title', :default => 'API Management', :class => "page-header" %></h2>
-  <%= link_to 'What is API/API Key? What are API keys used for?', static_pages_api_path, {:remote => true, 'data-toggle' => "modal", 'data-target' => "#basicModal" , 'data-type' => "html", 'class' => "linkapi" , 'style' => "color: blue; tex-decoration: underline;"} %>
-  <div class="modal fade" id="basicModal"
+  <%= link_to 'What is API/API Key? What are API keys used for?', static_pages_api_path, {:remote => true, 'data-toggle' => "modal", 'data-target' => "#basicModal" , 'data-type' => "html", 'class' => "linkapi" , 'style' => "color: blue; text-decoration: underline;"} %>
+ <div class="modal fade" id="basicModal">
       <div class="modal-dialog">
            <div class="modal-content">
                 <%= render partial: 'static_pages/api' %>
@@ -66,3 +66,4 @@
        <% end %><!-- |socialmediasite| -->
 </div><!-- container -->
 <% end %>
+

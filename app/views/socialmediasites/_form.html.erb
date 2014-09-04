@@ -29,21 +29,21 @@
                 <%= f.label :ssurl,'URL:' %>
     	   </div>
 	   <div class="col-sm-6">
-                <%= tooltip_for("URL of social media required for data request") do %>
+                <%= tooltip_for("URL of social media required for data request e.g for google search URL, enter: https://maps.googleapis.com/maps/api/place/details/json?placeid=") do %>
       	 	    <%= f.text_field :ssurl, :class => 'form-control input-sm' %>
                 <% end %>
            </div>
            <div class="col-sm-3 control-label" style="padding:0;">
- 		<h8>* Required</h8>
+ 		<h8>* Required(main part, before the business entity parameter)</h8>
            </div>
         </div><!-- row -->
         <div class="row">
            <div class="col-sm-3 control-label">
-    		<%= f.label :ssurlquery,'Query Header:' %>
+    		<%= f.label :ssurlquery,'Query Header(part 2):' %>
            </div>
 	   <div class="col-sm-6">
-                <%= tooltip_for("Part of the query header text to send http data reques") do %>
-           	   <%= f.text_field :ssurlquery, :class => 'form-control input-sm' %>
+                <%= tooltip_for("Part 2 of the query header text to send http data request e.g. google search part 2 : &sensor=true&key=") do %>
+           	   <%= f.text_field :ssurlquery, :class => 'form-control input-sm', :placeholder => 'Part before the authentication key parameter' %>
                 <% end %>
            </div>
         </div><!-- row -->
@@ -121,3 +121,4 @@
     </div>
   </div>
 <% end %>
+

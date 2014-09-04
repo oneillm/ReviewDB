@@ -32,7 +32,7 @@
   <%= link_to '<i class="glyphicon glyphicon-hand-left"></i>Back'.html_safe,
               socialmediasites_path, class: "btn btn-sm btn-custom-back"  %>
   <%= link_to '<i class="glyphicon glyphicon-edit"></i>Edit'.html_safe,
-              edit_socialmediasite_path(@business), class: "btn btn-sm btn-custom-edit" %>
+              edit_socialmediasite_path(@socialmediasite), class: "btn btn-sm btn-custom-edit" %>
   <%= link_to '<i class="glyphicon glyphicon-trash"></i>Delete'.html_safe,
               socialmediasite_path(@socialmediasite),
               class: "btn btn-sm btn-custom-delete", method: :delete,

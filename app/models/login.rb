@@ -16,7 +16,7 @@ class Login < ActiveRecord::Base
    end
    def self.search(search)
       if search
-         find(:all, :conditions => ['LOWER(username) like ? OR LOWER(firstname Like ? OR LOWER(lastname like ?', "%#{search.downcase}%","%#{search.downcase}%", "%#{search.downcase}%"])
+         find(:all, :conditions => ['LOWER(username) like ? OR LOWER(firstname) Like ? OR LOWER(lastname) like ?', "%#{search.downcase}%","%#{search.downcase}%", "%#{search.downcase}%"])
      else
          self.order(:username).all
       end
