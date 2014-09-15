@@ -30,15 +30,20 @@
                   <%= f.label :ssid, 'Social Media Site:' %>
                </div>   
                <div class="col-md-9">
+                    <% unless @site.nil? %>
                    <%= f.collection_select :ssid, @site, :ssid, :ssname, :prompt => "Select a Social Media Site", :class => 'form-control input-md' %>
+                    <% end %>
                </div>
+
             </div>
             <div class="row">
                 <div class="col-md-3 control-label">
                     <%= f.label :ssdcommentorid, 'Posting Commentor ID:' %>
                 </div>
                 <div class="col-md-9">
+                    <%= tooltip_for(Ssdmapping.commentoridtip) do %>
                     <%= f.text_field :ssdcommentorid, :class => 'form-control input-md' %>
+                <% end %>
                 </div>
             </div>
             <div class="row">
@@ -46,7 +51,7 @@
                     <%= f.label :ssdcommentorname, 'Posting Commentor Name:' %>
                 </div>
                 <div class="col-md-9">
-                    <%= tooltip_for("e.g. mapping from Google Place Search Result for Posting Commentor Name: result.reviews.author_name") do %>
+                    <%= tooltip_for(Ssdmapping.commentornametip) do %>
                        <%= f.text_field :ssdcommentorname, :class => 'form-control input-md' %>
                     <% end %>
                 </div>
@@ -56,7 +61,9 @@
                     <%= f.label :ssdcommentortimezone, 'Commentor TimeZone:' %>
                 </div> 
                 <div class="col-md-9">
+                    <%= tooltip_for(Ssdmapping.commentortimezonetip) do %>
                     <%= f.text_field :ssdcommentortimezone, :class => 'form-control input-md' %>
+                    <% end %>
                 </div>
             </div>
             <div class="row"> 
@@ -72,7 +79,7 @@
                     <%= f.label :ssdcommentorlanguage, 'Commentor language:' %>
                 </div>
                 <div class="col-md-9">
-                    <%= tooltip_for("e.g. mapping from Google Place Search Result for Commentor language: result.reviews.language") do %>
+                    <%= tooltip_for(Ssdmapping.commentorlanguagetip) do %>
                     <%= f.text_field :ssdcommentorlanguage, :class => 'form-control input-md' %>
                     <% end %>
                 </div>
@@ -82,7 +89,9 @@
                 <%= f.label :ssdtotalreview, 'Total Posting Reviews:' %>
             </div>
             <div class="col-md-9">
-                <%= f.text_field :ssdtotalreview, :class => 'form-control input-md' %>
+                    <%= tooltip_for(Ssdmapping.totalpostingreviewstip) do %>
+                    <%= f.text_field :ssdtotalreview, :class => 'form-control input-md' %>
+		    <% end %>
             </div>
         </div>
         <div class="row">
@@ -90,7 +99,7 @@
                 <%= f.label :ssdoverallrating, 'Overall Rating:' %>
             </div>
             <div class="col-md-9">
-                    <%= tooltip_for("e.g. mapping from Google Place Search Result for Overall Rating: result.rating") do %>
+                    <%= tooltip_for(Ssdmapping.overallratingtip) do %>
                 <%= f.text_field :ssdoverallrating, :class => 'form-control input-md' %>
                     <% end %>
             </div>
@@ -100,7 +109,7 @@
                 <%= f.label :ssdcommentorrating, 'Rating By Commentor:' %>
              </div>
              <div class="col-md-9">
-                    <%= tooltip_for("e.g. mapping from Google Place Search Result for Rating By Commentor: result.reviews.rating") do %>
+                    <%= tooltip_for(Ssdmapping.ratingbycommentortip) do %>
                 <%= f.text_field :ssdcommentorrating, :class => 'form-control input-md' %>
                     <% end %>
              </div>
@@ -110,7 +119,7 @@
                 <%= f.label :ssdcomment, 'Review Comment:' %>
              </div>
              <div class="col-md-9">
-                    <%= tooltip_for("e.g. mapping from Google Place Search Result Review Comment: result.reviews.text") do %>
+                    <%= tooltip_for(Ssdmapping.reviewcommenttip) do %>
                 <%= f.text_field :ssdcomment, :class => 'form-control input-md' %>
                     <% end %>
              </div>
@@ -120,7 +129,7 @@
                 <%= f.label :ssdpostat, 'Review posted at:' %>
              </div>
              <div class="col-md-9">
-                    <%= tooltip_for("e.g. mapping from Google Place Search Result: result.reviews.time") do %>
+                    <%= tooltip_for(Ssdmapping.reviewpostedattip) do %>
                 <%= f.text_field :ssdpostat, :class => 'form-control input-md' %>
                     <% end %>
              </div>
@@ -130,7 +139,9 @@
                 <%= f.label :ssdcommentorloc, 'Commentor Location:' %>
              </div>
              <div class="col-md-9">
+                    <%= tooltip_for(Ssdmapping.commentorlocationtip) do %>
                    <%= f.text_field :ssdcommentorloc, :class => 'form-control input-md' %>
+                    <% end %>
              </div>
         </div><!-- row -->
       </div><!-- col-md-9 -->
@@ -152,4 +163,3 @@
   </div>
 <% end %><!-- form -->
 <% end %><!-- if can -->
-
