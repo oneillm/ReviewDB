@@ -18,40 +18,40 @@ def currentusermapping
 end
 
 def self.commentoridtip
-   "e.g. mapping from twitter for Posting CommentorID: User.Screen_Name"
+   "e.g. mapping from twitter : User.Screen_Name"
 
 end
    
 def self.commentornametip
-"e.g. mapping for Posting Commentor Name:(from Google Place Search) result.reviews.author_name, (from twitter) user.name"
+"e.g.(from Google Place Search) result.reviews.author_name, (from twitter) user.name"
 end
 def self.commentortimezonetip
-"e.g. mapping for Commentor TimeZone: (from twitter) user.time_zone"
+"e.g. (from twitter) user.time_zone"
 end
 def self.postingtimezonetip
-"e.g. mapping for Posting TimeZone: (from twitter) user.time_zone"
+"e.g. (from twitter) user.time_zone"
 end
 def self.commentorlanguagetip
-"e.g. mapping for Commentor Language: (from Google Place Search ) result.reviews.language, (from twitter) user.lang"
+"e.g. (from Google Place Search ) result.reviews.language, (from twitter) user.lang"
 end
 def self.totalpostingreviewstip
-"e.g. mapping for Commentor Language: (from twitter) user.statuses_count"
+"e.g. (from twitter) user.statuses_count"
 end
 def self.overallratingtip
-"e.g. mapping for Overall Rating: (from Google Place Search ) result.rating"
+"e.g. (from Google Place Search ) result.rating"
 end
 def self.ratingbycommentortip
-"e.g. mapping for Rating by Commentor: (from Google Place Search ) result.reviews.rating"
+"e.g. (from Google Place Search ) result.reviews.rating"
 end
 def self.reviewcommenttip
-"e.g. mapping for Review Comment: (from Google Place Search ) result.reviews.text, (from twitter) text"
+"e.g. (from Google Place Search ) result.reviews.text, (from twitter) text"
 end
 def self.reviewpostedattip
-"e.g. mapping for Review Posted At: (from Google Place Search ) result.reviews.time, (from twitter) created_at"
+"e.g. (from Google Place Search ) result.reviews.time, (from twitter) created_at"
 
 end
 def self.commentorlocationtip
-"e.g. mapping for Commentor Location: (from twitter) user.location"
+"e.g. (from twitter) user.location"
 end
 
 

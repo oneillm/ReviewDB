@@ -71,7 +71,9 @@
                     <%= f.label :ssdpostingtimezone, 'Posting Timezone:' %>
                 </div>
                 <div class="col-md-9">
+                    <%= tooltip_for(Ssdmapping.postingtimezonetip) do %>
                     <%= f.text_field :ssdpostingtimezone, :class => 'form-control input-md' %>
+                    <% end %>
                 </div>
             </div> 
             <div class="row">

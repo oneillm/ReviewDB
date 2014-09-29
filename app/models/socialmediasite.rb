@@ -8,7 +8,7 @@ has_many :sscommentordata
 has_many :ssdmetadata
 def to_param   #overriden to_param in system
       "#{ssid}-#{ssname}"            #use name instead of number e.g. 1
-   end 
+end 
    def self.search(search)
       if search
          find(:all, :conditions => ['LOWER(ssname) like ? ', "%#{search.downcase}%"]) 

@@ -9,13 +9,13 @@ Tabulous.setup do
       enabled_when  { true }
       active_when   { in_action('any').of_controller('new_login_session') }
     end
-#  postingdata_tab do
- #     text          { 'View Posting Reviews' }
-  #    link_path     { 'http://default-environment-gcjjv248pt.elasticbeanstalk.com/' }
-   #   visible_when  { true }
-    #  enabled_when  { true }
-     # active_when   { true }
-   # end
+  postingdata_tab do
+      text          { 'View Posting Reviews' }
+      link_path     { 'http://default-environment-gcjjv248pt.elasticbeanstalk.com/' }
+      visible_when  { true }
+      enabled_when  { true }
+      active_when   { true }
+    end
 
 
   businesses_tab do

@@ -1,12 +1,93 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 <body> 
- <br /><br />
+ 
  <% if !login_signed_in? %> 
    <% title "You are not signed in. Please Click 'Admin sign In' Link to sign in" %>
-   <p style='color:red;font-size:large;'>This is a resource management portal for administrators only.  If you are not an administrator and would like to sign up as a user, please contact your administrator.</p>
  <% else %>
    <% title "Welcome!" %>
  <% end %>
- <h2><%= yield(:title)%></h2>  
-
+ <h2><%= yield(:title)%></h2>
+       <div class="span12 well">  
+      <div id="homecarousel" class="carousel slide" data-ride="carousel">
+         <ol class="carousel-indicators">
+            <li data-target="homecarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#homecarousel" data-slide-to="1"></li>
+            <li data-target="#homecarousel" data-slide-to="2"></li>
+            <li data-target="#homecarousel" data-slide-to="3"></li>
+          </ol>
+          <div class="carousel-inner">
+              <div class="item active">
+                 <div class="col-md-12">
+                    <div class="col-xs-1 nopadding">
+                     </div>
+                    <div class="col-md-10 nopading">
+                  <%= image_tag 'internet_business2_23-t2.png', alt: "Business", class: "img-responsive" %>
+	           </div>
+                    <div class="col-xs-1 nopadding">
+                    </div>
+                    <div class="carousel-caption">
+		      <h3>Business Profile</h3>
+                    </div>
+                </div> 
+              </div>
+              <div class="item">
+                 <div class="col-md-12">
+                    <div class="col-xs-1">
+                     </div>
+                    <div class="col-md-10">
+                  <%= image_tag 'Mayyindataintegration.png' ,alt: "Social-Media", class: "img-responsive" %>
+	           </div>
+                    <div class="col-xs-1">
+                    </div>
+                  <div class="carousel-caption">
+		      <h3>API Management</h3>
+                  </div>
+                  </div>
+              </div>
+              <div class="item">
+                 <div class="col-md-12">
+                    <div class="col-xs-1">
+                     </div>
+                    <div class="col-md-10">
+                  <%=image_tag 'DataIntegration2.png' ,alt: "DataIntegration", class: "img-responsive" %>
+	           </div>
+                    <div class="col-xs-1">
+                    </div>
+                  <div class="carousel-caption">
+		      <h3>Data Integration</h3>
+                  </div>
+                  </div>
+              </div>
+              <div class="item">
+                 <div class="col-md-12">
+                    <div class="col-xs-1">
+                     </div>
+                    <div class="col-md-10">
+                  <%= image_tag 'MayyinUser.png', alt: "User-Profile", class: "img-responsive" %>
+	           </div>
+                    <div class="col-xs-1">
+                    </div>
+                  <div class="carousel-caption">
+		      <h3>User Profile</h3>
+                  </div>
+                  </div>
+              </div>
+           </div><!-- inner -->
+              <a class="carousel-control left" href="#homecarousel" data-slide="prev"> 
+                   <span class="icon-prev"></span>
+              </a>
+              <a class="carousel-control right" href="#homecarousel" data-slide="next">
+                   <span class="icon-next"></span>
+              </a>
+         </div>
+         </div>
+<link re="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+<script src="//code.jquery.com/jquery.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
  </body>
-
+<script type="text/javascript">//<![CDATA[
+var $ = jQuery.noConflict();$(document).ready(function() {
+  $('#homecarousel').carousel({ interval:3000, cycle:true});});
+// }}></script>

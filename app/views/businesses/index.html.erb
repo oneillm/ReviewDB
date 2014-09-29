@@ -7,7 +7,7 @@
 		<%= link_to raw('<i class="glyphicon glyphicon-plus white"> New Business</i>'), new_business_path, class: "btn btn-csm btn-add-new pull-left" %></div>
         <%= form_tag businesses_path, :class => 'form-search form-inline pull-right', :method => :get do %>
       <div class="input-group"> 
-	<%= text_field_tag :search, params[:search], class: 'form-control search-query pull-right', placeholder: "Search by name or phone" %>
+	<%= text_field_tag :search, params[:search], class: 'form-control search-query pull-right', placeholder: "Search by name or phone", autofocus: true %>
        	    <span class="input-group-btn">
                 <button type="submit" class="btn btn-primary pull-right"><i class="glyphicon glyphicon-search"></i>  Search</button>
             </span></div>    	

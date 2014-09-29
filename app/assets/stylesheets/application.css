@@ -12,6 +12,13 @@
  *= require bootstrap
  *= require_tree .
  */
+.row-centered {
+   text-align:center;
+   img {
+      margin: 0 auto;
+   }
+}
+
 table, td, th {
      vertical-align: middle;
      border: none;
@@ -323,4 +330,13 @@ form.form-search:before {
 .csvlink:hover {
    content:"export to csv"
 }
-   
+  
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+        left: -9999px;
+        right: -9999px;
+        margin: 0 auto;
+        max-width: none;
+	min-width: 100%;
+        position: absolute;
+}
+ 
