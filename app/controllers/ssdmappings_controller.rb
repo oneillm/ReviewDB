@@ -79,6 +79,6 @@ class SsdmappingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ssdmapping_params
-      params.require(:ssdmapping).permit(:mappingid, :ssid, :ssdcommentorid, :ssdcommentorname, :ssdcommentortimezone, :ssdpostingtimezone, :ssdcommentorlanguage, :ssdtotalreview, :ssdoverallrating, :ssdcommentorrating, :ssdcomment, :ssdpostat, :ssdcommentorloc)
+      params.require(:ssdmapping).permit(:mappingid, :ssid, :ssdcommentorid, :ssdcommentorname, :ssdcommentortimezone, :ssdpostingtimezone, :ssdcommentorlanguage, :ssdtotalreview, :ssdoverallrating, :ssdcommentorrating, :ssdcomment, :ssdpostat, :ssdcommentorloc, :postingURL)
     end
 end

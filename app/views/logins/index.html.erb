@@ -17,6 +17,15 @@
         <% end %><!-- form_tag -->
       <h3>List of Existing Users</h3>
    </div><!-- container -->
+   <% if @logins.blank? %>
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+         <div class="notfound">
+            <h3>User not found.</h3>
+         </div>
+      </div>
+      <div class="col-md-4"></div>
+   <% else %>
     <%= paginate @logins %>    
    <div class="container">
       <% @logins.each do |login| %>
@@ -48,6 +57,7 @@
          </div><!-- class=col-md-9 -->
       <% end %><!-- |login| -->
    </div><!-- container -->
+  <% end %>
 <% else %><!-- can ? ---- -->
     <p>Sorry <%= [current_login.firstname, current_login.lastname].compact.join (' ') %>, you are not an Administrator</p>
 

@@ -66,13 +66,23 @@
                     <% end %>
                 </div>
             </div>
-            <div class="row"> 
+            <div class="row">
                 <div class="col-md-3 control-label">
                     <%= f.label :ssdpostingtimezone, 'Posting Timezone:' %>
                 </div>
                 <div class="col-md-9">
                     <%= tooltip_for(Ssdmapping.postingtimezonetip) do %>
                     <%= f.text_field :ssdpostingtimezone, :class => 'form-control input-md' %>
+                    <% end %>
+                </div>
+            </div>
+            <div class="row"> 
+                <div class="col-md-3 control-label">
+                    <%= f.label :postingURL, 'Posting URL:' %>
+                </div>
+                <div class="col-md-9">
+                    <%= tooltip_for(Ssdmapping.postingURLtip) do %>
+                    <%= f.text_field :postingURL, :class => 'form-control input-md' %>
                     <% end %>
                 </div>
             </div> 

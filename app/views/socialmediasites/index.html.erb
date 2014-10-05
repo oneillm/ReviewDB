@@ -22,7 +22,17 @@
          </div>
      <% end %>
         <h3>List of Existing Social Media Sites</h3>
-    </div><%= paginate @socialmediasites_array %> 
+    </div>
+<% if @socialmediasites_array.blank? %>
+     <div class="col-md-4"></div>
+     <div class="col-md-4">
+         <div class="notfound">
+             <h3>Social Media Site Not Found!</h3>
+         </div>
+     </div>
+     <div class="col-md-4"></div>
+<% else %>
+<%= paginate @socialmediasites_array %> 
 <div class="container">
     <% @socialmediasites_array.each do |socialmediasite| %>
        <div class="col-md-2 col-md-offset-1">
@@ -64,6 +74,7 @@
             </div><!-- class="row" -->
        </div><!-- class=col-md-9 -->
        <% end %><!-- |socialmediasite| -->
+  <% end %>
 </div><!-- container -->
 <% end %>
 

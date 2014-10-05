@@ -31,6 +31,9 @@ end
 def self.postingtimezonetip
 "e.g. (from twitter) user.time_zone"
 end
+def self.postingURLtip
+"e.g. (from twitter) statuses.source (from yelp) reviews.url"
+end
 def self.commentorlanguagetip
 "e.g. (from Google Place Search ) result.reviews.language, (from twitter) user.lang"
 end
