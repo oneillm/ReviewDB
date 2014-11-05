@@ -6,6 +6,9 @@ belongs_to :login
 has_one :ssdmapping 
 has_many :sscommentordata
 has_many :ssdmetadata
+
+include HTTParty
+format :json
 def to_param   #overriden to_param in system
       "#{ssid}-#{ssname}"            #use name instead of number e.g. 1
 end 

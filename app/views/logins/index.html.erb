@@ -18,6 +18,7 @@
       <h3>List of Existing Users</h3>
    </div><!-- container -->
    <% if @logins.blank? %>
+      <div class="row">
       <div class="col-md-4"></div>
       <div class="col-md-4">
          <div class="notfound">
@@ -25,6 +26,7 @@
          </div>
       </div>
       <div class="col-md-4"></div>
+      </div>
    <% else %>
     <%= paginate @logins %>    
    <div class="container">

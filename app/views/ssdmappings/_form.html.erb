@@ -1,4 +1,7 @@
 <% if can? :manage, @logins %>
+<% if @site.blank? %>
+   <h8> No Unmapped Existing Social Media Site in Database. All sites have mapping rules.  If you want to modify the rule, click the Data Integration link  and locate the associated rule to edit.</h8>
+<% else %>
 <%= form_for(@ssdmapping) do |f| %>
   <% if @ssdmapping.errors.any? %>
     <div id="error_explanation">
@@ -31,7 +34,8 @@
                </div>   
                <div class="col-md-9">
                     <% unless @site.nil? %>
-                   <%= f.collection_select :ssid, @site, :ssid, :ssname, :prompt => "Select a Social Media Site", :class => 'form-control input-md' %>
+                   <%= f.collection_select :ssid, @site, :ssid, :ssname, :prompt => "Select a Social Media Site-It is Required", :class => 'form-control input-md' %>
+                    <h8>* required.</h8>
                     <% end %>
                </div>
 
@@ -42,7 +46,7 @@
                 </div>
                 <div class="col-md-9">
                     <%= tooltip_for(Ssdmapping.commentoridtip) do %>
-                    <%= f.text_field :ssdcommentorid, :class => 'form-control input-md' %>
+                    <%= f.text_field :ssdcommentorid, :placeholder => "path.attributename -> Posting Commentor ID", :class => 'form-control input-md' %>
                 <% end %>
                 </div>
             </div>
@@ -52,7 +56,7 @@
                 </div>
                 <div class="col-md-9">
                     <%= tooltip_for(Ssdmapping.commentornametip) do %>
-                       <%= f.text_field :ssdcommentorname, :class => 'form-control input-md' %>
+                       <%= f.text_field :ssdcommentorname, :placeholder => "path.attributename -> Posting Commentor Name", :class => 'form-control input-md' %>
                     <% end %>
                 </div>
             </div>
@@ -62,7 +66,7 @@
                 </div> 
                 <div class="col-md-9">
                     <%= tooltip_for(Ssdmapping.commentortimezonetip) do %>
-                    <%= f.text_field :ssdcommentortimezone, :class => 'form-control input-md' %>
+                    <%= f.text_field :ssdcommentortimezone, :placeholder => "path.attributename -> Commentor TimeZone",:class => 'form-control input-md' %>
                     <% end %>
                 </div>
             </div>
@@ -72,7 +76,7 @@
                 </div>
                 <div class="col-md-9">
                     <%= tooltip_for(Ssdmapping.postingtimezonetip) do %>
-                    <%= f.text_field :ssdpostingtimezone, :class => 'form-control input-md' %>
+                    <%= f.text_field :ssdpostingtimezone, :placeholder => "path.attributename => Posting Timezone", :class => 'form-control input-md' %>
                     <% end %>
                 </div>
             </div>
@@ -82,7 +86,7 @@
                 </div>
                 <div class="col-md-9">
                     <%= tooltip_for(Ssdmapping.postingURLtip) do %>
-                    <%= f.text_field :postingURL, :class => 'form-control input-md' %>
+                    <%= f.text_field :postingurl, :placeholder => "path.attributename -> Posting URL", :class => 'form-control input-md' %>
                     <% end %>
                 </div>
             </div> 
@@ -92,7 +96,7 @@
                 </div>
                 <div class="col-md-9">
                     <%= tooltip_for(Ssdmapping.commentorlanguagetip) do %>
-                    <%= f.text_field :ssdcommentorlanguage, :class => 'form-control input-md' %>
+                    <%= f.text_field :ssdcommentorlanguage, :placeholder => "path.attributename -> Commentor language",:class => 'form-control input-md' %>
                     <% end %>
                 </div>
             </div>
@@ -102,7 +106,7 @@
             </div>
             <div class="col-md-9">
                     <%= tooltip_for(Ssdmapping.totalpostingreviewstip) do %>
-                    <%= f.text_field :ssdtotalreview, :class => 'form-control input-md' %>
+                    <%= f.text_field :ssdtotalreview, :placeholder => "path.attributename -> Total Posting Reviews", :class => 'form-control input-md' %>
 		    <% end %>
             </div>
         </div>
@@ -112,7 +116,7 @@
             </div>
             <div class="col-md-9">
                     <%= tooltip_for(Ssdmapping.overallratingtip) do %>
-                <%= f.text_field :ssdoverallrating, :class => 'form-control input-md' %>
+                <%= f.text_field :ssdoverallrating, :placeholder => "path.attributename -> Overall Rating",:class => 'form-control input-md' %>
                     <% end %>
             </div>
         </div>
@@ -122,7 +126,7 @@
              </div>
              <div class="col-md-9">
                     <%= tooltip_for(Ssdmapping.ratingbycommentortip) do %>
-                <%= f.text_field :ssdcommentorrating, :class => 'form-control input-md' %>
+                <%= f.text_field :ssdcommentorrating, :placeholder => "path.attributes -> Rating By Commentor", :class => 'form-control input-md' %>
                     <% end %>
              </div>
         </div>
@@ -132,7 +136,7 @@
              </div>
              <div class="col-md-9">
                     <%= tooltip_for(Ssdmapping.reviewcommenttip) do %>
-                <%= f.text_field :ssdcomment, :class => 'form-control input-md' %>
+                <%= f.text_field :ssdcomment, :placeholder => "path.attributename -> Review Comment", :class => 'form-control input-md' %>
                     <% end %>
              </div>
         </div><!--  row -->
@@ -142,7 +146,7 @@
              </div>
              <div class="col-md-9">
                     <%= tooltip_for(Ssdmapping.reviewpostedattip) do %>
-                <%= f.text_field :ssdpostat, :class => 'form-control input-md' %>
+                <%= f.text_field :ssdpostat, :placeholder => "path.attributename -> Review posted at", :class => 'form-control input-md' %>
                     <% end %>
              </div>
         </div><!-- row -->
@@ -152,7 +156,7 @@
              </div>
              <div class="col-md-9">
                     <%= tooltip_for(Ssdmapping.commentorlocationtip) do %>
-                   <%= f.text_field :ssdcommentorloc, :class => 'form-control input-md' %>
+                   <%= f.text_field :ssdcommentorloc, :placeholder => "Commentor Location", :class => 'form-control input-md' %>
                     <% end %>
              </div>
         </div><!-- row -->
@@ -161,6 +165,7 @@
         <div class="col-md-3">
                <p style='color:#000;'> The data attribute representation rules are required for the interpretation of Social Media data response. The responses are in json format.  The rules are applied to enable the json data from the social media sites to be represented and display to users. Not all the data fields need to have rules and represented. Applied rules to all the appropriate attribute(s) as desired. The mapping rule example provided is a <a href="https://developers.google.com/places/documentation/details#PlaceDetailsResponses" style='color:blue;text-decoration:underline;'>Google Place Search Response Sample</a> from <a href="https://developers.google.com/places/documentation/" style='color:blue;text-decoration:underline;'>Google Developer website.</a></p>
                <%= link_to 'Click Here for Detailed Explanation', '/resource/PostingDataRepresentation.pdf', style: 'color:blue;text-decoration:underline;' -%>
+             <p style='color:red;'> if unsure about the path to the attribute from the json result, just enter the attribute name, the mapping validation will suggest the mapping path choices and an example output of each path.attributename </p>
         </div>
         </div><!-- row -->
     </div><!-- container -->
@@ -174,4 +179,5 @@
       </div>  
   </div>
 <% end %><!-- form -->
+<% end %> <!-- @site.blank? -->
 <% end %><!-- if can -->

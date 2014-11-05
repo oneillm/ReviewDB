@@ -2,40 +2,137 @@
    <%- model_class = Ssdmapping -%>
         <h2><%=t '.title', :default => 'Social Media Data Representation', :class => "page-header" %></h2>
 
-<dl class="dl-horizontal">
  <div class="container">
- <div class="row">
-  <dt><strong>Post.Mapping ID:</strong></dt>
-  <dd><%= @ssdmapping.mappingid %></dd>
+<div class="col-md-7">
+  <div class="row">
+      <div class="col-sm-4">
+         <dt><strong>Post.Mapping ID:</strong></dt>
+      </div>
+      <div class="col-sm-8">
+         <h10><%= @ssdmapping.mappingid %></h10>
+      </div>
+   </div>
+  <div class="row">
+      <div class="col-sm-4">
   <dt><strong>Social Media ID:</strong></dt>
-  <dd><%= @ssdmapping.ssid %></dd>
-  <dt><strong>Post.Commentor ID:</strong></dt>
-  <dd><%= @ssdmapping.ssdcommentorid %></dd>
+      </div>
+      <div class="col-sm-8">
+  <h10><%= @ssdmapping.ssid %></h10>
+      </div>
+      </div>
+  <div class="row">
+      <div class="col-sm-4">
+  <dt><strong>Post. Commentor ID:</strong></dt>
+      </div>
+      <div class="col-sm-8">
+  <h10><%= @ssdmapping.ssdcommentorid %></h10>
+      </div>
+      </div>
+  <div class="row">
+      <div class="col-sm-4">
   <dt><strong>Post.CommentorName:</strong></dt>
-  <dd><%= @ssdmapping.ssdcommentorname %></dd>
+      </div>
+      <div class="col-sm-8">
+  <h10><%= @ssdmapping.ssdcommentorname %></h10>
+      </div>
+      </div>
+  <div class="row">
+      <div class="col-sm-4">
   <dt><strong>Post.CommentorTmz:</strong></dt>
-  <dd><%= @ssdmapping.ssdcommentortimezone %></dd>
+      </div>
+      <div class="col-sm-8">
+  <h10><%= @ssdmapping.ssdcommentortimezone %></h10>
+      </div>
+      </div>
+  <div class="row">
+      <div class="col-sm-4">
   <dt><strong>Post.Timezone:</strong></dt>
-  <dd><%= @ssdmapping.ssdpostingtimezone %></dd>
-  <dt><strong>Post.PostingURL:</strong></dt>
-  <dd><%= @ssdmapping.postingURL %></dd>
+     </div>
+      <div class="col-sm-8">
+  <h10><%= @ssdmapping.ssdpostingtimezone %></h10>
+      </div>
+      </div>
+  <div class="row">
+      <div class="col-sm-4">
+  <dt><strong>Posting URL:</strong></dt>
+      </div>
+      <div class="col-sm-8">
+  <h10><%= @ssdmapping.postingurl %></h10>
+      </div>
+      </div>
+  <div class="row">
+      <div class="col-sm-4">
   <dt><strong>Commentor Language:</strong></dt>
-  <dd><%= @ssdmapping.ssdcommentorlanguage %></dd>
+      </div>
+      <div class="col-sm-8">
+  <h10><%= @ssdmapping.ssdcommentorlanguage %></h10>
+      </div>
+      </div>
+  <div class="row">
+      <div class="col-sm-4">
   <dt><strong>Total Reviews:</strong></dt>
-  <dd><%= @ssdmapping.ssdtotalreview %></dd>
+      </div>
+      <div class="col-sm-8">
+  <h10><%= @ssdmapping.ssdtotalreview %></h10>
+      </div>
+      </div>
+  <div class="row">
+      <div class="col-sm-4">
   <dt><strong>Overall Rating:</strong></dt>
-  <dd><%= @ssdmapping.ssdoverallrating %></dd>
+      </div>
+      <div class="col-sm-8">
+  <h10><%= @ssdmapping.ssdoverallrating %></h10>
+      </div>
+      </div>
+  <div class="row">
+      <div class="col-sm-4">
   <dt><strong>Commentor Rating:</strong></dt>
-  <dd><%= @ssdmapping.ssdcommentorrating %></dd>
+      </div>
+      <div class="col-sm-8">
+  <h10><%= @ssdmapping.ssdcommentorrating %></h10>
+      </div>
+      </div>
+  <div class="row">
+      <div class="col-sm-4">
   <dt><strong>Comments:</strong></dt>
-  <dd><%= @ssdmapping.ssdcomment %></dd>
+      </div>
+      <div class="col-sm-8">
+  <h10><%= @ssdmapping.ssdcomment %></h10>
+      </div>
+      </div>
+  <div class="row">
+      <div class="col-sm-4">
   <dt><strong>Posting posted at:</strong></dt>
-  <dd><%= @ssdmapping.ssdpostat %></dd>
+      </div>
+      <div class="col-sm-8">
+  <h10><%= @ssdmapping.ssdpostat %></h10>
+      </div>
+      </div>
+  <div class="row">
+      <div class="col-sm-4">
   <dt><strong>Commentor Location:</strong></dt>
-  <dd><%= @ssdmapping.ssdcommentorloc %></dd>
-</dl>
+      </div>
+      <div class="col-sm-8">
+  <h10><%= @ssdmapping.ssdcommentorloc %></h10>
+      </div>
+      </div>
+</div><!-- col-md-7 -->
+<div class="col-md-5">
+    <h3><%=@sitename %> - Mapping Validation:</h3>
+        <p> Test http request: <%= @app_url %></p>
+        <span><%= raw @msgcode %> <%= @msgout %></span>
+   <textarea rows="8" cols="80">
+   <% if @result.blank? %>
+       No Valid Mapping rule found !!
+   <% else %>
+   <% @result.each do |s| %>
+    <%= s %>
+    <% end %>
+  <% end %>
+    Response Data : <%= @body %>
+  </textarea>
+</div><!-- col-md-6  -->
 </div><!-- container -->
-</div><!-- row -->
 <div class="form-actions">
 <div class="col-sm-4 col-sm-offset-1">
   <%= link_to '<i class="glyphicon glyphicon-hand-left"></i>Back'.html_safe,
@@ -50,3 +147,5 @@
 </div>
 
 <% end %>
+
+

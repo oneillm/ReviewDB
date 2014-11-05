@@ -17,6 +17,7 @@
         <h3>List of Existing Social Media Mapping Rules</h3>
 </div><!-- class = container -->
 <% if @ssdmappings.blank? %>
+    <div class="row">
     <div class="col-md-2"></div>   
     <div class="col-md-8">
          <div class="notfound">
@@ -24,6 +25,7 @@
          </div>
     </div>   
     <div class="col-md-2"></div>
+    </div>
 <% else %>   
    <%= paginate @ssdmappings %>
 <div class="container">
@@ -65,10 +67,10 @@
                <div class="col-md-8" style='padding:0;'><%= ssdmapping.ssdpostingtimezone %></div>
             </div>
             <% end %>
-	    <% if ssdmapping.postingURL.presence %>
+	    <% if ssdmapping.postingurl.presence %>
 	    <div class="row">
                <div class="col-md-4">Posting URL: </div>
-               <div class="col-md-8" style='padding:0;'><%= ssdmapping.postingURL %></div>
+               <div class="col-md-8" style='padding:0;'><%= ssdmapping.postingurl %></div>
 	    </div>
             <% end %>
             <% if ssdmapping.ssdcommentorlanguage.presence %>

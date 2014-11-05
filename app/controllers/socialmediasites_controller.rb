@@ -1,3 +1,4 @@
+require 'ostruct'
 class SocialmediasitesController < ApplicationController
 #before_filter {|controller| controller.instance_variable_set(:@authorized, true) if controller.devise_controller?}
   load_and_authorize_resource
@@ -15,6 +16,29 @@ class SocialmediasitesController < ApplicationController
   # GET /socialmediasites/1.json
   def show
      #@socialmediasite = current_login.socialmediasites.find(session[:ssid])
+        busprofile = @socialmediasite.sssearchby
+         if busprofile  == 'business phone'
+           busprofile = Business.first.bphone.first
+        else
+           busprofile = Business.first.bname.gsub(/\s+/,"+")
+        end
+    #@app_url = Socialmediasite.geturl(@socialmediasite.ssurl,busprofile, @socialmediasite.ssurlquery, @socialmediasite.ssaccesstoken, @socialmediasite.ssaccesstokensecretkey, @socialmediasite.ssconsumerkey, @socialmediasite.ssconsumersecret) || "http://news.google.com"
+    @app_url = [@socialmediasite.ssurl, "#{busprofile}", @socialmediasite.ssurlquery, @socialmediasite.ssaccesstoken, @socialmediasite.ssaccesstokensecretkey, @socialmediasite.ssconsumerkey, @socialmediasite.ssconsumersecret].compact.join("") || "http://news.google.com"
+    @app_url = "http://#{@app_url}" unless @app_url.starts_with?("http")
+   begin
+   # Retrieve the webpage
+    @news = HTTParty.get(@app_url)
+    @news_body = @news.body 
+   rescue StandardError
+     #when something goes wrong create a fallback message
+    @news = OpenStruct.new(:code => nil, :message => "Invalid domain or authentication")
+
+   end
+   #trick to pretty print headers
+    @news_headers = Hash[*@news.headers.to_a.flatten]
+
+
+
   end
 
   # GET /socialmediasites/new
@@ -26,7 +50,6 @@ class SocialmediasitesController < ApplicationController
   def edit
     # @socialmediasite = current_login.socialmediasites.find(session[:ssid])
   end
-
   # POST /socialmediasites
   # POST /socialmediasites.json
   def create

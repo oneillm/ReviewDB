@@ -1,32 +1,99 @@
 <% if can? :manage, @logins %>
 <%- model_class = Socialmediasite -%>
   <h1><%=t '.title', :default => "Social Media Site", :class => "page-header" %></h1>
-<dl class="dl-horizontal">
  <div class="container">
+  <div class="col-md-6">
+  <div class="row">
+    <div class="col-sm-3">
+      <dt><strong>Social Media ID:</strong></dt>
+    </div>
+    <div class="col-sm-9">
+      <h10><%= @socialmediasite.ssid %></h10>
+    </div>
+  </div>
  <div class="row">
-  <dt><strong>Social Media ID:</strong></dt>
-  <dd><%= @socialmediasite.ssid %></dd>
-  <dt><strong>Social Media Name:</strong></dt>
-  <dd><%= @socialmediasite.ssname %></dd>
-  <dt><strong>URI:</strong></dt>
-  <dd><%= @socialmediasite.ssurl %></dd>
-  <dt><strong>Request Query:</strong></dt>
-  <dd><%= @socialmediasite.ssurlquery %></dd>
-  <dt><strong>Access Token:</strong></dt>
-  <dd><%= @socialmediasite.ssaccesstoken %></dd>
-  <dt><strong>Access Token Secret:</strong></dt>
-  <dd><%= @socialmediasite.ssaccesstokensecretkey %></dd>
-  <dt><strong>Consumer key:</strong></dt>
-  <dd><%= @socialmediasite.ssconsumerkey %></dd>
-  <dt><strong>Consumer Secret:</strong></dt>
-  <dd><%= @socialmediasite.ssconsumersecret %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
-  <dd><%= @socialmediasite.status %></dd>
-  <dt><strong>Search By:</strong></dt>
-  <dd><%= @socialmediasite.sssearchby %></dd>
-</dl>
+    <div class="col-sm-3">
+      <dt><strong>Social Media Name:</strong></dt>
+    </div>
+    <div class="col-sm-9">
+       <h10><%= @socialmediasite.ssname %></h10>
+    </div>
+ </div>
+ <div class="row">
+    <div class="col-sm-3">
+       <dt><strong>URI:</strong></dt>
+    </div>
+    <div class="col-sm-9">
+       <h10><%= @socialmediasite.ssurl %></h10>
+   </div>
+ </div>
+ <div class="row">
+    <div class="col-sm-3">
+        <dt><strong>Request Query:</strong></dt>
+    </div>
+    <div class="col-sm-9">
+        <h10><%= @socialmediasite.ssurlquery %></h10>
+    </div>
+ </div>
+ <div class="row">
+    <div class="col-sm-3">
+        <dt><strong>Access Token:</strong></dt>
+    </div>
+    <div class="col-sm-9">
+        <h10><%= @socialmediasite.ssaccesstoken %></h10>
+    </div>
+  </div>
+ <div class="row">
+    <div class="col-sm-3">
+         <dt><strong>Access Token Secret:</strong></dt>
+    </div>
+    <div class="col-sm-9">
+         <h10><%= @socialmediasite.ssaccesstokensecretkey %></h10>
+    </div>
+  </div>
+ <div class="row">
+    <div class="col-sm-3">
+         <dt><strong>Consumer key:</strong></dt>
+    </div>
+    <div class="col-sm-9">
+        <h10><%= @socialmediasite.ssconsumerkey %></h10>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+         <dt><strong>Consumer Secret:</strong></dt>
+    </div>
+    <div class="col-sm-9">
+        <h10><%= @socialmediasite.ssconsumersecret %></h10>
+    </div>
+  </div>
+ <div class="row">
+    <div class="col-sm-3">
+       <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
+    </div>
+    <div class="col-sm-9">
+         <h10><%= @socialmediasite.status %></h10>
+    </div>
+  </div>
+ <div class="row">
+    <div class="col-sm-3">
+        <dt><strong>Search By:</strong></dt>
+    </div>
+    <div class="col-sm-9">
+        <h10><%= @socialmediasite.sssearchby %></h10>
+    </div>
+  </div>
+</div>
+  
+<!-- row -->
+
+<div class="col-md-6">
+     <p>Test http request: <%= @app_url %> </p>
+     <span> <%= raw @news.code %> <%= @news.message %></span> 
+     <textarea rows="8" cols="90"> <%= raw @news_body %></textarea>
+
+</div>
 </div><!-- container -->
-</div><!-- row -->
 <div class="form-actions">
   <div class="col-sm-4 col-sm-offset-1">
   <%= link_to '<i class="glyphicon glyphicon-hand-left"></i>Back'.html_safe,
