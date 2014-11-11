@@ -22,8 +22,15 @@
 	      <div class="col-sm-2" style="padding:0;">
                    <h8>* Required</h8>
               </div>
-          </a>
-	</div> <!-- row -->
+       </div> <!-- row -->
+       <div class="row">
+         <div class="col-sm-2 control-label">  
+               <%= f.label :bshortname,'Short Name:' %>
+         </div>
+         <div class="col-sm-6">
+               <%= f.text_field :bshortname,:class => 'form-control input-sm', :placeholder => 'short name or nick name for display only' %>
+	 </div>
+       </div> <!-- row -->
        <div class="row">
          <div class="col-sm-2 control-label">  
                <%= f.label :btype,'Business Type:' %>

@@ -12,6 +12,7 @@ class CreateBusinesses < ActiveRecord::Migration
       t.string :bzip
       t.string :bcountry
       t.string :bstatus
+      t.string :bshortname
       t.string :bphone, array:true
 
       t.timestamps

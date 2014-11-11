@@ -27,9 +27,9 @@ class Business < ActiveRecord::Base
 
    def self.to_csv(all_businesses)
        CSV.generate do |csv|
-         csv << ["BusinessID", "BusinessName", "BusinessType","Phone", "Address", "City", "State", "ZipCode","Country", "Latitude", "Longitude", "Status"]
+         csv << ["BusinessID", "BusinessName", "BusinessShortName","BusinessType","Phone", "Address", "City", "State", "ZipCode","Country", "Latitude", "Longitude", "Status"]
          all_businesses.each do |bsn|
-             csv << [bsn.bid, bsn.bname, bsn.btype, bsn.bphone, bsn.bstreet, bsn.bcity, bsn.bstate, bsn.bzip, bsn.bcountry, bsn.blatitude, bsn.blongitude, bsn.bstatus]
+             csv << [bsn.bid, bsn.bname,bsn.bshortname, bsn.btype, bsn.bphone, bsn.bstreet, bsn.bcity, bsn.bstate, bsn.bzip, bsn.bcountry, bsn.blatitude, bsn.blongitude, bsn.bstatus]
          end
       end
    end

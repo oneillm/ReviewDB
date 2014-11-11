@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20141003060903) do
     t.string   "bzip"
     t.string   "bcountry"
     t.string   "bstatus"
+    t.string   "bshortname"
     t.string   "bphone",     array: true
     t.datetime "created_at"
     t.datetime "updated_at"

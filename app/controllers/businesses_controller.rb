@@ -82,6 +82,6 @@ class BusinessesController < ApplicationController
       #unless params["business"]["bphone"].nil?
       params["business"]["bphone"] = params["business"]["bphone"].to_s.gsub(/[{}\\\\"]/,'').to_s.gsub('[','').to_s.gsub(']','')
       params["business"]["bphone"] = params["business"]["bphone"].split(",")
-      params.require(:business).permit(:bid, :bname, :btype, :blatitude, :blongitude, :bstreet, :bcity, :bstate, :bzip, :bcountry, :bstatus, :bphone => [])
+      params.require(:business).permit(:bid, :bname, :bshortname,:btype, :blatitude, :blongitude, :bstreet, :bcity, :bstate, :bzip, :bcountry, :bstatus, :bphone => [])
     end
 end
