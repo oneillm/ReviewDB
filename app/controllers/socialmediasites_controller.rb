@@ -1,4 +1,6 @@
 require 'ostruct'
+require 'twitter'
+
 class SocialmediasitesController < ApplicationController
 #before_filter {|controller| controller.instance_variable_set(:@authorized, true) if controller.devise_controller?}
   load_and_authorize_resource
@@ -22,6 +24,23 @@ class SocialmediasitesController < ApplicationController
         else
            busprofile = Business.first.bname.gsub(/\s+/,"+")
         end
+
+  if @socialmediasite.ssname.downcase.include? "twitter"
+        @app_url = [@socialmediasite.ssurl, "#{busprofile}", @socialmediasite.ssurlquery, @socialmediasite.ssaccesstoken, @socialmediasite.ssaccesstokensecretkey, @socialmediasite.ssconsumerkey, @socialmediasite.ssconsumersecret].compact.join("") || "http://news.google.com"
+   begin
+      @news = twitter_client.search("#{busprofile}").take(100)
+    if @news.blank?
+          # @news = OpenStruct.new(:code => nil, :message => "Invalid domain or authentication")
+           @news_code = 404
+           @news_message = "Invalid authentication"
+
+    else
+       @news_body = @news
+       @news_code = 200
+       @news_message = "ok"
+    end 
+   end
+ else
    if @socialmediasite.ssname.downcase.include? "google"
        @app_url = [@socialmediasite.ssurl, "#{busprofile}",  @socialmediasite.ssaccesstoken, @socialmediasite.ssaccesstokensecretkey, @socialmediasite.ssconsumerkey, @socialmediasite.ssconsumersecret].compact.join("") || "http://news.google.com"
        # for google needs 2 passes for place detail search, this is the 1st pass
@@ -43,12 +62,11 @@ class SocialmediasitesController < ApplicationController
           end
        end
    else  
-           @app_url = [@socialmediasite.ssurl, "#{busprofile}", @socialmediasite.ssurlquery, @socialmediasite.ssaccesstoken, @socialmediasite.ssaccesstokensecretkey, @socialmediasite.ssconsumerkey, @socialmediasite.ssconsumersecret].compact.join("") || "http://news.google.com"
+        @app_url = [@socialmediasite.ssurl, "#{busprofile}", @socialmediasite.ssurlquery, @socialmediasite.ssaccesstoken, @socialmediasite.ssaccesstokensecretkey, @socialmediasite.ssconsumerkey, @socialmediasite.ssconsumersecret].compact.join("") || "http://news.google.com"
    end
-    
     gethttp
   end
-
+end
 def gethttp
     @app_url=@app_url.gsub(/\A\p{Space}*/,'') #replace trailing or leading blank space           
     @app_url = "http://#{@app_url}" unless @app_url.starts_with?("http")
@@ -56,18 +74,26 @@ def gethttp
    # Retrieve the webpage
     @news = HTTParty.get(@app_url)
     @news_body = @news.body 
-   rescue StandardError
+     rescue StandardError
      #when something goes wrong create a fallback message
     @news = OpenStruct.new(:code => nil, :message => "Invalid domain or authentication")
 
    end
    #trick to pretty print headers
     @news_headers = Hash[*@news.headers.to_a.flatten]
-
-
-  end
-
-
+    @news_code = @news.code
+    @news_message = @news.message
+  
+ end
+def twitter_client
+   Twitter::REST::Client.new do |config|
+         config.consumer_key = @socialmediasite.ssconsumerkey 
+         config.consumer_secret = @socialmediasite.ssconsumersecret
+         config.access_token = @socialmediasite.ssaccesstoken
+         config.access_token_secret = @socialmediasite.ssaccesstokensecretkey
+ 
+   end
+end
 
   # GET /socialmediasites/new
   def new
