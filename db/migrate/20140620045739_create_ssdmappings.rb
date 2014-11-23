@@ -14,7 +14,7 @@ class CreateSsdmappings < ActiveRecord::Migration
       t.string :ssdcomment
       t.string :ssdpostat
       t.string :ssdcommentorloc
-
+      t.string :postingurl
       t.timestamps
     end
   end

@@ -22,35 +22,25 @@ class SocialmediasitesController < ApplicationController
         else
            busprofile = Business.first.bname.gsub(/\s+/,"+")
         end
+    #@app_url = Socialmediasite.geturl(@socialmediasite.ssurl,busprofile, @socialmediasite.ssurlquery, @socialmediasite.ssaccesstoken, @socialmediasite.ssaccesstokensecretkey, @socialmediasite.ssconsumerkey, @socialmediasite.ssconsumersecret) || "http://news.google.com"
    if @socialmediasite.ssname.downcase.include? "google"
-       @app_url = [@socialmediasite.ssurl, "#{busprofile}",  @socialmediasite.ssaccesstoken, @socialmediasite.ssaccesstokensecretkey, @socialmediasite.ssconsumerkey, @socialmediasite.ssconsumersecret].compact.join("") || "http://news.google.com"
-       # for google needs 2 passes for place detail search, this is the 1st pass
-       
+     @app_url = [@socialmediasite.ssurl, "#{busprofile}",  @socialmediasite.ssaccesstoken, @socialmediasite.ssaccesstokensecretkey, @socialmediasite.ssconsumerkey, @socialmediasite.ssconsumersecret].compact.join("") || "http://news.google.com"
        gethttp
-       # check the result after 1st pass
-       if @news.message.downcase.include? "ok"
+       msgout = @news.message
+       msgcode = @news.code
+       body = @news_body
+       if msgout.downcase.include? "ok"
            result=JSON.parse(@news_body)
-           temp = Ssdmapping.recursive_select("place_id", result)
-          unless temp.blank?
-            # flash[:alert]  = temp[0]
-             temp.each do |v|
-               #flash[:alert] = "#{v['value']}"
-               #find the placeid should only be the first one
-               @placeid  = "#{v['value']}" if @placeid.nil?
-             end
-             #2nd pass after obtaining the placeid from the 1st pass
-             @app_url = [@socialmediasite.ssurlquery, @placeid,  @socialmediasite.ssaccesstoken, @socialmediasite.ssaccesstokensecretkey, @socialmediasite.ssconsumerkey, @socialmediasite.ssconsumersecret].compact.join("") || "http://news.google.com"
-          end
-       end
-   else  
-           @app_url = [@socialmediasite.ssurl, "#{busprofile}", @socialmediasite.ssurlquery, @socialmediasite.ssaccesstoken, @socialmediasite.ssaccesstokensecretkey, @socialmediasite.ssconsumerkey, @socialmediasite.ssconsumersecret].compact.join("") || "http://news.google.com"
-   end
-    
+           
+          temp = Ssdmapping.recursive_select("place_id", result)
+         # unless temp.blank?
+         #    @body = temp
+        end
+   else  @app_url = [@socialmediasite.ssurl, "#{busprofile}", @socialmediasite.ssurlquery, @socialmediasite.ssaccesstoken, @socialmediasite.ssaccesstokensecretkey, @socialmediasite.ssconsumerkey, @socialmediasite.ssconsumersecret].compact.join("") || "http://news.google.com"
+    end
     gethttp
   end
-
 def gethttp
-    @app_url=@app_url.gsub(/\A\p{Space}*/,'') #replace trailing or leading blank space           
     @app_url = "http://#{@app_url}" unless @app_url.starts_with?("http")
    begin
    # Retrieve the webpage

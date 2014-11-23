@@ -14,7 +14,8 @@ class CreateSscommentordata < ActiveRecord::Migration
       t.string :ssdpostat
       t.timestamps :ssddownloaddatetimestamp
       t.string :ssdcommentorloc
-
+      t.string :postingurl
+      t.date :ssdconvertedpostat
       t.timestamps
     end
   end

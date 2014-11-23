@@ -82,6 +82,7 @@ def gethttp
            busprofile = Business.first.bname.gsub(/\s+/,"+")
         end
     @app_url = [@ssite.ssurl, "#{busprofile}",@ssite.ssurlquery, @ssite.ssaccesstoken, @ssite.ssaccesstokensecretkey, @ssite.ssconsumerkey, @ssite.ssconsumersecret].compact.join("") || "http://news.google.com"
+     @app_url=@app_url.gsub(/\A\p{Space}*/,'') #replace trailing or leading blank space
     @app_url = "http://#{@app_url}" unless @app_url.starts_with?("http")
    begin
    # Retrieve the webpage
